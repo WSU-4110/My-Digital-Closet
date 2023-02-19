@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">Nick-DEV</string>
+    <string name="add_item">Add item</string>
+    <string name="most_recently_added">Most recently added</string>
+</resources>
