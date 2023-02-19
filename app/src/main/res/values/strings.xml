@@ -9,4 +9,11 @@
     <string name="invalid_username">Not a valid username</string>
     <string name="invalid_password">Password must be >5 characters</string>
     <string name="login_failed">"Login failed"</string>
+
+	<!-- iphone_14___1 strings -->
+    
+	<string name="ek_img_content">ExportKit Image</string>
+	<string name="caption_string">Wishlist</string>
+	<string name="saved_outfits_string">SAVED OUTFITS</string>
+	<string name="campus_green_sweater_and_jeans_skirt_string">Campus green sweater and jeans skirt</string>
 </resources>
