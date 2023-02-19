@@ -21,6 +21,13 @@ public class SignUp extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sign_up);
 
+        textInputEditTextUsername = findViewById(R.id.username);
+        textInputEditTextFullname = findViewById(R.id.username);
+        textInputEditTextEmail = findViewById(R.id.email);
+        textInputEditTextPassword = findViewById(R.id.password);
+        buttonSignUp = findViewById(R.id.buttonSignUp);
+        textViewLogin = findViewById(R.id.loginText);
+
         //Start ProgressBar first (Set visibility VISIBLE)
         Handler handler = new Handler(/*Looper.getMainLooper()*/);
         handler.post(new Runnable() {
