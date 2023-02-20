@@ -9,4 +9,5 @@
     <string name="fullname">Full Name</string>
     <string name="signup">Sign Up</string>
     <string name="signuphere">New user? Sign up here</string>
+    <string name="app_name">ContactForm</string>
 </resources>
