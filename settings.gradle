@@ -15,8 +15,9 @@ dependencyResolutionManagement {
         maven { url 'https://jitpack.io' }
     }
 }*/
+
 rootProject.name = "ClosetLogin"
-    }
-}
+include ':app'
+
 rootProject.name = "ContactForm"
 include ':app'
