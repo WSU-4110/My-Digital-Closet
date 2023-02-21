@@ -8,7 +8,9 @@ allprojects{
     repositories {
         google()
         mavenCentral()
-        maven { url "https://jitpack.io" } //for HTTP dependency
+
+        maven{ url "https:jitpack.io"} //for HTTP dependency
+
     }
 }
 
