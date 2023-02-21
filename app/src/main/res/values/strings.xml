@@ -1,9 +1,8 @@
 <resources>
-    <string name="app_name">ClosetLogin</string>
+    <string name="app_name">My Digital Closet</string>
     <string name="username">Username</string>
     <string name="password">Password</string>
     <string name="login">Login</string>
-
     <string name="loginhere">Have an account? Login Here</string>
     <string name="email">Email</string>
     <string name="fullname">Full Name</string>

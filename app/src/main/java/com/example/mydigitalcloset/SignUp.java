@@ -12,7 +12,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.material.textfield.TextInputEditText;
-import com.vishnusivadas.advanced_httpurlconnection.PutData;
+import com.vishnusivadas.advanced_httpurlconnection.PutData; //for database
 
 public class SignUp extends AppCompatActivity {
 
@@ -33,6 +33,15 @@ public class SignUp extends AppCompatActivity {
         buttonSignUp = findViewById(R.id.buttonSignUp);
         textViewLogin = findViewById(R.id.loginText);
 
+        //open login page if "login here" text is clicked by user
+        textViewLogin.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getApplicationContext(), Login.class);
+                startActivity(intent);
+                finish();
+            }
+        });
         buttonSignUp.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -54,19 +63,19 @@ public class SignUp extends AppCompatActivity {
                             String[] field = new String[4];
                             field[0] = "fullname";
                             field[1] = "username";
-                            field[3] = "password";
-                            field[4] = "email";
+                            field[2] = "password";
+                            field[3] = "email";
                             //Creating array for data
                             String[] data = new String[4];
-                            data[0] = "fullname";
-                            data[1] = "username";
-                            data[2] = "password";
-                            data[3] = "email";
-                            PutData putData = new PutData("http://10.0.0.203/LoginRegister/signup.php", "POST", field, data);
+                            data[0] = fullname;
+                            data[1] = username;
+                            data[2] = password;
+                            data[3] = email;
+                            PutData putData = new PutData("http://35.16.1.232/LoginRegister/signup.php", "POST", field, data);
                             if (putData.startPut()) {
                                 if (putData.onComplete()) {
                                     String result = putData.getResult();
-                                    if (result.equals("Signup Success")){
+                                    if (result.equals("Sign Up Success")){
                                         //go to login page & show toast if signup is successful
                                         Intent intent = new Intent(getApplicationContext(), Login.class);
                                         startActivity(intent);
