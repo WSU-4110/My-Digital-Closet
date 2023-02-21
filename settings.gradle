@@ -13,6 +13,8 @@ dependencyResolutionManagement {
         mavenCentral()
     }
 }
-*/
+
+ */
+
 rootProject.name = "My Digital Closet"
 include ':app'
