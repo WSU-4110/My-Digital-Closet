@@ -17,6 +17,7 @@ public class OutfitCreationActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        //NAV BAR STUFF:
         binding = ActivityOutfitCreationBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
@@ -46,7 +47,7 @@ public class OutfitCreationActivity extends AppCompatActivity {
 
             return true;
         });
-
+        //end nav bar
 
     }
 
