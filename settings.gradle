@@ -1,3 +1,5 @@
+import org.gradle.api.initialization.resolve.RepositoriesMode
+
 pluginManagement {
     repositories {
         google()
@@ -5,16 +7,18 @@ pluginManagement {
         gradlePluginPortal()
     }
 }
-/* Removed to make login work
+
 dependencyResolutionManagement {
-    repositoriesMode.set(RepositoriesMode.FAIL_ON_PROJECT_REPOS)
+    repositoriesMode.set(RepositoriesMode.PREFER_SETTINGS)
     repositories {
         google()
         mavenCentral()
+        maven {url 'https://jitpack.io'}
+        jcenter()
     }
 }
 
- */
+
 
 rootProject.name = "My Digital Closet"
 include ':app'
