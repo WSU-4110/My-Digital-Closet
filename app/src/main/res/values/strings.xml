@@ -1,0 +1,23 @@
+<resources>
+    <string name="app_name">My Digital Closet</string>
+    <string name="username">Username</string>
+    <string name="password">Password</string>
+    <string name="login">Login</string>
+    <string name="loginhere">Have an account? Login Here</string>
+    <string name="email">Email</string>
+    <string name="fullname">Full Name</string>
+    <string name="signup">Sign Up</string>
+    <string name="signuphere">New user? Sign up here</string>
+    <string name="shoes">Shoes</string>
+    <string name="headwear">Headwear</string>
+    <string name="tops">Tops</string>
+    <string name="socks">Socks</string>
+    <string name="other">Other</string>
+    <string name="bottoms">Bottoms</string>
+    <string name="add_item">Add item</string>
+    <string name="custom">Custom</string>
+    <string name="most_recently_added">Most recently added</string>
+    <string name="see_all">See all</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+</resources>
