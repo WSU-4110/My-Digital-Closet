@@ -2,6 +2,6 @@
 ## Wardrobe cataloguing app
 ### Software Used
 - Android Studio
-* MySQL
+* Firebase
 + Figma
 - Jira
