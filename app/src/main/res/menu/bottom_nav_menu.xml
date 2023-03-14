@@ -13,4 +13,7 @@
     <item android:title="ContactSupport"
         android:icon="@drawable/ic_contact_support"
         android:id="@+id/contactSupport"/>
+    <item android:title="Settings"
+        android:icon="@drawable/ic_settings"
+        android:id="@+id/settings"/>
 </menu>
