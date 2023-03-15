@@ -7,14 +7,25 @@ package com.example.mydigitalcloset.closetPage;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import androidx.annotation.NonNull;
+
+import com.example.mydigitalcloset.ContactForm;
+import com.example.mydigitalcloset.OutfitCreationActivity;
 import com.example.mydigitalcloset.R;
+import com.example.mydigitalcloset.clothingFront;
+import com.example.mydigitalcloset.databinding.ActivityAllSavedOufitsPageBinding;
+import com.example.mydigitalcloset.databinding.ActivityClothingFrontBinding;
+import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 public class AllSavedOufitsPage extends Activity {
+
+    ActivityAllSavedOufitsPageBinding binding; //navbar
 
     private View _bg__iphone_14___1_ek2;
     private View bg_light;
@@ -40,6 +51,42 @@ public class AllSavedOufitsPage extends Activity {
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_all_saved_oufits_page);
+
+
+        //NAV BAR STUFF:
+        binding = ActivityAllSavedOufitsPageBinding.inflate(getLayoutInflater());
+        setContentView(binding.getRoot());
+        binding.bottomNavigationView.setOnItemSelectedListener(new BottomNavigationView.OnItemSelectedListener() {
+            @Override
+            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+                switch (item.getItemId()) {
+                    case R.id.home:
+                        startActivity(new Intent(AllSavedOufitsPage.this, OutfitCreationActivity.class));
+                        break;
+                    case R.id.addItem:
+                        /*Intent intentAdd = new Intent(getApplicationContext(), clothingFront.class);
+                        startActivity(intentAdd);*/
+                        startActivity(new Intent(AllSavedOufitsPage.this, clothingFront.class));
+                        //finish();
+                        break;
+                    case R.id.contactSupport:
+                        /*Intent intentContact = new Intent(getApplicationContext(), ContactForm.class);
+                        startActivity(intentContact);*/
+                        startActivity(new Intent(AllSavedOufitsPage.this, ContactForm.class));
+                        //finish();
+                        break;
+                    case R.id.wardrobe:
+                        /*startActivity(new Intent(AllSavedOufitsPage.this, AllSavedOufitsPage.class));
+                        break;*/
+                        return true;
+                    /*case R.id.settings:
+                        startActivity(new Intent(OutfitCreationActivity.this, SETTINGS.class));
+                        break;*/
+                }
+                return true;
+            }
+        });
+        //end nav bar
 
         nextButton = (Button) findViewById(R.id.nextbutton);
         nextButton.setOnClickListener(new View.OnClickListener() {
