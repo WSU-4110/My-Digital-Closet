@@ -51,7 +51,7 @@ public class OutfitCreationActivity extends AppCompatActivity {
                         startActivity(new Intent(OutfitCreationActivity.this, AllSavedOufitsPage.class));
                         break;
                     /*case R.id.settings:
-                        startActivity(new Intent(OutfitCreationActivity.this, clothingFront.class));
+                        startActivity(new Intent(OutfitCreationActivity.this, SETTINGS.class));
                         break;*/
                 }
                 return true;
