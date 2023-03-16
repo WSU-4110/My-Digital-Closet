@@ -27,7 +27,7 @@ public class ContactForm extends AppCompatActivity {
         binding.bottomNavigationView.setOnItemSelectedListener(item -> {
             switch(item.getItemId()){
                 case R.id.home:
-                    Intent intentHome = new Intent(getApplicationContext(), OutfitCreationActivity.class);
+                    Intent intentHome = new Intent(getApplicationContext(), HomeFragment.class);
                     startActivity(intentHome);
                     finish();
                     break;
