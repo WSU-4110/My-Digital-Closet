@@ -23,7 +23,9 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:menu="@menu/bottom_nav_menu" />
+        app:menu="@menu/bottom_nav_menu">
+
+    </com.google.android.material.bottomnavigation.BottomNavigationView>
 
     <!--header-->
     <TextView
@@ -40,25 +42,21 @@
         app:layout_constraintVertical_bias="0.049" />
 
 
-
     <!--TOPS-->
     <!--top image area-->
-
     <ImageView
         android:id="@+id/topImage"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="64dp"
+        android:layout_marginEnd="280dp"
         app:layout_constraintBottom_toTopOf="@+id/bottomNavigationView"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.144"
+        app:layout_constraintHorizontal_bias="0.491"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/outfitCreationHeader"
-        app:layout_constraintVertical_bias="0.112"
+        app:layout_constraintVertical_bias="0.091"
         tools:srcCompat="@tools:sample/avatars" />
-
-
-
-
     <!--get top button-->
     <Button
         android:id="@+id/getTop"
@@ -67,7 +65,6 @@
         android:text="Get Top Image"
         app:layout_constraintBottom_toTopOf="@+id/bottomNavigationView"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.504"
         app:layout_constraintStart_toEndOf="@+id/topImage"
         app:layout_constraintTop_toBottomOf="@+id/getTopName"
         app:layout_constraintVertical_bias="0.059" />
@@ -84,26 +81,92 @@
         app:layout_constraintStart_toEndOf="@+id/topImage"
         app:layout_constraintTop_toBottomOf="@+id/outfitCreationHeader"
         app:layout_constraintVertical_bias="0.095" />
-
-
+    <!--end top area-->
     <!--BOTTOMS-->
-
-
-    <!--SHOES-->
-
-
-    <!--
-    <TextView
-        android:id="@+id/textView6"
+    <!--bottoms image-->
+    <ImageView
+        android:id="@+id/bottomsImage"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Create an Outfit!"
-        android:fontFamily="@font/poppinsmedium"
-        android:textSize="26dp"
-        app:layout_constraintBottom_toTopOf="@+id/frame_layout"
+        android:layout_marginStart="64dp"
+        android:layout_marginEnd="280dp"
+        app:layout_constraintBottom_toTopOf="@+id/bottomNavigationView"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.491"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-        -->
+        app:layout_constraintTop_toBottomOf="@+id/outfitCreationHeader"
+        app:layout_constraintVertical_bias="0.465"
+        tools:srcCompat="@tools:sample/avatars" />
+    <!-- get bottoms button-->
+    <Button
+        android:id="@+id/getBottoms"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Get Bottoms"
+        app:layout_constraintBottom_toTopOf="@+id/bottomNavigationView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.469"
+        app:layout_constraintStart_toEndOf="@+id/bottomsImage"
+        app:layout_constraintTop_toBottomOf="@+id/outfitCreationHeader"
+        app:layout_constraintVertical_bias="0.53" />
+    <!--bottoms name textbox-->
+    <EditText
+        android:id="@+id/getBottomsName"
+        android:layout_width="164dp"
+        android:layout_height="43dp"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:text="Bottoms Name"
+        app:layout_constraintBottom_toTopOf="@+id/bottomNavigationView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.505"
+        app:layout_constraintStart_toEndOf="@+id/bottomsImage"
+        app:layout_constraintTop_toBottomOf="@+id/outfitCreationHeader"
+        app:layout_constraintVertical_bias="0.425" />
+    <!--end bottoms area-->
+    <!--SHOES-->
+    <!--shoes image-->
+    <ImageView
+        android:id="@+id/shoesImage"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="64dp"
+        android:layout_marginEnd="280dp"
+        app:layout_constraintBottom_toTopOf="@+id/bottomNavigationView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.491"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/outfitCreationHeader"
+        app:layout_constraintVertical_bias="0.84"
+        tools:srcCompat="@tools:sample/avatars" />
+    <!--get shoes button-->
+    <Button
+        android:id="@+id/getShoes"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="80dp"
+        android:text="Get Shoes"
+        app:layout_constraintBottom_toTopOf="@+id/bottomNavigationView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toEndOf="@+id/shoesImage"
+        app:layout_constraintTop_toBottomOf="@+id/outfitCreationHeader"
+        app:layout_constraintVertical_bias="0.863" />
+    <!--shoes name text box-->
+    <EditText
+        android:id="@+id/getShoesName"
+        android:layout_width="164dp"
+        android:layout_height="43dp"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:text="Shoes Name"
+        app:layout_constraintBottom_toTopOf="@+id/bottomNavigationView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.505"
+        app:layout_constraintStart_toEndOf="@+id/shoesImage"
+        app:layout_constraintTop_toBottomOf="@+id/outfitCreationHeader"
+        app:layout_constraintVertical_bias="0.76" />
+    <!--end shoes area-->
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
