@@ -6,16 +6,22 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ProgressBar;
+import android.widget.Toast;
 
 import com.example.mydigitalcloset.closetPage.AllSavedOufitsPage;
 import com.example.mydigitalcloset.databinding.ActivityOutfitCreationBinding;
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.storage.FileDownloadTask;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 
@@ -92,6 +98,33 @@ public class OutfitCreationActivity extends AppCompatActivity {
                 //create local file for top image
                 try{
                     File topfile = File.createTempFile("tempfile_top", ".png");
+                    storageReference.getFile(topfile).addOnSuccessListener(new OnSuccessListener<FileDownloadTask.TaskSnapshot>() {
+                        //ON SUCCESS: image fetched
+                        @Override
+                        public void onSuccess(FileDownloadTask.TaskSnapshot taskSnapshot) {
+                            //dismiss progress dialog if showing
+                            if (progressDialog.isShowing()){
+                                progressDialog.dismiss();
+                            }
+
+                            //top image will be stored in bitmap var
+                            Bitmap bitmap = BitmapFactory.decodeFile(topfile.getAbsolutePath());
+                            binding.topImage.setImageBitmap(bitmap);
+
+                        }
+                    }).addOnFailureListener(new OnFailureListener() {
+                        //ON FAILURE
+                        @Override
+                        public void onFailure(@NonNull Exception e) {
+                            //dismiss progress dialog if showing
+                            if (progressDialog.isShowing()){
+                                progressDialog.dismiss();
+                            }
+
+                            //failure toast
+                            Toast.makeText(OutfitCreationActivity.this, "Failed to retrieve top image", Toast.LENGTH_SHORT);
+                        }
+                    });
                 } catch(IOException e){
                     e.printStackTrace();
                 }
