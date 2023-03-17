@@ -5,6 +5,7 @@ package com.example.mydigitalcloset.closetPage;
 //package exportkit.figma;
 
 import android.app.Activity;
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
@@ -26,6 +27,7 @@ import com.google.android.material.bottomnavigation.BottomNavigationView;
 public class AllSavedOufitsPage extends Activity {
 
     ActivityAllSavedOufitsPageBinding binding; //navbar
+    Context context;
 
     private View _bg__iphone_14___1_ek2;
     private View bg_light;
@@ -48,7 +50,7 @@ public class AllSavedOufitsPage extends Activity {
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
-
+        context = this;
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_all_saved_oufits_page);
 
@@ -61,23 +63,21 @@ public class AllSavedOufitsPage extends Activity {
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
                 switch (item.getItemId()) {
                     case R.id.home:
-                        startActivity(new Intent(AllSavedOufitsPage.this, OutfitCreationActivity.class));
+                        Intent intentHome = new Intent(getApplicationContext(), OutfitCreationActivity.class);
+                        startActivity(intentHome);
+                        finish();
                         break;
                     case R.id.addItem:
-                        /*Intent intentAdd = new Intent(getApplicationContext(), clothingFront.class);
-                        startActivity(intentAdd);*/
-                        startActivity(new Intent(AllSavedOufitsPage.this, clothingFront.class));
-                        //finish();
+                        Intent intentAdd = new Intent(getApplicationContext(), clothingFront.class);
+                        startActivity(intentAdd);
+                        finish();
                         break;
                     case R.id.contactSupport:
-                        /*Intent intentContact = new Intent(getApplicationContext(), ContactForm.class);
-                        startActivity(intentContact);*/
-                        startActivity(new Intent(AllSavedOufitsPage.this, ContactForm.class));
-                        //finish();
+                        Intent intentContact = new Intent(getApplicationContext(), ContactForm.class);
+                        startActivity(intentContact);
+                        finish();
                         break;
                     case R.id.wardrobe:
-                        /*startActivity(new Intent(AllSavedOufitsPage.this, AllSavedOufitsPage.class));
-                        break;*/
                         return true;
                     /*case R.id.settings:
                         startActivity(new Intent(OutfitCreationActivity.this, SETTINGS.class));
