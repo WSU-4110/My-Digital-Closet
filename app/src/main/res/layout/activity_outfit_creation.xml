@@ -10,21 +10,49 @@
         android:id="@+id/frame_layout"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        app:layout_constraintBottom_toTopOf="@+id/bottomNavigationView"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent">
+        app:layout_constraintStart_toStartOf="parent"></FrameLayout>
 
-    </FrameLayout>
-
+    <!--nav bar-->
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/bottomNavigationView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        app:backgroundTint="#F3A3EB"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:menu="@menu/bottom_nav_menu"/>
+        app:menu="@menu/bottom_nav_menu" />
 
+    <!--header-->
+    <TextView
+        android:id="@+id/outfitCreationHeader"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/poppinsmedium"
+        android:text="Create an Outfit!"
+        android:textSize="26dp"
+        app:layout_constraintBottom_toTopOf="@+id/frame_layout"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.049" />
+
+    <!--TOPS-->
+    <!--top image area-->
+
+    <!--add top button-->
+
+    <!--top name textbox-->
+
+    <!--bottoms-->
+
+
+    <!--shoes-->
+
+
+    <!--
     <TextView
         android:id="@+id/textView6"
         android:layout_width="wrap_content"
@@ -36,4 +64,6 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+        -->
+
 </androidx.constraintlayout.widget.ConstraintLayout>
