@@ -39,17 +39,57 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.049" />
 
+
+
     <!--TOPS-->
     <!--top image area-->
 
-    <!--add top button-->
+    <ImageView
+        android:id="@+id/topImage"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toTopOf="@+id/bottomNavigationView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.144"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/outfitCreationHeader"
+        app:layout_constraintVertical_bias="0.112"
+        tools:srcCompat="@tools:sample/avatars" />
 
+
+
+
+    <!--get top button-->
+    <Button
+        android:id="@+id/getTop"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Get Top Image"
+        app:layout_constraintBottom_toTopOf="@+id/bottomNavigationView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.504"
+        app:layout_constraintStart_toEndOf="@+id/topImage"
+        app:layout_constraintTop_toBottomOf="@+id/getTopName"
+        app:layout_constraintVertical_bias="0.059" />
     <!--top name textbox-->
+    <EditText
+        android:id="@+id/getTopName"
+        android:layout_width="164dp"
+        android:layout_height="43dp"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:text="Top Name"
+        app:layout_constraintBottom_toTopOf="@+id/bottomNavigationView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/topImage"
+        app:layout_constraintTop_toBottomOf="@+id/outfitCreationHeader"
+        app:layout_constraintVertical_bias="0.095" />
 
-    <!--bottoms-->
+
+    <!--BOTTOMS-->
 
 
-    <!--shoes-->
+    <!--SHOES-->
 
 
     <!--
