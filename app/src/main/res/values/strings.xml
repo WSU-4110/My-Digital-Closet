@@ -3,4 +3,11 @@
     <string name="add_item">Add item</string>
     <string name="most_recently_added">Most recently added</string>
     <string name="see_all">see all</string>
+    <string name="socks">socks</string>
+    <string name="shoes">shoes</string>
+    <string name="headwear">headwear</string>
+    <string name="tops">tops</string>
+    <string name="other">other</string>
+    <string name="bottoms">bottoms</string>
+    <string name="custom">custom</string>
 </resources>
