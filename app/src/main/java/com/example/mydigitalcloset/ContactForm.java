@@ -41,7 +41,7 @@ public class ContactForm extends AppCompatActivity {
                     Intent intentWardrobe = new Intent(getApplicationContext(), OutfitCreationActivity.class);
                     startActivity(intentWardrobe);
                     finish();
-                    break;*/
+                    break;
                 case R.id.addItem:
                     Intent intentAdd = new Intent(getApplicationContext(), clothingFront.class);
                     startActivity(intentAdd);
