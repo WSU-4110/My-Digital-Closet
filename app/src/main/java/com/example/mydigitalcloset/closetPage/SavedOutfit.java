@@ -65,20 +65,20 @@ public class SavedOutfit extends AppCompatActivity {
 
         _bg__iphone_14___1_ek2 = (View) findViewById(R.id._bg__iphone_14___1_ek2);
         bg_light = (View) findViewById(R.id.bg_light);
-        vector = (ImageView) findViewById(R.id.vector);
-        vector_ek1 = (ImageView) findViewById(R.id.vector_ek1);
+        //vector = (ImageView) findViewById(R.id.vector);
+       // vector_ek1 = (ImageView) findViewById(R.id.vector_ek1);
         caption = (TextView) findViewById(R.id.caption);
-        image_1 = (ImageView) findViewById(R.id.image_1);
-        vector_ek2 = (ImageView) findViewById(R.id.vector_ek2);
-        vector_ek3 = (ImageView) findViewById(R.id.vector_ek3);
-        image_7 = (ImageView) findViewById(R.id.image_7);
+//        image_1 = (ImageView) findViewById(R.id.image_1);
+//        vector_ek2 = (ImageView) findViewById(R.id.vector_ek2);
+//        vector_ek3 = (ImageView) findViewById(R.id.vector_ek3);
+//        image_7 = (ImageView) findViewById(R.id.image_7);
         image_2 = (ImageView) findViewById(R.id.image_2);
         image_3 = (ImageView) findViewById(R.id.image_3);
         image_4 = (ImageView) findViewById(R.id.image_4);
         image_5 = (ImageView) findViewById(R.id.image_5);
         saved_outfits = (TextView) findViewById(R.id.saved_outfits);
         campus_green_sweater_and_jeans_skirt = (TextView) findViewById(R.id.campus_green_sweater_and_jeans_skirt);
-        vector_ek4 = (ImageView) findViewById(R.id.vector_ek4);
+       // vector_ek4 = (ImageView) findViewById(R.id.vector_ek4);
         vector_ek5 = (ImageView) findViewById(R.id.vector_ek5);
 
 

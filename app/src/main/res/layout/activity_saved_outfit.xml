@@ -57,8 +57,8 @@
 
 
 				<RelativeLayout android:id="@+id/home"
-					android:layout_marginTop="0dp"
-					android:layout_marginStart="0dp"
+					android:layout_marginTop="800dp"
+					android:layout_marginStart="700dp"
 					android:layout_width="wrap_content"
 					android:layout_height="wrap_content"
 					>
@@ -187,8 +187,8 @@
 				<ImageView android:id="@+id/image_2"
 					android:src="@drawable/image_2"
 					android:contentDescription="image_2"
-					 android:layout_marginStart="82dp"
-					android:layout_marginTop="106dp"
+					 android:layout_marginStart="80dp"
+					android:layout_marginTop="80dp"
 					android:layout_width="228dp"
 					android:layout_height="252dp" />
 
@@ -196,7 +196,7 @@
 					android:src="@drawable/image_3"
 					android:contentDescription="image_3"
 					 android:layout_marginStart="88dp"
-					android:layout_marginTop="362dp"
+					android:layout_marginTop="300dp"
 					android:layout_width="215dp"
 					android:layout_height="256dp" />
 
@@ -204,7 +204,7 @@
 					android:src="@drawable/image_4"
 					android:contentDescription="image_4"
 					 android:layout_marginStart="147dp"
-					android:layout_marginTop="622dp"
+					android:layout_marginTop="560dp"
 					android:layout_width="148dp"
 					android:layout_height="116dp" />
 
@@ -212,7 +212,7 @@
 					android:src="@drawable/image_5"
 					android:contentDescription="image_5"
 					 android:layout_marginStart="144dp"
-					android:layout_marginTop="639dp"
+					android:layout_marginTop="570dp"
 					android:layout_width="133dp"
 					android:layout_height="129dp" />
 
@@ -228,7 +228,7 @@
 					android:shadowDy="4"
 					android:textColor="@color/bg_light_color"
 					android:layout_marginLeft="63dp"
-					android:layout_marginTop="0dp"
+					android:layout_marginTop="-22dp"
 					android:layout_width="271dp"
 					android:layout_height="99dp"
 					android:text="@string/saved_outfits_string"
@@ -236,10 +236,14 @@
 
 				<TextView android:id="@+id/campus_green_sweater_and_jeans_skirt"
 					android:fontFamily="Telex"
-					android:textSize="11sp"
+					android:textSize="16sp"
 					android:textColor="@color/campus_green_sweater_and_jeans_skirt_color"
+					android:shadowRadius="4"
+					android:shadowColor="#000000"
+					android:shadowDx="0"
+					android:shadowDy="2.5"
 					android:layout_marginLeft="39dp"
-					android:layout_marginTop="65dp"
+					android:layout_marginTop="55dp"
 					android:layout_width="383.5dp"
 					android:layout_height="39.5dp"
 					android:text="@string/campus_green_sweater_and_jeans_skirt_string"
@@ -248,7 +252,7 @@
 
 
 				<RelativeLayout android:id="@+id/____icon__corner_up_left_alt_"
-					android:layout_marginTop="729dp"
+					android:layout_marginTop="658dp"
 					android:layout_marginStart="13.82dp"
 					android:layout_width="wrap_content"
 					android:layout_height="wrap_content"
@@ -256,13 +260,13 @@
 
 
 
-					<ImageView android:id="@+id/vector_ek4"
-						android:src="@drawable/vector_ek4"
-						android:contentDescription="vector_ek4"
-						 android:layout_marginStart="0dp"
-						android:layout_marginTop="0dp"
-						android:layout_width="32.58dp"
-						android:layout_height="18dp" />
+<!--					<ImageView android:id="@+id/vector_ek4"-->
+<!--						android:src="@drawable/vector_ek4"-->
+<!--						android:contentDescription="vector_ek4"-->
+<!--						 android:layout_marginStart="0dp"-->
+<!--						android:layout_marginTop="0dp"-->
+<!--						android:layout_width="32.58dp"-->
+<!--						android:layout_height="18dp" />-->
 
 					<Button
 						android:id="@+id/backbutton"
@@ -278,7 +282,7 @@
 
 
 				<RelativeLayout android:id="@+id/____icon__arrow_circle_right_"
-					android:layout_marginTop="68dp"
+					android:layout_marginTop="55dp"
 					android:layout_marginStart="8.88dp"
 					android:layout_width="wrap_content"
 					android:layout_height="wrap_content"

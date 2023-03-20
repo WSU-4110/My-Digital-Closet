@@ -1,8 +1,5 @@
-<HorizontalScrollView xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+<!--<HorizontalScrollView -->
+<!--    xmlns:app="http://schemas.android.com/apk/res-auto">-->
     <!--
     /*
      *	This content is generated from the API File Info.
@@ -18,9 +15,12 @@
      *
      */
     -->
-    <ScrollView android:id="@+id/iphone_14___1"
-        android:layout_width="wrap_content"
-        android:layout_height="match_parent" >
+    <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/iphone_14___1"
+         >
 
 
 
@@ -217,7 +217,7 @@
                     android:shadowDy="4"
                     android:textColor="@color/bg_light_color"
                     android:layout_marginLeft="62dp"
-                    android:layout_marginTop="8dp"
+                    android:layout_marginTop="-10dp"
                     android:layout_width="271dp"
                     android:layout_height="99dp"
                     android:text="@string/saved_outfits_string"
@@ -251,4 +251,4 @@
         </RelativeLayout>
 
     </ScrollView>
-</HorizontalScrollView>
+<!--</HorizontalScrollView>-->
