@@ -23,9 +23,9 @@ public class ContactForm extends AppCompatActivity {
 
                 openSuccessPage();
 
-                Log.i("MyDigitalCloset", "Your form has been successfully summited");
+                Log.i("MyDigitalCloset", "Your form has been successfully submitted");
                 //Shows summited on the bottom of the screen
-                Toast.makeText(getApplicationContext(), "Summited!", Toast.LENGTH_SHORT)
+                Toast.makeText(getApplicationContext(), "Submitted!", Toast.LENGTH_SHORT)
                         .show();
             }
         });

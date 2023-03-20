@@ -39,8 +39,8 @@
                     android:background="@drawable/_bg__iphone_14___1_ek2_shape"
                     android:layout_marginStart="0dp"
                     android:layout_marginTop="0dp"
-                    android:layout_width="385dp"
-                    android:layout_height="844dp" />
+                    android:layout_width="400dp"
+                    android:layout_height="900dp" />
 
 
                 <RelativeLayout android:id="@+id/home"
@@ -245,14 +245,7 @@
 
 
             </RelativeLayout>
-            <Button
-                android:id="@+id/nextbutton"
-                style="@style/Widget.MaterialComponents.Button.Icon"
-                app:icon="@drawable/vector_ek4"
-                android:text="Back"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                />
+
         </RelativeLayout>
 
     </ScrollView>

@@ -33,7 +33,6 @@ public class AllSavedOufitsPage extends Activity {
     private ImageView rectangle_1;
     private TextView campus_green_sweater_and_jeans_skirt;
 
-    private Button nextButton;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -41,13 +40,6 @@ public class AllSavedOufitsPage extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_all_saved_oufits_page);
 
-        nextButton = (Button) findViewById(R.id.nextbutton);
-        nextButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                openOutfit();
-            }
-        });
 
         _bg__iphone_14___1_ek2 = (View) findViewById(R.id._bg__iphone_14___1_ek2);
         bg_light = (View) findViewById(R.id.bg_light);
@@ -67,12 +59,19 @@ public class AllSavedOufitsPage extends Activity {
         campus_green_sweater_and_jeans_skirt = (TextView) findViewById(R.id.campus_green_sweater_and_jeans_skirt);
 
 
+
         //custom code goes here
 
+        rectangle_1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                openOutfit();
+            }
+        });
     }
 
     public void openOutfit(){
-        Intent intent = new Intent(this, AllSavedOufitsPage.class);
+        Intent intent = new Intent(this, SavedOutfit.class);
         startActivity(intent);
     }
 }
