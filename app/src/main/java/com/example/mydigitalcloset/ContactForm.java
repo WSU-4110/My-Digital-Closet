@@ -29,6 +29,30 @@ public class ContactForm extends AppCompatActivity {
         //NAV BAR STUFF:
         binding = ActivityContactFormBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
+
+        /*binding.bottomNavigationView.setOnItemSelectedListener(item -> {
+            switch(item.getItemId()){
+                case R.id.home:
+                    Intent intentHome = new Intent(getApplicationContext(), HomeFragment.class);
+                    startActivity(intentHome);
+                    finish();
+                    break;
+                /*case R.id.wardrobe:
+                    Intent intentWardrobe = new Intent(getApplicationContext(), OutfitCreationActivity.class);
+                    startActivity(intentWardrobe);
+                    finish();
+                    break;*/
+                case R.id.addItem:
+                    Intent intentAdd = new Intent(getApplicationContext(), clothingFront.class);
+                    startActivity(intentAdd);
+                    finish();
+                    break;
+                case R.id.contactSupport:
+                    Intent intentContact = new Intent(getApplicationContext(), ContactForm.class);
+                    startActivity(intentContact);
+                    finish();
+                    break;*/
+
         binding.bottomNavigationView.setOnItemSelectedListener(new BottomNavigationView.OnItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
