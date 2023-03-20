@@ -56,21 +56,24 @@ public class ContactForm extends AppCompatActivity {
         setContentView(R.layout.activity_contact_form);
 
         Button btn = findViewById(R.id.btnsubmit);
+
+        Button btn1 = findViewById(R.id.btn1AboutUs);
         btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
 
                 openSuccessPage();
 
-                Log.i("MyDigitalCloset", "Your form has been successfully summited");
+
+                Log.i("MyDigitalCloset", "Your form has been successfully submitted");
                 //Shows summited on the bottom of the screen
-                Toast.makeText(getApplicationContext(), "Summited!", Toast.LENGTH_SHORT)
+                Toast.makeText(getApplicationContext(), "Submitted!", Toast.LENGTH_SHORT)
                         .show();
             }
         });
     }
 
-        Button btn = findViewById(R.id.btnAboutUs);
+
     public void openSuccessPage(){
         Intent intent = new Intent(this, SuccessPage.class);
         startActivity(intent);
