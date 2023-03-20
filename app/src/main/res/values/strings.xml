@@ -27,5 +27,6 @@
     <string name="caption_string">Wishlist</string>
     <string name="saved_outfits_string">SAVED OUTFITS</string>
     <string name="campus_green_sweater_and_jeans_skirt_string">Campus green sweater and jeans skirt</string>
+    <string name="back">back</string>
 
 </resources>
