@@ -36,7 +36,7 @@ public class Login extends AppCompatActivity {
         buttonLogin = findViewById(R.id.buttonLogin);
         textViewSignUp = findViewById(R.id.signUpText);
 
-        //open login page if "login here" text is clicked by user
+        //open signup page if "signup here" text is clicked by user
         textViewSignUp.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -61,7 +61,13 @@ public class Login extends AppCompatActivity {
                                 public void onComplete(@NonNull Task<AuthResult> task) {
                                     if (task.isSuccessful()) {
                                         // Sign in success, update UI with the signed-in user's information
+
+                                        
+
+                                        Toast.makeText(Login.this, "Login successful!", Toast.LENGTH_SHORT).show();
                                         Intent intent = new Intent(getApplicationContext(), HomeFragment.class);
+                                        //Intent intent = new Intent(getApplicationContext(), OutfitCreationActivity.class); changed to fragment
+
                                         startActivity(intent);
                                         finish();
                                     } else {
