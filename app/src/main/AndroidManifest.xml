@@ -70,7 +70,7 @@
         </activity>
 
         <activity
-            android:name=".closetPage.AllSavedOufitsPage"
+            android:name=".closetPage.AllSavedOufitsPageOLD"
             android:configChanges="orientation|keyboardHidden|screenSize"
             android:exported="true" />
 
@@ -83,7 +83,7 @@
         </activity>
 
         <activity
-            android:name=".closetPage.TestActivity"
+            android:name=".closetPage.AllSavedOufitsPage"
             android:configChanges="orientation|keyboardHidden|screenSize"
             android:exported="true" />
     </application>
