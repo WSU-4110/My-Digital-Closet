@@ -65,8 +65,8 @@ public class Login extends AppCompatActivity {
                                         
 
                                         Toast.makeText(Login.this, "Login successful!", Toast.LENGTH_SHORT).show();
-                                        Intent intent = new Intent(getApplicationContext(), HomeFragment.class);
-                                        //Intent intent = new Intent(getApplicationContext(), OutfitCreationActivity.class); changed to fragment
+                                        //Intent intent = new Intent(getApplicationContext(), HomeFragment.class);
+                                        Intent intent = new Intent(getApplicationContext(), OutfitCreationActivity.class); //change to fragment
 
                                         startActivity(intent);
                                         finish();
