@@ -1,4 +1,4 @@
-/*package com.example.mydigitalcloset;
+package com.example.mydigitalcloset;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -65,6 +65,3 @@ public class OutfitCreationActivity extends AppCompatActivity {
         }
     }
 }
-
-
- */
