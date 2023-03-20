@@ -70,7 +70,7 @@ public class AllSavedOufitsPageOLD extends Activity {
     }
 
     public void openOutfit(){
-        Intent intent = new Intent(this, SavedOutfit.class);
+        Intent intent = new Intent(this, SavedOutfitOLD.class);
         startActivity(intent);
     }
 }
