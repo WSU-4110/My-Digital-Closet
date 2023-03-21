@@ -2,6 +2,9 @@ package com.example.mydigitalcloset;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
 
 import android.app.ProgressDialog;
 import android.content.Context;
@@ -15,6 +18,7 @@ import android.widget.ProgressBar;
 import android.widget.Toast;
 
 import com.example.mydigitalcloset.closetPage.AllSavedOufitsPage;
+import com.example.mydigitalcloset.closetPage.AllSavedOutfitsFragment;
 import com.example.mydigitalcloset.databinding.ActivityOutfitCreationBinding;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
@@ -46,12 +50,35 @@ public class OutfitCreationActivity extends AppCompatActivity {
         // Initialize Firebase Auth
         mAuth = FirebaseAuth.getInstance();
 
-        // Inflate the layout
+        // initialize binding
         binding = ActivityOutfitCreationBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
+        replaceFragment(new HomeFragment());
+        //NEW nav bar:
+        binding.bottomNavigationView.setOnItemSelectedListener(item -> {
+            //cases for each option on nav bar
+            switch (item.getItemId()){
+                case R.id.home:
+                    replaceFragment(new HomeFragment());
+                    break;
+                case R.id.addItem:
+                    replaceFragment(new AddItemFragment());
+                    break;
+                case R.id.contactSupport:
+                    replaceFragment(new ContactSupportFragment());
+                    break;
+                case R.id.wardrobe:
+                    replaceFragment(new AllSavedOutfitsFragment());
+                    break;
+                case R.id.settings:
+                    replaceFragment(new SettingsFragment());
+                    break;
+            }
+            return true;
+        });
 
         //nav bar:
-        binding.bottomNavigationView.setOnItemSelectedListener(new BottomNavigationView.OnItemSelectedListener() {
+        /*binding.bottomNavigationView.setOnItemSelectedListener(new BottomNavigationView.OnItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
                 switch (item.getItemId()) {
@@ -75,11 +102,11 @@ public class OutfitCreationActivity extends AppCompatActivity {
                         break;
                     /*case R.id.settings:
                         startActivity(new Intent(OutfitCreationActivity.this, SETTINGS.class));
-                        break;*/
+                        break;*//*
                 }
                 return true;
             }
-        });
+        });*/
         //end nav bar
 
         //get top image from firebase:
@@ -219,6 +246,13 @@ public class OutfitCreationActivity extends AppCompatActivity {
         });
         //end shoes section
 
+    }//end onCreate
+
+    private void replaceFragment(Fragment fragment){
+        FragmentManager fragmentManager = getSupportFragmentManager();
+        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+        fragmentTransaction.replace(R.id.frame_layout, fragment);
+        fragmentTransaction.commit();
     }
 
     @Override
