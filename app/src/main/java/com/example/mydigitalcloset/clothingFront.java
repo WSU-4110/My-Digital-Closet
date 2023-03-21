@@ -1,9 +1,11 @@
 package com.example.mydigitalcloset;
 
+import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.Button;
 
 import androidx.annotation.NonNull;
@@ -13,17 +15,20 @@ import com.example.mydigitalcloset.closetPage.AllSavedOufitsPage;
 import com.example.mydigitalcloset.databinding.ActivityClothingFrontBinding;
 //import com.example.mydigitalcloset.databinding.ActivityOutfitCreationBinding;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
+import com.google.firebase.storage.FirebaseStorage;
+import com.google.firebase.storage.StorageReference;
 
 public class clothingFront extends AppCompatActivity {
 
     ActivityClothingFrontBinding binding;
     Context context;
-
+    ProgressDialog progressDialog;
+    StorageReference storageReference;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         context = this;
         super.onCreate(savedInstanceState);
-
+        setContentView(R.layout.activity_clothing_front);
         //NAV BAR STUFF:
         binding = ActivityClothingFrontBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
@@ -57,12 +62,17 @@ public class clothingFront extends AppCompatActivity {
         });
         //end nav bar
 
-        setContentView(R.layout.activity_clothing_front);
-        //this moves to the page that adds clothing items
+        //buttons!
+
+        //go to clothing upload page
         Button addPage = findViewById(R.id.addItem);
         addPage.setOnClickListener(view -> {
             Intent intent=new Intent(clothingFront.this,clothingUpload.class);
             startActivity(intent);
         });
-    }
+
+
+
+
+    }//end of on create
 }

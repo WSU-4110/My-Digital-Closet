@@ -7,7 +7,7 @@
     tools:context="com.example.mydigitalcloset.clothingUpload">
 
     <Button
-        android:id="@+id/button2"
+        android:id="@+id/addCustom"
         android:layout_width="142dp"
         android:layout_height="70dp"
         android:layout_marginTop="200dp"
@@ -21,7 +21,7 @@
         app:layout_constraintVertical_bias="0.68" />
 
     <Button
-        android:id="@+id/button6"
+        android:id="@+id/addSocks"
         android:layout_width="142dp"
         android:layout_height="70dp"
         android:layout_marginTop="64dp"
@@ -32,11 +32,11 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/button7"
+        app:layout_constraintTop_toBottomOf="@+id/addOther"
         app:layout_constraintVertical_bias="0.0" />
 
     <Button
-        android:id="@+id/button4"
+        android:id="@+id/addShoes"
         android:layout_width="142dp"
         android:layout_height="70dp"
         android:layout_marginStart="24dp"
@@ -44,14 +44,14 @@
         android:layout_marginBottom="260dp"
         android:text="@string/shoes"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/button6"
+        app:layout_constraintEnd_toStartOf="@+id/addSocks"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/button3"
+        app:layout_constraintTop_toBottomOf="@+id/addBottoms"
         app:layout_constraintVertical_bias="0.0" />
 
     <Button
-        android:id="@+id/button5"
+        android:id="@+id/addHeadwear"
         android:layout_width="142dp"
         android:layout_height="70dp"
         android:layout_marginTop="128dp"
@@ -65,21 +65,21 @@
         app:layout_constraintVertical_bias="0.0" />
 
     <Button
-        android:id="@+id/button"
+        android:id="@+id/addTops"
         android:layout_width="142dp"
         android:layout_height="70dp"
         android:layout_marginStart="24dp"
         android:layout_marginTop="128dp"
         android:text="@string/tops"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/button5"
+        app:layout_constraintEnd_toStartOf="@+id/addHeadwear"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.0" />
 
     <Button
-        android:id="@+id/button7"
+        android:id="@+id/addOther"
         android:layout_width="142dp"
         android:layout_height="70dp"
         android:layout_marginTop="64dp"
@@ -89,21 +89,21 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/button5"
+        app:layout_constraintTop_toBottomOf="@+id/addHeadwear"
         app:layout_constraintVertical_bias="0.0" />
 
     <Button
-        android:id="@+id/button3"
+        android:id="@+id/addBottoms"
         android:layout_width="142dp"
         android:layout_height="70dp"
         android:layout_marginStart="24dp"
         android:layout_marginTop="64dp"
         android:text="@string/bottoms"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/button7"
+        app:layout_constraintEnd_toStartOf="@+id/addOther"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/button"
+        app:layout_constraintTop_toBottomOf="@+id/addTops"
         app:layout_constraintVertical_bias="0.0" />
 
     <TextView
@@ -121,7 +121,7 @@
         app:layout_constraintVertical_bias="0.0" />
 
     <Button
-        android:id="@+id/button9"
+        android:id="@+id/backToClothUp"
         android:layout_width="200dp"
         android:layout_height="70dp"
         android:layout_marginBottom="36dp"
@@ -130,6 +130,20 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/button2" />
+        app:layout_constraintTop_toBottomOf="@+id/addCustom" />
+
+    <EditText
+        android:id="@+id/editTextTextPersonName6"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:minHeight="48dp"
+        android:text="@string/image_id"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/backToClothUp"
+        android:autofillHints="" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

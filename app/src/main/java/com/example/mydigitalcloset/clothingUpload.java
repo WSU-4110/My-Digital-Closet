@@ -1,16 +1,24 @@
 package com.example.mydigitalcloset;
 
 import androidx.appcompat.app.AppCompatActivity;
+
+import com.example.mydigitalcloset.databinding.ActivityClothingUploadBinding;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.storage.FirebaseStorage;
+import com.google.firebase.storage.StorageReference;
 
+import android.app.ProgressDialog;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
 public class clothingUpload extends AppCompatActivity {
     private DatabaseReference mDatabase;
-
+    ProgressDialog progressDialog;
+    ActivityClothingUploadBinding binding;
+    StorageReference storageReference;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -19,7 +27,7 @@ public class clothingUpload extends AppCompatActivity {
         // Get a reference to the "clothing" node in your Firebase Realtime Database
         mDatabase = FirebaseDatabase.getInstance().getReference().child("clothing");
 
-        Button topsButton = findViewById(R.id.button);
+        Button topsButton = findViewById(R.id.addTops);
         topsButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -29,7 +37,7 @@ public class clothingUpload extends AppCompatActivity {
             }
         });
 
-        Button bottomsButton = findViewById(R.id.button3);
+        Button bottomsButton = findViewById(R.id.addBottoms);
         bottomsButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -39,7 +47,7 @@ public class clothingUpload extends AppCompatActivity {
             }
         });
 
-        Button shoesButton = findViewById(R.id.button4);
+        Button shoesButton = findViewById(R.id.addShoes);
         shoesButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -49,7 +57,7 @@ public class clothingUpload extends AppCompatActivity {
             }
         });
 
-        Button socksButton = findViewById(R.id.button6);
+        Button socksButton = findViewById(R.id.addSocks);
         socksButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -59,7 +67,7 @@ public class clothingUpload extends AppCompatActivity {
             }
         });
 
-        Button headwearButton = findViewById(R.id.button5);
+        Button headwearButton = findViewById(R.id.addHeadwear);
         headwearButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -69,7 +77,7 @@ public class clothingUpload extends AppCompatActivity {
             }
         });
 
-        Button otherButton = findViewById(R.id.button7);
+        Button otherButton = findViewById(R.id.addOther);
         otherButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -78,5 +86,35 @@ public class clothingUpload extends AppCompatActivity {
                 mDatabase.child("other").child(clothingId).setValue("new item");
             }
         });
+        //buttons!
+
+        //Back to clothing front page
+        Button b2c = findViewById(R.id.backToClothUp);
+        b2c.setOnClickListener(view -> {
+            Intent intent=new Intent(clothingUpload.this,clothingFront.class);
+            startActivity(intent);
+        });
+
+        Button topPage = findViewById(R.id.addTops);
+        topPage.setOnClickListener(view -> {
+            Intent intent=new Intent(clothingUpload.this,clothingFront.class);
+            startActivity(intent);
+        });
+
+        /*binding.addTops.setOnClickListener(new View.OnClickListener(){
+            public void onClick(View v){
+                progressDialog = new ProgressDialog(clothingUpload.this);
+                progressDialog.setMessage("Test...");
+                progressDialog.setCancelable(false);
+                progressDialog.show();
+
+                //String imageID = binding.etimageId.getText().toString();
+
+                //storageReference = FirebaseStorage.getInstance().getReference
+            }
+        });*/
+
     }
+
+
 }
