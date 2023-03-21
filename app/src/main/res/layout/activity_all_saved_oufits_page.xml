@@ -20,7 +20,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/iphone_14___1"
-         >
+        android:background="#FFE0E7"    >
 
 
 
@@ -37,12 +37,12 @@
                 android:layout_height="wrap_content"
                 >
 
-                <View   android:id="@+id/_bg__iphone_14___1_ek2"
-                    android:background="@drawable/_bg__iphone_14___1_ek2_shape"
-                    android:layout_marginStart="0dp"
-                    android:layout_marginTop="0dp"
-                    android:layout_width="400dp"
-                    android:layout_height="900dp" />
+<!--                <View   android:id="@+id/_bg__iphone_14___1_ek2"-->
+<!--                    android:background="@drawable/_bg__iphone_14___1_ek2_shape"-->
+<!--                    android:layout_marginStart="0dp"-->
+<!--                    android:layout_marginTop="0dp"-->
+<!--                    android:layout_width="400dp"-->
+<!--                    android:layout_height="900dp" />-->
 
 
                 <RelativeLayout android:id="@+id/home"
@@ -232,13 +232,13 @@
                     android:layout_height="148dp" />
 
                 <TextView android:id="@+id/campus_green_sweater_and_jeans_skirt"
-                    android:fontFamily="Trebuchet MS"
+                    android:fontFamily="@font/poppinsmedium"
                     android:layout_gravity="center_horizontal|center"
                     android:gravity="center"
                     android:textSize="11sp"
                     android:textColor="@color/caption_color"
-                    android:layout_marginLeft="28dp"
-                    android:layout_marginTop="192dp"
+                    android:layout_marginLeft="26dp"
+                    android:layout_marginTop="190dp"
                     android:layout_width="95dp"
                     android:layout_height="57.5dp"
                     android:text="@string/campus_green_sweater_and_jeans_skirt_string"

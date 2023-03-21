@@ -2,7 +2,8 @@
 	xmlns:tools="http://schemas.android.com/tools"
 	android:layout_width="match_parent"
 	android:layout_height="wrap_content"
-	xmlns:app="http://schemas.android.com/apk/res-auto">
+	xmlns:app="http://schemas.android.com/apk/res-auto"
+	android:background="#FFE0E7">
 	<!-- 
 	/*
 	 *	This content is generated from the API File Info.
@@ -48,12 +49,12 @@
 				android:layout_height="wrap_content"
 				>
 
-				<View   android:id="@+id/_bg__iphone_14___1_ek2"
-					android:background="@drawable/_bg__iphone_14___1_ek2_shape"
-					 android:layout_marginStart="0dp"
-					android:layout_marginTop="0dp"
-					android:layout_width="385dp"
-					android:layout_height="844dp" />
+<!--				<View   android:id="@+id/_bg__iphone_14___1_ek2"-->
+<!--					android:background="@drawable/_bg__iphone_14___1_ek2_shape"-->
+<!--					 android:layout_marginStart="0dp"-->
+<!--					android:layout_marginTop="0dp"-->
+<!--					android:layout_width="385dp"-->
+<!--					android:layout_height="844dp" />-->
 
 
 				<RelativeLayout android:id="@+id/home"
@@ -235,7 +236,7 @@
 					 />
 
 				<TextView android:id="@+id/campus_green_sweater_and_jeans_skirt"
-					android:fontFamily="Telex"
+					android:fontFamily="@font/poppinsmedium"
 					android:textSize="16sp"
 					android:textColor="@color/campus_green_sweater_and_jeans_skirt_color"
 					android:shadowRadius="4"

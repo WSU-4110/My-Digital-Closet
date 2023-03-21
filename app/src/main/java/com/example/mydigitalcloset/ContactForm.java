@@ -70,7 +70,7 @@ public class ContactForm extends AppCompatActivity {
         });
     }
 
-        Button btn = findViewById(R.id.btnAboutUs);
+//        Button btn = findViewById(R.id.btnAboutUs);
     public void openSuccessPage(){
         Intent intent = new Intent(this, SuccessPage.class);
         startActivity(intent);

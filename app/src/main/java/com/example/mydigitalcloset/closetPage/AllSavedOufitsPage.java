@@ -37,7 +37,7 @@ public class AllSavedOufitsPage extends AppCompatActivity {
             setContentView(R.layout.activity_all_saved_oufits_page);
 
 
-            _bg__iphone_14___1_ek2 = (View) findViewById(R.id._bg__iphone_14___1_ek2);
+           // _bg__iphone_14___1_ek2 = (View) findViewById(R.id._bg__iphone_14___1_ek2);
             bg_light = (View) findViewById(R.id.bg_light);
             vector = (ImageView) findViewById(R.id.vector);
             vector_ek1 = (ImageView) findViewById(R.id.vector_ek1);
