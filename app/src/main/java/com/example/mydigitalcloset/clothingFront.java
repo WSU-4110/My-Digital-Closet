@@ -43,6 +43,7 @@ public class clothingFront extends AppCompatActivity {
                     startActivity(intentContact);
                     finish();
                     break;
+
             }
 
             return true;
