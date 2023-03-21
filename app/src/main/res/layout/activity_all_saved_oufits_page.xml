@@ -1,5 +1,9 @@
-<!--<HorizontalScrollView -->
-<!--    xmlns:app="http://schemas.android.com/apk/res-auto">-->
+
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
     <!--
     /*
      *	This content is generated from the API File Info.
@@ -15,12 +19,26 @@
      *
      */
     -->
+
     <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/iphone_14___1"
         android:background="#FFE0E7"    >
+
+
+
+
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/bottomNavigationView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:backgroundTint="#F3A3EB"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:menu="@menu/bottom_nav_menu"/>
 
 
 
@@ -251,4 +269,6 @@
         </RelativeLayout>
 
     </ScrollView>
-<!--</HorizontalScrollView>-->
+
+</androidx.constraintlayout.widget.ConstraintLayout>
+
