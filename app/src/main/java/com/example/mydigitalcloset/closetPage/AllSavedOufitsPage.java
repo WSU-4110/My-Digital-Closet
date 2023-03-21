@@ -143,7 +143,7 @@ public class AllSavedOufitsPage extends Activity {
                         return true;
                     /*case R.id.settings:
                         startActivity(new Intent(OutfitCreationActivity.this, SETTINGS.class));
-                        break;*/
+                        break;
                 }
                 return true;
             }
@@ -184,7 +184,7 @@ public class AllSavedOufitsPage extends Activity {
         Intent intent = new Intent(this, AllSavedOufitsPage.class);
         startActivity(intent);
  */
-    }
+}
 
 //    @Override
 //    protected void onCreate(Bundle savedInstanceState) {
