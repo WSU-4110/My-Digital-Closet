@@ -1,3 +1,4 @@
+
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -19,6 +20,16 @@
      */
     -->
 
+    <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/iphone_14___1"
+        android:background="#FFE0E7"    >
+
+
+
+
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/bottomNavigationView"
         android:layout_width="match_parent"
@@ -29,9 +40,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:menu="@menu/bottom_nav_menu"/>
 
-    <ScrollView android:id="@+id/iphone_14___1"
-        android:layout_width="wrap_content"
-        android:layout_height="match_parent" >
+
 
         <RelativeLayout android:id="@+id/content_container"
             android:layout_width="wrap_content"
@@ -46,12 +55,12 @@
                 android:layout_height="wrap_content"
                 >
 
-                <View   android:id="@+id/_bg__iphone_14___1_ek2"
-                    android:background="@drawable/_bg__iphone_14___1_ek2_shape"
-                    android:layout_marginStart="0dp"
-                    android:layout_marginTop="0dp"
-                    android:layout_width="385dp"
-                    android:layout_height="844dp" />
+<!--                <View   android:id="@+id/_bg__iphone_14___1_ek2"-->
+<!--                    android:background="@drawable/_bg__iphone_14___1_ek2_shape"-->
+<!--                    android:layout_marginStart="0dp"-->
+<!--                    android:layout_marginTop="0dp"-->
+<!--                    android:layout_width="400dp"-->
+<!--                    android:layout_height="900dp" />-->
 
 
                 <RelativeLayout android:id="@+id/home"
@@ -226,7 +235,7 @@
                     android:shadowDy="4"
                     android:textColor="@color/bg_light_color"
                     android:layout_marginLeft="62dp"
-                    android:layout_marginTop="8dp"
+                    android:layout_marginTop="-10dp"
                     android:layout_width="271dp"
                     android:layout_height="99dp"
                     android:text="@string/saved_outfits_string"
@@ -241,13 +250,13 @@
                     android:layout_height="148dp" />
 
                 <TextView android:id="@+id/campus_green_sweater_and_jeans_skirt"
-                    android:fontFamily="Trebuchet MS"
+                    android:fontFamily="@font/poppinsmedium"
                     android:layout_gravity="center_horizontal|center"
                     android:gravity="center"
                     android:textSize="11sp"
                     android:textColor="@color/caption_color"
-                    android:layout_marginLeft="28dp"
-                    android:layout_marginTop="192dp"
+                    android:layout_marginLeft="26dp"
+                    android:layout_marginTop="190dp"
                     android:layout_width="95dp"
                     android:layout_height="57.5dp"
                     android:text="@string/campus_green_sweater_and_jeans_skirt_string"
@@ -256,15 +265,10 @@
 
 
             </RelativeLayout>
-            <Button
-                android:id="@+id/nextbutton"
-                style="@style/Widget.MaterialComponents.Button.Icon"
-                app:icon="@drawable/vector_ek4"
-                android:text="Back"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                />
+
         </RelativeLayout>
 
     </ScrollView>
+
 </androidx.constraintlayout.widget.ConstraintLayout>
+

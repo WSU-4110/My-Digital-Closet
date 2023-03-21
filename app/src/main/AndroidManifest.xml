@@ -17,53 +17,43 @@
         <activity
             android:name=".AboutUsPageActivity"
             android:exported="false" >
-
         </activity>
         <activity
             android:name=".SuccessPage"
             android:exported="false" />
         <activity
             android:name=".ContactForm"
-            android:exported="false">
+            android:exported="true"></activity>
 
-
-
-        </activity>
         
         <activity
             android:name=".Login"
             android:exported="true"
             android:theme="@style/Theme.Design.Light.NoActionBar">
-
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
             <!-- add intent filter back-->
-
         </activity>
 
         <activity
             android:name=".SignUp"
             android:exported="true"
-            android:theme="@style/Theme.Design.Light.NoActionBar" />
-
+            android:theme='@style/Theme.Design.Light.NoActionBar'></activity>
         <activity
             android:name=".OutfitCreationActivity"
-            android:exported="true">
+            android:exported="true"
+            android:theme="@style/Theme.Design.Light.NoActionBar"></activity>
 
-        </activity>
-        
         <activity
             android:name="com.example.mydigitalcloset.clothingUpload"
-            android:exported="false" >
-        </activity>
+            android:exported="false"></activity>
 
         <activity
             android:name="com.example.mydigitalcloset.clothingFront"
-            android:exported="true">
-        </activity>
+            android:exported="true"></activity>
+
 
         <!-- duplicate login activity
         <activity
@@ -76,7 +66,11 @@
             android:name=".closetPage.SavedOutfit"
             android:configChanges="orientation|keyboardHidden|screenSize"
             android:exported="true">
+        </activity>
 
+        <activity
+            android:name=".clothingUpload"
+            android:exported="false" />
         </activity>
 
         <activity
@@ -88,9 +82,10 @@
 
         <activity
             android:name=".clothingFront"
-            android:exported="true">
-        </activity>
+            android:exported="true"></activity>
 
+       
     </application>
 
 </manifest>
+

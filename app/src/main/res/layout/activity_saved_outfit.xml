@@ -2,7 +2,8 @@
 	xmlns:tools="http://schemas.android.com/tools"
 	android:layout_width="match_parent"
 	android:layout_height="wrap_content"
-	xmlns:app="http://schemas.android.com/apk/res-auto">
+	xmlns:app="http://schemas.android.com/apk/res-auto"
+	android:background="#FFE0E7">
 	<!-- 
 	/*
 	 *	This content is generated from the API File Info.
@@ -22,6 +23,19 @@
 		android:layout_width="wrap_content" 
 		android:layout_height="match_parent" >
 
+<!--		<com.google.android.material.appbar.AppBarLayout-->
+<!--			android:layout_width="match_parent"-->
+<!--			android:layout_height="wrap_content"-->
+<!--			android:theme="@style/Theme.MyDigitalCloset.AppBarOverlay">-->
+
+<!--			<androidx.appcompat.widget.Toolbar-->
+<!--				android:id="@+id/toolbar"-->
+<!--				android:layout_width="match_parent"-->
+<!--				android:layout_height="?attr/actionBarSize"-->
+<!--				android:background="?attr/colorPrimary"-->
+<!--				app:popupTheme="@style/Theme.MyDigitalCloset.PopupOverlay" />-->
+
+<!--		</com.google.android.material.appbar.AppBarLayout>-->
 		<RelativeLayout android:id="@+id/content_container" 
 			android:layout_width="wrap_content" 
 			android:layout_height="wrap_content" >
@@ -35,17 +49,17 @@
 				android:layout_height="wrap_content"
 				>
 
-				<View   android:id="@+id/_bg__iphone_14___1_ek2"
-					android:background="@drawable/_bg__iphone_14___1_ek2_shape"
-					 android:layout_marginStart="0dp"
-					android:layout_marginTop="0dp"
-					android:layout_width="385dp"
-					android:layout_height="844dp" />
+<!--				<View   android:id="@+id/_bg__iphone_14___1_ek2"-->
+<!--					android:background="@drawable/_bg__iphone_14___1_ek2_shape"-->
+<!--					 android:layout_marginStart="0dp"-->
+<!--					android:layout_marginTop="0dp"-->
+<!--					android:layout_width="385dp"-->
+<!--					android:layout_height="844dp" />-->
 
 
 				<RelativeLayout android:id="@+id/home"
-					android:layout_marginTop="774dp"
-					android:layout_marginStart="0dp"
+					android:layout_marginTop="800dp"
+					android:layout_marginStart="700dp"
 					android:layout_width="wrap_content"
 					android:layout_height="wrap_content"
 					>
@@ -68,30 +82,30 @@
 					</RelativeLayout>
 
 
-					<RelativeLayout android:id="@+id/frame"
-						android:layout_marginTop="8dp"
-						android:layout_marginStart="194.47dp"
-						android:layout_width="wrap_content"
-						android:layout_height="wrap_content"
-						>
+<!--					<RelativeLayout android:id="@+id/frame"-->
+<!--						android:layout_marginTop="8dp"-->
+<!--						android:layout_marginStart="194.47dp"-->
+<!--						android:layout_width="wrap_content"-->
+<!--						android:layout_height="wrap_content"-->
+<!--						>-->
 
-						<ImageView android:id="@+id/vector"
-							android:src="@drawable/vector"
-							android:contentDescription="vector"
-							 android:layout_marginStart="0dp"
-							android:layout_marginTop="0dp"
-							android:layout_width="61.21dp"
-							android:layout_height="54dp" />
+<!--						<ImageView android:id="@+id/vector"-->
+<!--							android:src="@drawable/vector"-->
+<!--							android:contentDescription="vector"-->
+<!--							 android:layout_marginStart="0dp"-->
+<!--							android:layout_marginTop="0dp"-->
+<!--							android:layout_width="61.21dp"-->
+<!--							android:layout_height="54dp" />-->
 
-						<ImageView android:id="@+id/vector_ek1"
-							android:src="@drawable/vector_ek1"
-							android:contentDescription="vector_ek1"
-							 android:layout_marginStart="7.65dp"
-							android:layout_marginTop="6.75dp"
-							android:layout_width="45.9dp"
-							android:layout_height="42.75dp" />
+<!--						<ImageView android:id="@+id/vector_ek1"-->
+<!--							android:src="@drawable/vector_ek1"-->
+<!--							android:contentDescription="vector_ek1"-->
+<!--							 android:layout_marginStart="7.65dp"-->
+<!--							android:layout_marginTop="6.75dp"-->
+<!--							android:layout_width="45.9dp"-->
+<!--							android:layout_height="42.75dp" />-->
 
-					</RelativeLayout>
+<!--					</RelativeLayout>-->
 
 
 					<RelativeLayout android:id="@+id/inactive"
@@ -125,57 +139,57 @@
 
 						</RelativeLayout>
 
-						<ImageView android:id="@+id/image_1"
-							android:src="@drawable/image_1"
-							android:contentDescription="image_1"
-							 android:layout_marginStart="-29dp"
-							android:layout_marginTop="-21dp"
-							android:layout_width="56dp"
-							android:layout_height="42dp" />
+<!--						<ImageView android:id="@+id/image_1"-->
+<!--							android:src="@drawable/image_1"-->
+<!--							android:contentDescription="image_1"-->
+<!--							 android:layout_marginStart="-29dp"-->
+<!--							android:layout_marginTop="-21dp"-->
+<!--							android:layout_width="56dp"-->
+<!--							android:layout_height="42dp" />-->
 
 					</RelativeLayout>
 
 
-					<RelativeLayout android:id="@+id/frame_ek1"
-						android:layout_marginTop="12dp"
-						android:layout_marginStart="297.14dp"
-						android:layout_width="wrap_content"
-						android:layout_height="wrap_content"
-						>
+<!--					<RelativeLayout android:id="@+id/frame_ek1"-->
+<!--						android:layout_marginTop="12dp"-->
+<!--						android:layout_marginStart="297.14dp"-->
+<!--						android:layout_width="wrap_content"-->
+<!--						android:layout_height="wrap_content"-->
+<!--						>-->
 
-						<ImageView android:id="@+id/vector_ek2"
-							android:src="@drawable/vector_ek2"
-							android:contentDescription="vector_ek2"
-							 android:layout_marginStart="0dp"
-							android:layout_marginTop="0dp"
-							android:layout_width="54.29dp"
-							android:layout_height="43dp" />
+<!--						<ImageView android:id="@+id/vector_ek2"-->
+<!--							android:src="@drawable/vector_ek2"-->
+<!--							android:contentDescription="vector_ek2"-->
+<!--							 android:layout_marginStart="0dp"-->
+<!--							android:layout_marginTop="0dp"-->
+<!--							android:layout_width="54.29dp"-->
+<!--							android:layout_height="43dp" />-->
 
-						<ImageView android:id="@+id/vector_ek3"
-							android:src="@drawable/vector_ek3"
-							android:contentDescription="vector_ek3"
-							 android:layout_marginStart="4.52dp"
-							android:layout_marginTop="5.38dp"
-							android:layout_width="45.25dp"
-							android:layout_height="34.94dp" />
+<!--						<ImageView android:id="@+id/vector_ek3"-->
+<!--							android:src="@drawable/vector_ek3"-->
+<!--							android:contentDescription="vector_ek3"-->
+<!--							 android:layout_marginStart="4.52dp"-->
+<!--							android:layout_marginTop="5.38dp"-->
+<!--							android:layout_width="45.25dp"-->
+<!--							android:layout_height="34.94dp" />-->
 
-					</RelativeLayout>
+<!--					</RelativeLayout>-->
 
-					<ImageView android:id="@+id/image_7"
-						android:src="@drawable/image_7"
-						android:contentDescription="image_7"
-						 android:layout_marginStart="26.65dp"
-						android:layout_marginTop="15dp"
-						android:layout_width="39.49dp"
-						android:layout_height="40dp" />
+<!--					<ImageView android:id="@+id/image_7"-->
+<!--						android:src="@drawable/image_7"-->
+<!--						android:contentDescription="image_7"-->
+<!--						 android:layout_marginStart="26.65dp"-->
+<!--						android:layout_marginTop="15dp"-->
+<!--						android:layout_width="39.49dp"-->
+<!--						android:layout_height="40dp" />-->
 
 				</RelativeLayout>
 
 				<ImageView android:id="@+id/image_2"
 					android:src="@drawable/image_2"
 					android:contentDescription="image_2"
-					 android:layout_marginStart="82dp"
-					android:layout_marginTop="106dp"
+					 android:layout_marginStart="80dp"
+					android:layout_marginTop="80dp"
 					android:layout_width="228dp"
 					android:layout_height="252dp" />
 
@@ -183,7 +197,7 @@
 					android:src="@drawable/image_3"
 					android:contentDescription="image_3"
 					 android:layout_marginStart="88dp"
-					android:layout_marginTop="362dp"
+					android:layout_marginTop="300dp"
 					android:layout_width="215dp"
 					android:layout_height="256dp" />
 
@@ -191,7 +205,7 @@
 					android:src="@drawable/image_4"
 					android:contentDescription="image_4"
 					 android:layout_marginStart="147dp"
-					android:layout_marginTop="622dp"
+					android:layout_marginTop="560dp"
 					android:layout_width="148dp"
 					android:layout_height="116dp" />
 
@@ -199,7 +213,7 @@
 					android:src="@drawable/image_5"
 					android:contentDescription="image_5"
 					 android:layout_marginStart="144dp"
-					android:layout_marginTop="639dp"
+					android:layout_marginTop="570dp"
 					android:layout_width="133dp"
 					android:layout_height="129dp" />
 
@@ -215,18 +229,22 @@
 					android:shadowDy="4"
 					android:textColor="@color/bg_light_color"
 					android:layout_marginLeft="63dp"
-					android:layout_marginTop="0dp"
+					android:layout_marginTop="-22dp"
 					android:layout_width="271dp"
 					android:layout_height="99dp"
 					android:text="@string/saved_outfits_string"
 					 />
 
 				<TextView android:id="@+id/campus_green_sweater_and_jeans_skirt"
-					android:fontFamily="Telex"
-					android:textSize="11sp"
+					android:fontFamily="@font/poppinsmedium"
+					android:textSize="16sp"
 					android:textColor="@color/campus_green_sweater_and_jeans_skirt_color"
+					android:shadowRadius="4"
+					android:shadowColor="#000000"
+					android:shadowDx="0"
+					android:shadowDy="2.5"
 					android:layout_marginLeft="39dp"
-					android:layout_marginTop="65dp"
+					android:layout_marginTop="55dp"
 					android:layout_width="383.5dp"
 					android:layout_height="39.5dp"
 					android:text="@string/campus_green_sweater_and_jeans_skirt_string"
@@ -235,7 +253,7 @@
 
 
 				<RelativeLayout android:id="@+id/____icon__corner_up_left_alt_"
-					android:layout_marginTop="729dp"
+					android:layout_marginTop="658dp"
 					android:layout_marginStart="13.82dp"
 					android:layout_width="wrap_content"
 					android:layout_height="wrap_content"
@@ -243,13 +261,13 @@
 
 
 
-					<ImageView android:id="@+id/vector_ek4"
-						android:src="@drawable/vector_ek4"
-						android:contentDescription="vector_ek4"
-						 android:layout_marginStart="0dp"
-						android:layout_marginTop="0dp"
-						android:layout_width="32.58dp"
-						android:layout_height="18dp" />
+<!--					<ImageView android:id="@+id/vector_ek4"-->
+<!--						android:src="@drawable/vector_ek4"-->
+<!--						android:contentDescription="vector_ek4"-->
+<!--						 android:layout_marginStart="0dp"-->
+<!--						android:layout_marginTop="0dp"-->
+<!--						android:layout_width="32.58dp"-->
+<!--						android:layout_height="18dp" />-->
 
 					<Button
 						android:id="@+id/backbutton"
@@ -265,7 +283,7 @@
 
 
 				<RelativeLayout android:id="@+id/____icon__arrow_circle_right_"
-					android:layout_marginTop="68dp"
+					android:layout_marginTop="55dp"
 					android:layout_marginStart="8.88dp"
 					android:layout_width="wrap_content"
 					android:layout_height="wrap_content"

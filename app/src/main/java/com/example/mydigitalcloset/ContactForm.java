@@ -92,6 +92,17 @@ public class ContactForm extends AppCompatActivity {
 
             setContentView(R.layout.activity_contact_form);
 
+/*
+                Log.i("MyDigitalCloset", "Your form has been successfully submitted");
+                //Shows summited on the bottom of the screen
+                Toast.makeText(getApplicationContext(), "Submitted!", Toast.LENGTH_SHORT)
+                        .show();
+            }
+        });
+    }
+
+//        Button btn = findViewById(R.id.btnAboutUs);
+*/
             Button b1=(Button)findViewById(R.id.btnsubmit);
 
             Button b2=(Button)findViewById(R.id.btn1AboutUs);
