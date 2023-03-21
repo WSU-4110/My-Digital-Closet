@@ -34,7 +34,7 @@ public class HomeFragment extends Fragment {
         binding = FragmentHomeBinding.inflate(inflater, container, false);
         mAuth = FirebaseAuth.getInstance();
 
-        binding.bottomNavigationView.setOnItemSelectedListener(new BottomNavigationView.OnItemSelectedListener() {
+        /*binding.bottomNavigationView.setOnItemSelectedListener(new BottomNavigationView.OnItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
                 switch (item.getItemId()) {
@@ -56,7 +56,7 @@ public class HomeFragment extends Fragment {
                 }
                 return true;
             }
-        });
+        });*/
 
         return binding.getRoot();
     }
