@@ -27,6 +27,7 @@
             android:exported="false">
 
 
+
         </activity>
         
         <activity
@@ -39,8 +40,6 @@
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-
-
             <!-- add intent filter back-->
 
         </activity>
@@ -52,7 +51,9 @@
 
         <activity
             android:name=".OutfitCreationActivity"
-            android:exported="true"
+            android:exported="true">
+
+        </activity>
         
         <activity
             android:name="com.example.mydigitalcloset.clothingUpload"
