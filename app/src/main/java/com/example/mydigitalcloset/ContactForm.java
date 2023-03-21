@@ -42,7 +42,11 @@ public class ContactForm extends AppCompatActivity {
                     startActivity(intentWardrobe);
                     finish();
                     break;*/
+
                /* case R.id.addItem:
+
+               /* case R.id.addItem:
+
                     Intent intentAdd = new Intent(getApplicationContext(), clothingFront.class);
                     startActivity(intentAdd);
                     finish();
@@ -51,7 +55,7 @@ public class ContactForm extends AppCompatActivity {
                     Intent intentContact = new Intent(getApplicationContext(), ContactForm.class);
                     startActivity(intentContact);
                     finish();
-                    break;*/
+                    break; */
 
         binding.bottomNavigationView.setOnItemSelectedListener(new BottomNavigationView.OnItemSelectedListener() {
             @Override
