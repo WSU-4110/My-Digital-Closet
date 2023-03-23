@@ -48,6 +48,7 @@
 
     <!--TOPS-->
     <!--top image area-->
+    <!--TOP IMAGE SIZED CORRECTLY! apply to other images-->
     <ImageView
         android:id="@+id/topImage"
         android:layout_width="139dp"
