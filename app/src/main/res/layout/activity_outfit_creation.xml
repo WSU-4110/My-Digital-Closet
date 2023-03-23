@@ -1,10 +1,9 @@
-
-<androidx.constraintlayout.widget.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#FFE0E7"
     tools:context=".OutfitCreationActivity">
 
     <FrameLayout
@@ -13,7 +12,7 @@
         android:layout_height="0dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"/>
+        app:layout_constraintStart_toStartOf="parent" />
 
 
     <!--nav bar-->
@@ -35,11 +34,11 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
 
-        android:text="Create an Outfit!"
         android:fontFamily="Roboto"
-        android:textStyle="bold"
-
+        android:text="Create an Outfit!"
         android:textSize="26dp"
+
+        android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@+id/frame_layout"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -49,15 +48,16 @@
 
     <!--TOPS-->
     <!--top image area-->
+    <!--TOP IMAGE SIZED CORRECTLY! apply to other images-->
     <ImageView
         android:id="@+id/topImage"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="139dp"
+        android:layout_height="137dp"
         android:layout_marginStart="64dp"
         android:layout_marginEnd="280dp"
         app:layout_constraintBottom_toTopOf="@+id/bottomNavigationView"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.491"
+        app:layout_constraintHorizontal_bias="0.7"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/outfitCreationHeader"
         app:layout_constraintVertical_bias="0.091"
@@ -65,12 +65,17 @@
     <!--get top button-->
     <Button
         android:id="@+id/getTop"
+        style="@style/Widget.AppCompat.Button.Colored"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:background="@color/colorAccent"
         android:text="Get Top Image"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintBottom_toTopOf="@+id/bottomNavigationView"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.7"
         app:layout_constraintStart_toEndOf="@+id/topImage"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/getTopName"
         app:layout_constraintVertical_bias="0.059" />
     <!--top name textbox-->
@@ -83,6 +88,7 @@
         android:text="Top Name"
         app:layout_constraintBottom_toTopOf="@+id/bottomNavigationView"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.8"
         app:layout_constraintStart_toEndOf="@+id/topImage"
         app:layout_constraintTop_toBottomOf="@+id/outfitCreationHeader"
         app:layout_constraintVertical_bias="0.095" />
@@ -105,14 +111,19 @@
     <!-- get bottoms button-->
     <Button
         android:id="@+id/getBottoms"
+        style="@style/Widget.AppCompat.Button.Colored"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:background="@color/colorAccent"
         android:text="Get Bottoms"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintBottom_toTopOf="@+id/bottomNavigationView"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.469"
+        app:layout_constraintHorizontal_bias="0.7"
         app:layout_constraintStart_toEndOf="@+id/bottomsImage"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/outfitCreationHeader"
+
         app:layout_constraintVertical_bias="0.53" />
     <!--bottoms name textbox-->
     <EditText
@@ -147,14 +158,18 @@
     <!--get shoes button-->
     <Button
         android:id="@+id/getShoes"
+        style="@style/Widget.AppCompat.Button.Colored"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="80dp"
+        android:background="@color/colorAccent"
         android:text="Get Shoes"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintBottom_toTopOf="@+id/bottomNavigationView"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toEndOf="@+id/shoesImage"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/outfitCreationHeader"
         app:layout_constraintVertical_bias="0.863" />
     <!--shoes name text box-->
@@ -167,7 +182,7 @@
         android:text="Shoes Name"
         app:layout_constraintBottom_toTopOf="@+id/bottomNavigationView"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.505"
+        app:layout_constraintHorizontal_bias="0.85"
         app:layout_constraintStart_toEndOf="@+id/shoesImage"
         app:layout_constraintTop_toBottomOf="@+id/outfitCreationHeader"
         app:layout_constraintVertical_bias="0.76" />
