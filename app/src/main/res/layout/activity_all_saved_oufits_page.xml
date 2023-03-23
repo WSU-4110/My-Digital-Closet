@@ -1,3 +1,27 @@
+<!--<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto">-->
+    <!--
+    /*
+     *	This content is generated from the API File Info.
+     *	(Alt+Shift+Ctrl+I).
+     *
+     *	@desc
+     *	@file 		iphone_14___1
+     *	@date 		Tuesday 21st of February 2023 07:35:51 PM
+     *	@title 		Page 2
+     *	@author
+     *	@keywords
+     *	@generator 	Export Kit v1.3.figma
+     *
+     */
+    -->
+
+
+
+
 <!--<HorizontalScrollView -->
 <!--    xmlns:app="http://schemas.android.com/apk/res-auto">-->
 <!--
@@ -248,10 +272,9 @@
 
 
 
-
         </RelativeLayout>
 
     </RelativeLayout>
 
 </ScrollView>
-    <!--</HorizontalScrollView>-->
+
