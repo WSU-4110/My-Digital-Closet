@@ -3,6 +3,7 @@ package com.example.mydigitalcloset;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
@@ -19,8 +20,31 @@ import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 public class ContactForm extends AppCompatActivity {
 
-    ActivityContactFormBinding binding;
-    Context context;
+    //Start of Singleton pattern
+    @SuppressLint("StaticFieldLeak")
+    private static ContactForm instance = null;
+
+    private ActivityContactFormBinding binding;
+    private Context context;
+
+    public ContactForm() {}
+
+    public static ContactForm getInstance() {
+        if (instance == null) {
+            instance = new ContactForm();
+        }
+        return instance;
+    }
+
+    public ActivityContactFormBinding getBinding() {
+        return binding;
+    }
+
+    public Context getContext() {
+        return context;
+    }
+    //End of Singleton pattern
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         context = this;
@@ -142,4 +166,5 @@ public class ContactForm extends AppCompatActivity {
         Intent intent1 = new Intent(this, AboutUsPageActivity.class);
         startActivity(intent1);
     }
+
 }
