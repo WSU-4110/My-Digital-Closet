@@ -30,7 +30,7 @@ import org.jetbrains.annotations.Nullable;
 import java.io.File;
 import java.io.IOException;
 
-public class OutfitCreationActivity extends AppCompatActivity {
+public abstract class OutfitCreationActivity extends AppCompatActivity implements addPhoto{
 
     ActivityOutfitCreationBinding binding;
     StorageReference storageReference;
@@ -82,6 +82,7 @@ public class OutfitCreationActivity extends AppCompatActivity {
         });
         //end nav bar
 
+        /*moved to diff class foer assignment
         //get top image from firebase:
         binding.getTop.setOnClickListener(new View.OnClickListener(){
             @Override
@@ -126,9 +127,11 @@ public class OutfitCreationActivity extends AppCompatActivity {
                 }
             }
         });
-        //end top section
+        //end top section*/
 
+        /*
         //get bottoms image from firebase:
+
         binding.getBottoms.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v){
@@ -139,7 +142,7 @@ public class OutfitCreationActivity extends AppCompatActivity {
                 //use bottoms name entered by user to get top from database
                 String bottomsID = binding.getBottomsName.getText().toString();
                 storageReference = FirebaseStorage.getInstance().getReference("images/bottoms/"+bottomsID+".png");
-                //create local file for top image
+                //create local file for bottom image
                 try{
                     File bottomsfile = File.createTempFile("tempfile_bottoms", ".png");
                     storageReference.getFile(bottomsfile).addOnSuccessListener(new OnSuccessListener<FileDownloadTask.TaskSnapshot>() {
@@ -172,9 +175,10 @@ public class OutfitCreationActivity extends AppCompatActivity {
                 }
             }
         });
-        //end bottoms section
+        //end bottoms section*/
 
         //get shoes image from firebase:
+        /*
         binding.getShoes.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v){
@@ -216,7 +220,7 @@ public class OutfitCreationActivity extends AppCompatActivity {
                     e.printStackTrace();
                 }
             }
-        });
+        });*/
         //end shoes section
 
     }
