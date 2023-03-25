@@ -73,12 +73,12 @@ public class clothingFront extends AppCompatActivity {
         });
 
         //go to all clothing items page
-       /* Button seeAll = findViewById(R.id.seeAll);
-        addPage.setOnClickListener(view -> {
+        Button seeAll = findViewById(R.id.seeAll);
+        seeAll.setOnClickListener(view -> {
             Intent intent=new Intent(clothingFront.this,clothingSeeAll.class);
             startActivity(intent);
         });
-*/
+
 
 
     }//end of on create
