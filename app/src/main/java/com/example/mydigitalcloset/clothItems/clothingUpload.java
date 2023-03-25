@@ -20,6 +20,8 @@ public class clothingUpload extends AppCompatActivity {
 
     private clothingUpload(){}
 
+    public DatabaseReference mDatabase;
+
     public static clothingUpload getInstance() {
         if (INSTANCE == null) {
             synchronized (clothingUpload.class) {
@@ -30,7 +32,7 @@ public class clothingUpload extends AppCompatActivity {
         }
         return INSTANCE;
     }                                                   //End of singleton design pattern
-    private DatabaseReference mDatabase;
+
     ProgressDialog progressDialog;
     ActivityClothingUploadBinding binding;
     StorageReference storageReference;
