@@ -23,13 +23,25 @@ public class Login extends AppCompatActivity {
     private Button buttonLogin;
     private TextView textViewSignUp;
     private FirebaseAuth mAuth;
+    private static Login instance;
+
+    // Private constructor to prevent the creation of new instances
+    private Login() {
+        mAuth = FirebaseAuth.getInstance();
+    }
+
+    // Static method to get the single instance of Login class
+    public static Login getInstance() {
+        if (instance == null) {
+            instance = new Login();
+        }
+        return instance;
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
-
-        mAuth = FirebaseAuth.getInstance();
 
         textInputEditTextUsername = findViewById(R.id.username);
         textInputEditTextPassword = findViewById(R.id.password);
@@ -45,6 +57,7 @@ public class Login extends AppCompatActivity {
                 finish();
             }
         });
+
         buttonLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
