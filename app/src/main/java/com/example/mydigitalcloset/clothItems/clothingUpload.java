@@ -15,6 +15,21 @@ import android.view.View;
 import android.widget.Button;
 
 public class clothingUpload extends AppCompatActivity {
+
+    private static volatile clothingUpload INSTANCE = null;//Start of singleton design pattern
+
+    private clothingUpload(){}
+
+    public static clothingUpload getInstance() {
+        if (INSTANCE == null) {
+            synchronized (clothingUpload.class) {
+                if (INSTANCE == null) {
+                    INSTANCE = new clothingUpload();
+                }
+            }
+        }
+        return INSTANCE;
+    }                                                   //End of singleton design pattern
     private DatabaseReference mDatabase;
     ProgressDialog progressDialog;
     ActivityClothingUploadBinding binding;
@@ -26,66 +41,6 @@ public class clothingUpload extends AppCompatActivity {
 
         // Get a reference to the "clothing" node in your Firebase Realtime Database
         mDatabase = FirebaseDatabase.getInstance().getReference().child("clothing");
-
-        Button topsButton = findViewById(R.id.addTops);
-        topsButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                // Create a new clothing item under the "clothing/tops" node in your database
-                String clothingId = mDatabase.child("tops").push().getKey();
-                mDatabase.child("tops").child(clothingId).setValue("new item");
-            }
-        });
-
-        Button bottomsButton = findViewById(R.id.addBottoms);
-        bottomsButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                // Create a new clothing item under the "clothing/bottoms" node in your database
-                String clothingId = mDatabase.child("bottoms").push().getKey();
-                mDatabase.child("bottoms").child(clothingId).setValue("new item");
-            }
-        });
-
-        Button shoesButton = findViewById(R.id.addShoes);
-        shoesButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                // Create a new clothing item under the "clothing/shoes" node in your database
-                String clothingId = mDatabase.child("shoes").push().getKey();
-                mDatabase.child("shoes").child(clothingId).setValue("new item");
-            }
-        });
-
-        Button socksButton = findViewById(R.id.addSocks);
-        socksButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                // Create a new clothing item under the "clothing/socks" node in your database
-                String clothingId = mDatabase.child("socks").push().getKey();
-                mDatabase.child("socks").child(clothingId).setValue("new item");
-            }
-        });
-
-        Button headwearButton = findViewById(R.id.addHeadwear);
-        headwearButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                // Create a new clothing item under the "clothing/headwear" node in your database
-                String clothingId = mDatabase.child("headwear").push().getKey();
-                mDatabase.child("headwear").child(clothingId).setValue("new item");
-            }
-        });
-
-        Button otherButton = findViewById(R.id.addOther);
-        otherButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                // Create a new clothing item under the "clothing/other" node in your database
-                String clothingId = mDatabase.child("other").push().getKey();
-                mDatabase.child("other").child(clothingId).setValue("new item");
-            }
-        });
         //buttons!
 
         //Back to clothing front page
