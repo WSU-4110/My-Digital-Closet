@@ -4,31 +4,39 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Login">
+    tools:context=".Login"
+    android:background="#FFE0E7">
 
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:fontFamily="@font/poppinsbold"
-        android:gravity="center"
+        android:fontFamily="Roboto"
+        android:textStyle="bold"
         android:text="@string/login"
-        android:textColor="@color/colorAccent"
-        android:textSize="30sp"
         app:layout_constraintBottom_toTopOf="@+id/textInputLayout4"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.646" />
+        app:layout_constraintVertical_bias="0.646"
+        android:layout_gravity="center_horizontal|center"
+        android:gravity="center"
+        android:textSize="36sp"
+        android:shadowRadius="4"
+        android:shadowColor="#000000"
+        android:shadowDx="0"
+        android:shadowDy="4"
+        android:textColor="@color/bg_light_color"
+        />
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/textInputLayout4"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="264dp"
-        android:hint="@string/username"
         android:layout_marginLeft="30dp"
+        android:layout_marginTop="264dp"
         android:layout_marginRight="30dp"
+        android:hint="@string/email"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
@@ -37,9 +45,9 @@
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/username"
             android:layout_width="match_parent"
-            android:fontFamily="@font/poppinsmedium"
+            android:layout_height="wrap_content"
             android:drawableRight="@drawable/ic_username"
-            android:layout_height="wrap_content" />
+            android:fontFamily="@font/poppinsmedium" />
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout

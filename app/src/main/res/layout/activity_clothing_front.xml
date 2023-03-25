@@ -4,7 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.example.mydigitalcloset.clothingFront">
+    tools:context="com.example.mydigitalcloset.clothingFront"
+    android:background="#FFE0E7">
 
     <ImageButton
         android:id="@+id/RecentUp1"

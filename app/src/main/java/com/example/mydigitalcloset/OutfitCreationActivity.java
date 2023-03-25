@@ -40,7 +40,7 @@ public class OutfitCreationActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        context = this;
+        //context = this;
         super.onCreate(savedInstanceState);
 
         // Initialize Firebase Auth
