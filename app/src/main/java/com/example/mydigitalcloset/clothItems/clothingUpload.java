@@ -14,24 +14,30 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
-public class clothingUpload extends AppCompatActivity {
 
-    private static volatile clothingUpload INSTANCE = null;//Start of singleton design pattern
 
-    private clothingUpload(){}
+class addCloth {
+    private static volatile addCloth INSTANCE = null;//Start of singleton design pattern
 
-    public DatabaseReference mDatabase;
+    private addCloth() {
+    }
 
-    public static clothingUpload getInstance() {
+    public static DatabaseReference mainDatabase;
+
+    public static addCloth getInstance() {
         if (INSTANCE == null) {
-            synchronized (clothingUpload.class) {
+            synchronized (addCloth.class) {
                 if (INSTANCE == null) {
-                    INSTANCE = new clothingUpload();
+                    INSTANCE = new addCloth();
                 }
             }
         }
         return INSTANCE;
-    }                                                   //End of singleton design pattern
+    }
+}//End of singleton design pattern
+public class clothingUpload extends AppCompatActivity {
+
+    DatabaseReference mDatabase = addCloth.mainDatabase;
 
     ProgressDialog progressDialog;
     ActivityClothingUploadBinding binding;
