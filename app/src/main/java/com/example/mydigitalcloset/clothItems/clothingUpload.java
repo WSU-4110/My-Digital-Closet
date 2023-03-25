@@ -1,11 +1,11 @@
-package com.example.mydigitalcloset;
+package com.example.mydigitalcloset.clothItems;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.mydigitalcloset.R;
 import com.example.mydigitalcloset.databinding.ActivityClothingUploadBinding;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 
 import android.app.ProgressDialog;

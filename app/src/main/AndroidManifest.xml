@@ -47,11 +47,11 @@
             android:theme="@style/Theme.Design.Light.NoActionBar"></activity>
 
         <activity
-            android:name="com.example.mydigitalcloset.clothingUpload"
+            android:name="com.example.mydigitalcloset.clothItems.clothingUpload"
             android:exported="false"></activity>
 
         <activity
-            android:name="com.example.mydigitalcloset.clothingFront"
+            android:name="com.example.mydigitalcloset.clothItems.clothingFront"
             android:exported="true"></activity>
 
 
@@ -69,11 +69,6 @@
         </activity>
 
         <activity
-            android:name=".clothingUpload"
-            android:exported="false">
-        </activity>
-
-        <activity
             android:name=".closetPage.AllSavedOufitsPage"
             android:configChanges="orientation|keyboardHidden|screenSize"
             android:exported="true">
@@ -81,8 +76,17 @@
        </activity>
 
         <activity
-            android:name=".clothingFront"
-            android:exported="true"></activity>
+            android:name=".clothItems.clothingFront"
+            android:exported="true" />
+
+        <activity
+            android:name=".clothItems.clothingUpload"
+            android:exported="false">
+        </activity>
+
+        <activity
+            android:name=".clothItems.clothingSeeAll"
+            android:exported="true" />
 
        
     </application>
