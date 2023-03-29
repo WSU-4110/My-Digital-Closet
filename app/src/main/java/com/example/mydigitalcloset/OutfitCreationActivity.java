@@ -51,7 +51,7 @@ public class OutfitCreationActivity extends AppCompatActivity {
         setContentView(binding.getRoot());
 
         //nav bar:
-        binding.bottomNavigationView.setOnItemSelectedListener(new BottomNavigationView.OnItemSelectedListener() {
+        /*binding.bottomNavigationView.setOnItemSelectedListener(new BottomNavigationView.OnItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
                 switch (item.getItemId()) {
@@ -75,11 +75,11 @@ public class OutfitCreationActivity extends AppCompatActivity {
                         break;
                     /*case R.id.settings:
                         startActivity(new Intent(OutfitCreationActivity.this, SETTINGS.class));
-                        break;*/
+                        break;
                 }
                 return true;
             }
-        });
+        })*/
         //end nav bar
 
         //get top image from firebase:
@@ -219,7 +219,48 @@ public class OutfitCreationActivity extends AppCompatActivity {
         });
         //end shoes section
 
-    }
+        //navigation buttons
+        binding.homeButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getApplicationContext(), OutfitCreationActivity.class);
+                startActivity(intent);
+                finish();
+            }
+        });
+        binding.wardrobeButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getApplicationContext(), AllSavedOufitsPage.class);
+                startActivity(intent);
+                finish();
+            }
+        });
+        binding.addItemButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getApplicationContext(), clothingFront.class);
+                startActivity(intent);
+                finish();
+            }
+        });
+        binding.contactButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getApplicationContext(), AboutUsPageActivity.class); //change depending on romans pages
+                startActivity(intent);
+                finish();
+            }
+        });
+        /*binding.settingsButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getApplicationContext(), ?.class);
+                startActivity(intent);
+                finish();
+            }
+        });*/
+    } //end on create
 
     @Override
     public void onStart() {
