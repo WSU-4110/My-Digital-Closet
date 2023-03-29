@@ -236,6 +236,15 @@ public class OutfitCreationActivity extends AppCompatActivity {
                 finish();
             }
         });
+        binding.addItemButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getApplicationContext(), clothingFront.class);
+                startActivity(intent);
+                finish();
+            }
+        });
+
     } //end on create
 
     @Override
