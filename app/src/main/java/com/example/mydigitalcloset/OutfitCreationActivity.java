@@ -244,7 +244,14 @@ public class OutfitCreationActivity extends AppCompatActivity {
                 finish();
             }
         });
-
+        binding.contactButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getApplicationContext(), AboutUsPageActivity.class); //change depending on romans pages
+                startActivity(intent);
+                finish();
+            }
+        });
     } //end on create
 
     @Override
