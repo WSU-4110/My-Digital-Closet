@@ -228,10 +228,15 @@ public class OutfitCreationActivity extends AppCompatActivity {
                 finish();
             }
         });
-
-
-
-    }
+        binding.wardrobeButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getApplicationContext(), AllSavedOufitsPage.class);
+                startActivity(intent);
+                finish();
+            }
+        });
+    } //end on create
 
     @Override
     public void onStart() {
