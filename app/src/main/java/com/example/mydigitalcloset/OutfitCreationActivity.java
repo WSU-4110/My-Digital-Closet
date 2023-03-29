@@ -51,7 +51,7 @@ public class OutfitCreationActivity extends AppCompatActivity {
         setContentView(binding.getRoot());
 
         //nav bar:
-        binding.bottomNavigationView.setOnItemSelectedListener(new BottomNavigationView.OnItemSelectedListener() {
+        /*binding.bottomNavigationView.setOnItemSelectedListener(new BottomNavigationView.OnItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
                 switch (item.getItemId()) {
@@ -75,11 +75,11 @@ public class OutfitCreationActivity extends AppCompatActivity {
                         break;
                     /*case R.id.settings:
                         startActivity(new Intent(OutfitCreationActivity.this, SETTINGS.class));
-                        break;*/
+                        break;
                 }
                 return true;
             }
-        });
+        })*/
         //end nav bar
 
         //get top image from firebase:
