@@ -219,6 +219,18 @@ public class OutfitCreationActivity extends AppCompatActivity {
         });
         //end shoes section
 
+        //navigation buttons
+        binding.homeButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getApplicationContext(), OutfitCreationActivity.class);
+                startActivity(intent);
+                finish();
+            }
+        });
+
+
+
     }
 
     @Override
