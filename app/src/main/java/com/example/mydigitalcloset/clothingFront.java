@@ -27,7 +27,7 @@ public class clothingFront extends AppCompatActivity {
         //NAV BAR STUFF:
         binding = ActivityClothingFrontBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
-        binding.bottomNavigationView.setOnItemSelectedListener(new BottomNavigationView.OnItemSelectedListener() {
+        /*binding.bottomNavigationView.setOnItemSelectedListener(new BottomNavigationView.OnItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
                 switch (item.getItemId()) {
@@ -48,14 +48,14 @@ public class clothingFront extends AppCompatActivity {
                         startActivity(intentWardrobe);
                         finish();
                         break;
-                    /*case R.id.settings:
+                    case R.id.settings:
                         startActivity(new Intent(OutfitCreationActivity.this, SETTINGS.class));
-                        break;*/
+                        break;
                 }
                 return true;
             }
         });
-        //end nav bar
+        //end nav bar*/
 
         setContentView(R.layout.activity_clothing_front);
         //this moves to the page that adds clothing items
