@@ -11,12 +11,18 @@ import android.widget.Button;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
-public class AboutUsPageActivity extends AppCompatActivity {
 
+import com.example.mydigitalcloset.databinding.ActivityAboutusPageBinding;
+import com.example.mydigitalcloset.databinding.ActivityOutfitCreationBinding;
+
+public class AboutUsPageActivity extends AppCompatActivity {
+    ActivityAboutusPageBinding binding;
 
   @Override protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_aboutus_page);
+      // Inflate the layout
+      binding = ActivityAboutusPageBinding.inflate(getLayoutInflater());
+      setContentView(binding.getRoot());
     }
 
 }
