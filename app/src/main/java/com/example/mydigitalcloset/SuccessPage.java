@@ -7,14 +7,18 @@ import android.os.Bundle;
 import android.view.View;
 
 import com.example.mydigitalcloset.closetPage.AllSavedOufitsPage;
+import com.example.mydigitalcloset.databinding.ActivityOutfitCreationBinding;
+import com.example.mydigitalcloset.databinding.ActivitySuccessPageBinding;
 
 public class SuccessPage extends AppCompatActivity {
+    ActivitySuccessPageBinding binding;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_success_page);
-
+        // Inflate the layout
+        binding = ActivitySuccessPageBinding.inflate(getLayoutInflater());
+        setContentView(binding.getRoot());
         //navigation buttons
         binding.homeButton.setOnClickListener(new View.OnClickListener() {
             @Override
