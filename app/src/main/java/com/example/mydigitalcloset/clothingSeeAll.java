@@ -1,8 +1,7 @@
-package com.example.mydigitalcloset.clothItems;
+package com.example.mydigitalcloset;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.example.mydigitalcloset.R;
 import com.example.mydigitalcloset.databinding.ActivityClothingSeeAllBinding;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
@@ -14,11 +13,17 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
+
 public class clothingSeeAll extends AppCompatActivity {
+
+
     private DatabaseReference mDatabase;
     ProgressDialog progressDialog;
     ActivityClothingSeeAllBinding binding;
     StorageReference storageReference;
+
+
+    //end of singleton design pattern
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -28,30 +33,24 @@ public class clothingSeeAll extends AppCompatActivity {
         mDatabase = FirebaseDatabase.getInstance().getReference().child("clothing");
 
         Button topsButton = findViewById(R.id.seeTops);
-        topsButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                // Create a new clothing item under the "clothing/tops" node in your database
-                String clothingId = mDatabase.child("tops").push().getKey();
-                mDatabase.child("tops").child(clothingId).setValue("new item");
-            }
+        topsButton.setOnClickListener(v -> {
+            // Find an existing clothing item from the"clothing/tops" node in your database
+            String clothingId = mDatabase.child("tops").push().getKey();
+            mDatabase.child("tops").child(clothingId).setValue("new item");
         });
 
         Button bottomsButton = findViewById(R.id.seeBottoms);
-        bottomsButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                // Create a new clothing item under the "clothing/bottoms" node in your database
-                String clothingId = mDatabase.child("bottoms").push().getKey();
-                mDatabase.child("bottoms").child(clothingId).setValue("new item");
-            }
+        bottomsButton.setOnClickListener(v -> {
+            // Find an existing clothing item from the"clothing/bottoms" node in your database
+            String clothingId = mDatabase.child("bottoms").push().getKey();
+            mDatabase.child("bottoms").child(clothingId).setValue("new item");
         });
 
         Button shoesButton = findViewById(R.id.seeShoes);
         shoesButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                // Create a new clothing item under the "clothing/shoes" node in your database
+                // Find an existing clothing item from the"clothing/shoes" node in your database
                 String clothingId = mDatabase.child("shoes").push().getKey();
                 mDatabase.child("shoes").child(clothingId).setValue("new item");
             }
@@ -61,7 +60,7 @@ public class clothingSeeAll extends AppCompatActivity {
         socksButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                // Create a new clothing item under the "clothing/socks" node in your database
+                // Find an existing clothing item from the"clothing/socks" node in your database
                 String clothingId = mDatabase.child("socks").push().getKey();
                 mDatabase.child("socks").child(clothingId).setValue("new item");
             }
@@ -71,7 +70,7 @@ public class clothingSeeAll extends AppCompatActivity {
         headwearButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                // Create a new clothing item under the "clothing/headwear" node in your database
+                // Find an existing clothing item from the"clothing/headwear" node in your database
                 String clothingId = mDatabase.child("headwear").push().getKey();
                 mDatabase.child("headwear").child(clothingId).setValue("new item");
             }
@@ -81,7 +80,7 @@ public class clothingSeeAll extends AppCompatActivity {
         otherButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                // Create a new clothing item under the "clothing/other" node in your database
+                // Find an existing clothing item from the"clothing/other" node in your database
                 String clothingId = mDatabase.child("other").push().getKey();
                 mDatabase.child("other").child(clothingId).setValue("new item");
             }
@@ -91,7 +90,7 @@ public class clothingSeeAll extends AppCompatActivity {
         //Back to clothing front page
         Button b2c = findViewById(R.id.backToClothUp);
         b2c.setOnClickListener(view -> {
-            Intent intent=new Intent(clothingSeeAll.this,clothingFront.class);
+            Intent intent=new Intent(clothingSeeAll.this, clothingFront.class);
             startActivity(intent);
         });
         

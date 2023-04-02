@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.example.mydigitalcloset.clothItems.clothingSeeAll"
+    tools:context="com.example.mydigitalcloset.clothingSeeAll"
     android:background="#FFE0E7">
 
     <Button

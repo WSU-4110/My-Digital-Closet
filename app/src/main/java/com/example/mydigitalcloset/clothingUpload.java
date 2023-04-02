@@ -1,8 +1,7 @@
-package com.example.mydigitalcloset.clothItems;
+package com.example.mydigitalcloset;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.example.mydigitalcloset.R;
 import com.example.mydigitalcloset.databinding.ActivityClothingUploadBinding;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
@@ -91,7 +90,7 @@ public class clothingUpload extends AppCompatActivity {
         //Back to clothing front page
         Button b2c = findViewById(R.id.backToClothUp);
         b2c.setOnClickListener(view -> {
-            Intent intent=new Intent(clothingUpload.this,clothingFront.class);
+            Intent intent=new Intent(clothingUpload.this, clothingFront.class);
             startActivity(intent);
         });
 

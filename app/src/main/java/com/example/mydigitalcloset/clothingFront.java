@@ -1,4 +1,4 @@
-package com.example.mydigitalcloset.clothItems;
+package com.example.mydigitalcloset;
 
 import android.app.ProgressDialog;
 import android.content.Context;
@@ -10,12 +10,9 @@ import android.widget.Button;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.example.mydigitalcloset.ContactForm;
-import com.example.mydigitalcloset.OutfitCreationActivity;
-import com.example.mydigitalcloset.R;
 import com.example.mydigitalcloset.closetPage.AllSavedOufitsPage;
-import com.example.mydigitalcloset.databinding.ActivityClothingFrontBinding;
 //import com.example.mydigitalcloset.databinding.ActivityOutfitCreationBinding;
+import com.example.mydigitalcloset.databinding.ActivityClothingFrontBinding;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.firebase.storage.StorageReference;
 
@@ -65,17 +62,19 @@ public class clothingFront extends AppCompatActivity {
 
         //buttons!
 
+
+
         //go to clothing upload page
         Button addPage = findViewById(R.id.addItem);
         addPage.setOnClickListener(view -> {     //from THIS page to      THIS page
-            Intent intent=new Intent(clothingFront.this,clothingUpload.class);
+            Intent intent = new Intent(clothingFront.this, clothingUpload.class);
             startActivity(intent);
         });
 
         //go to all clothing items page
         Button seeAll = findViewById(R.id.seeAll);
         seeAll.setOnClickListener(view -> {
-            Intent intent=new Intent(clothingFront.this,clothingSeeAll.class);
+            Intent intent=new Intent(clothingFront.this, clothingSeeAll.class);
             startActivity(intent);
         });
 
