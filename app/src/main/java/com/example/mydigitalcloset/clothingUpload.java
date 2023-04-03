@@ -2,12 +2,15 @@ package com.example.mydigitalcloset;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+
+import com.example.mydigitalcloset.closetPage.AllSavedOufitsPage;
 import com.example.mydigitalcloset.databinding.ActivityClothingUploadBinding;
+import com.example.mydigitalcloset.databinding.ActivityOutfitCreationBinding;
+
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.storage.StorageReference;
 
-import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -15,13 +18,17 @@ import android.widget.Button;
 
 public class clothingUpload extends AppCompatActivity {
     private DatabaseReference mDatabase;
+
     ProgressDialog progressDialog;
     ActivityClothingUploadBinding binding;
     StorageReference storageReference;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_clothing_upload);
+        // Inflate the layout
+        binding = ActivityClothingUploadBinding.inflate(getLayoutInflater());
+        setContentView(binding.getRoot());
 
         // Get a reference to the "clothing" node in your Firebase Realtime Database
         mDatabase = FirebaseDatabase.getInstance().getReference().child("clothing");
@@ -85,6 +92,7 @@ public class clothingUpload extends AppCompatActivity {
                 mDatabase.child("other").child(clothingId).setValue("new item");
             }
         });
+
         //buttons!
 
         //Back to clothing front page
@@ -115,5 +123,50 @@ public class clothingUpload extends AppCompatActivity {
 
     }
 
+    }//end oncreate
+
+
+        //navigation buttons
+        binding.homeButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getApplicationContext(), OutfitCreationActivity.class);
+                startActivity(intent);
+                finish();
+            }
+        });
+        binding.wardrobeButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getApplicationContext(), AllSavedOufitsPage.class);
+                startActivity(intent);
+                finish();
+            }
+        });
+        binding.addItemButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getApplicationContext(), clothingFront.class);
+                startActivity(intent);
+                finish();
+            }
+        });
+        binding.contactButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getApplicationContext(), AboutUsPageActivity.class); //change depending on romans pages
+                startActivity(intent);
+                finish();
+            }
+        });
+        /*binding.settingsButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getApplicationContext(), ?.class);
+                startActivity(intent);
+                finish();
+            }
+        });*/
+        //end nav buttons
 
 }

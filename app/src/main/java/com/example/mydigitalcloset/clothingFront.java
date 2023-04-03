@@ -5,6 +5,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.Button;
 
 import androidx.annotation.NonNull;
@@ -30,7 +31,7 @@ public class clothingFront extends AppCompatActivity {
         //NAV BAR STUFF:
         binding = ActivityClothingFrontBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
-        binding.bottomNavigationView.setOnItemSelectedListener(new BottomNavigationView.OnItemSelectedListener() {
+        /*binding.bottomNavigationView.setOnItemSelectedListener(new BottomNavigationView.OnItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
                 switch (item.getItemId()) {
@@ -51,14 +52,14 @@ public class clothingFront extends AppCompatActivity {
                         startActivity(intentWardrobe);
                         finish();
                         break;
-                    /*case R.id.settings:
+                    case R.id.settings:
                         startActivity(new Intent(OutfitCreationActivity.this, SETTINGS.class));
-                        break;*/
+                        break;
                 }
                 return true;
             }
         });
-        //end nav bar
+        //end nav bar*/
 
         //buttons!
 
@@ -77,8 +78,48 @@ public class clothingFront extends AppCompatActivity {
             Intent intent=new Intent(clothingFront.this, clothingSeeAll.class);
             startActivity(intent);
         });
+   }//end of on create
 
-
-
-    }//end of on create
+        //navigation buttons
+        binding.homeButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getApplicationContext(), OutfitCreationActivity.class);
+                startActivity(intent);
+                finish();
+            }
+        });
+        binding.wardrobeButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getApplicationContext(), AllSavedOufitsPage.class);
+                startActivity(intent);
+                finish();
+            }
+        });
+        binding.addItemButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getApplicationContext(), clothingFront.class);
+                startActivity(intent);
+                finish();
+            }
+        });
+        binding.contactButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getApplicationContext(), AboutUsPageActivity.class); //change depending on romans pages
+                startActivity(intent);
+                finish();
+            }
+        });
+        /*binding.settingsButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getApplicationContext(), ?.class);
+                startActivity(intent);
+                finish();
+            }
+        });*/
+        //end nav buttons
 }
