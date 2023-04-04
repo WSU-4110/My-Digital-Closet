@@ -16,7 +16,6 @@
         android:layout_marginBottom="228dp"
         android:gravity="center"
         android:text="About Us"
-
         android:textSize="30sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@+id/textView9"
