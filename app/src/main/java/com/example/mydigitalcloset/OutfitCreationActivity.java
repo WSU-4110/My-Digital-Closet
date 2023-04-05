@@ -38,6 +38,16 @@ public class OutfitCreationActivity extends AppCompatActivity {
     FirebaseAuth mAuth;
     Context context;
 
+    //clothing IDs
+    String topID = "";
+    String bottomsID = "";
+    String shoesID = "";
+    String headwearID = "";
+    String socksID = "";
+    String otherID = "";
+    String outfitName = "";
+    String outfit[] = new String[7];    //[0]: name [1]: top [2]: bottoms [3]: shoes [4]: headwear [5]: socks [6]: other
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         //context = this;
@@ -91,7 +101,7 @@ public class OutfitCreationActivity extends AppCompatActivity {
                 progressDialog.setCancelable(false);
                 progressDialog.show();
                 //use top name entered by user to get top from database
-                String topID = binding.getTopName.getText().toString();
+                topID = binding.getTopName.getText().toString();
                 storageReference = FirebaseStorage.getInstance().getReference("images/tops/"+topID+".png");
                 //create local file for top image
                 try{
@@ -137,7 +147,7 @@ public class OutfitCreationActivity extends AppCompatActivity {
                 progressDialog.setCancelable(false);
                 progressDialog.show();
                 //use bottoms name entered by user to get top from database
-                String bottomsID = binding.getBottomsName.getText().toString();
+                bottomsID = binding.getBottomsName.getText().toString();
                 storageReference = FirebaseStorage.getInstance().getReference("images/bottoms/"+bottomsID+".png");
                 //create local file for top image
                 try{
@@ -183,7 +193,7 @@ public class OutfitCreationActivity extends AppCompatActivity {
                 progressDialog.setCancelable(false);
                 progressDialog.show();
                 //use shoes name entered by user to get shoes from database
-                String shoesID = binding.getShoesName.getText().toString();
+                shoesID = binding.getShoesName.getText().toString();
                 storageReference = FirebaseStorage.getInstance().getReference("images/shoes/"+shoesID+".png");
                 //create local file for top image
                 try{
