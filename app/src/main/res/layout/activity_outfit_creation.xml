@@ -32,6 +32,10 @@
     </com.google.android.material.bottomnavigation.BottomNavigationView>-->
 
     <!--header-->
+
+
+    <!--TOPS-->
+    <!--top image area-->
     <TextView
         android:id="@+id/outfitCreationHeader"
         android:layout_width="wrap_content"
@@ -43,11 +47,9 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.049" />
+        app:layout_constraintVertical_bias="0.034" />
 
-
-    <!--TOPS-->
-    <!--top image area-->
+    <!--get top button-->
     <ImageView
         android:id="@+id/topImage"
         android:layout_width="wrap_content"
@@ -59,9 +61,9 @@
         app:layout_constraintHorizontal_bias="0.491"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/outfitCreationHeader"
-        app:layout_constraintVertical_bias="0.091"
+        app:layout_constraintVertical_bias="0.121"
         tools:srcCompat="@tools:sample/avatars" />
-    <!--get top button-->
+
     <Button
         android:id="@+id/getTop"
         android:layout_width="wrap_content"
@@ -73,6 +75,9 @@
         app:layout_constraintTop_toBottomOf="@+id/getTopName"
         app:layout_constraintVertical_bias="0.059" />
     <!--top name textbox-->
+    <!--end top area-->
+    <!--BOTTOMS-->
+    <!--bottoms image-->
     <EditText
         android:id="@+id/getTopName"
         android:layout_width="164dp"
@@ -82,12 +87,11 @@
         android:text="Top Name"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.505"
         app:layout_constraintStart_toEndOf="@+id/topImage"
         app:layout_constraintTop_toBottomOf="@+id/outfitCreationHeader"
-        app:layout_constraintVertical_bias="0.095" />
-    <!--end top area-->
-    <!--BOTTOMS-->
-    <!--bottoms image-->
+        app:layout_constraintVertical_bias="0.122" />
+
     <ImageView
         android:id="@+id/bottomsImage"
         android:layout_width="wrap_content"
@@ -232,6 +236,18 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.981"
         app:srcCompat="@drawable/ic_settings" />
+
+    <Button
+        android:id="@+id/saveButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="save outfit"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/outfitCreationHeader"
+        app:layout_constraintVertical_bias="0.018" />
     <!--end nav buttons-->
 
 
