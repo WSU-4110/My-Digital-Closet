@@ -213,7 +213,7 @@ public class OutfitCreationActivity extends AppCompatActivity {
                 .setTitle("Add Top")
                 .setMessage("Enter name of top:")
                 .setView(topIDtemp)
-                .setPositiveButton("Save", new DialogInterface.OnClickListener() {
+                .setPositiveButton("Add", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
                         topID = String.valueOf(topIDtemp.getText());
@@ -268,7 +268,7 @@ public class OutfitCreationActivity extends AppCompatActivity {
                 .setTitle("Add Bottoms")
                 .setMessage("Enter name of bottoms:")
                 .setView(bottomsIDtemp)
-                .setPositiveButton("Save", new DialogInterface.OnClickListener() {
+                .setPositiveButton("Add", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
                         bottomsID = String.valueOf(bottomsIDtemp.getText());
@@ -321,7 +321,7 @@ public class OutfitCreationActivity extends AppCompatActivity {
                 .setTitle("Add Shoes")
                 .setMessage("Enter name of shoes:")
                 .setView(shoesIDtemp)
-                .setPositiveButton("Save", new DialogInterface.OnClickListener() {
+                .setPositiveButton("Add", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
                         shoesID = String.valueOf(shoesIDtemp.getText());
@@ -373,7 +373,7 @@ public class OutfitCreationActivity extends AppCompatActivity {
                 .setTitle("Add Headwear")
                 .setMessage("Enter name of Headwear:")
                 .setView(headwearIDtemp)
-                .setPositiveButton("Save", new DialogInterface.OnClickListener() {
+                .setPositiveButton("Add", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
                         headwearID = String.valueOf(headwearIDtemp.getText());
@@ -425,7 +425,7 @@ public class OutfitCreationActivity extends AppCompatActivity {
                 .setTitle("Add Socks")
                 .setMessage("Enter name of socks:")
                 .setView(socksIDtemp)
-                .setPositiveButton("Save", new DialogInterface.OnClickListener() {
+                .setPositiveButton("Add", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
                         socksID = String.valueOf(socksIDtemp.getText());
@@ -477,7 +477,7 @@ public class OutfitCreationActivity extends AppCompatActivity {
                 .setTitle("Add Other Item")
                 .setMessage("Enter name of other item:")
                 .setView(otherIDtemp)
-                .setPositiveButton("Save", new DialogInterface.OnClickListener() {
+                .setPositiveButton("Add", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
                         otherID = String.valueOf(otherIDtemp.getText());
