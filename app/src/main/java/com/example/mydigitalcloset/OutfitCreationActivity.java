@@ -199,6 +199,7 @@ public class OutfitCreationActivity extends AppCompatActivity {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
                         outfitName = String.valueOf(outfitNameTemp.getText());
+                        //add check for existing outfit name
                     }
                 })
                 .setNegativeButton("Cancel", null)
@@ -428,6 +429,41 @@ public class OutfitCreationActivity extends AppCompatActivity {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
                         socksID = String.valueOf(socksIDtemp.getText());
+                        progressDialog = new ProgressDialog(OutfitCreationActivity.this);
+                        progressDialog.setMessage("Fetching socks image...");
+                        progressDialog.setCancelable(false);
+                        progressDialog.show();
+                        storageReference = FirebaseStorage.getInstance().getReference("images/socks/"+socksID+".png");
+                        //create local file for socks image
+                        try{
+                            File socksfile = File.createTempFile("tempfile_socks", ".png");
+                            storageReference.getFile(socksfile).addOnSuccessListener(new OnSuccessListener<FileDownloadTask.TaskSnapshot>() {
+                                //ON SUCCESS: image fetched
+                                @Override
+                                public void onSuccess(FileDownloadTask.TaskSnapshot taskSnapshot) {
+                                    //dismiss progress dialog if showing
+                                    if (progressDialog.isShowing()){
+                                        progressDialog.dismiss();
+                                    }
+                                    //top image will be stored in bitmap var
+                                    Bitmap socksbitmap = BitmapFactory.decodeFile(socksfile.getAbsolutePath());
+                                    binding.socksImage.setImageBitmap(socksbitmap);
+                                }
+                            }).addOnFailureListener(new OnFailureListener() {
+                                //ON FAILURE
+                                @Override
+                                public void onFailure(@NonNull Exception e) {
+                                    //dismiss progress dialog if showing
+                                    if (progressDialog.isShowing()){
+                                        progressDialog.dismiss();
+                                    }
+                                    //failure toast
+                                    Toast.makeText(OutfitCreationActivity.this, "Failed to retrieve socks image", Toast.LENGTH_SHORT).show();
+                                }
+                            });
+                        } catch(IOException e){
+                            e.printStackTrace();
+                        }
                     }
                 })
                 .setNegativeButton("Cancel", null)
