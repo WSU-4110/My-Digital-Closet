@@ -329,7 +329,7 @@ public class OutfitCreationActivity extends AppCompatActivity {
                         progressDialog.setCancelable(false);
                         progressDialog.show();
                         storageReference = FirebaseStorage.getInstance().getReference("images/shoes/"+shoesID+".png");
-                        //create local file for top image
+                        //create local file for shoes image
                         try{
                             File shoesfile = File.createTempFile("tempfile_shoes", ".png");
                             storageReference.getFile(shoesfile).addOnSuccessListener(new OnSuccessListener<FileDownloadTask.TaskSnapshot>() {
@@ -376,6 +376,41 @@ public class OutfitCreationActivity extends AppCompatActivity {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
                         headwearID = String.valueOf(headwearIDtemp.getText());
+                        progressDialog = new ProgressDialog(OutfitCreationActivity.this);
+                        progressDialog.setMessage("Fetching headwear image...");
+                        progressDialog.setCancelable(false);
+                        progressDialog.show();
+                        storageReference = FirebaseStorage.getInstance().getReference("images/headwear/"+headwearID+".png");
+                        //create local file for headwear image
+                        try{
+                            File headwearfile = File.createTempFile("tempfile_headwear", ".png");
+                            storageReference.getFile(headwearfile).addOnSuccessListener(new OnSuccessListener<FileDownloadTask.TaskSnapshot>() {
+                                //ON SUCCESS: image fetched
+                                @Override
+                                public void onSuccess(FileDownloadTask.TaskSnapshot taskSnapshot) {
+                                    //dismiss progress dialog if showing
+                                    if (progressDialog.isShowing()){
+                                        progressDialog.dismiss();
+                                    }
+                                    //top image will be stored in bitmap var
+                                    Bitmap headwearbitmap = BitmapFactory.decodeFile(headwearfile.getAbsolutePath());
+                                    binding.headwearImage.setImageBitmap(headwearbitmap);
+                                }
+                            }).addOnFailureListener(new OnFailureListener() {
+                                //ON FAILURE
+                                @Override
+                                public void onFailure(@NonNull Exception e) {
+                                    //dismiss progress dialog if showing
+                                    if (progressDialog.isShowing()){
+                                        progressDialog.dismiss();
+                                    }
+                                    //failure toast
+                                    Toast.makeText(OutfitCreationActivity.this, "Failed to retrieve headwear image", Toast.LENGTH_SHORT);
+                                }
+                            });
+                        } catch(IOException e){
+                            e.printStackTrace();
+                        }
                     }
                 })
                 .setNegativeButton("Cancel", null)
