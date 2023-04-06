@@ -200,6 +200,24 @@ public class OutfitCreationActivity extends AppCompatActivity {
         });
         //end shoes section
 
+        //save outfit button
+        binding.saveButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                //outfit[] - [0]: name [1]: top [2]: bottoms [3]: shoes [4]: headwear [5]: socks [6]: other
+                showSaveOutfitDialog(OutfitCreationActivity.this); //get outfit name
+                outfit[0] = outfitName;
+                outfit[1] = topID;
+                outfit[2] = bottomsID;
+                outfit[3] = shoesID;
+                outfit[4] = headwearID;
+                outfit[5] = socksID;
+                outfit[6] = otherID;
+                //save to firebase
+
+            }
+        });
+
         //navigation buttons
         binding.homeButton.setOnClickListener(new View.OnClickListener() {
             @Override
