@@ -249,7 +249,7 @@ public class OutfitCreationActivity extends AppCompatActivity {
                                     }
 
                                     //failure toast
-                                    Toast.makeText(OutfitCreationActivity.this, "Failed to retrieve top image", Toast.LENGTH_SHORT);
+                                    Toast.makeText(OutfitCreationActivity.this, "Failed to retrieve top image", Toast.LENGTH_SHORT).show();
                                 }
                             });
                         } catch(IOException e){
@@ -288,7 +288,7 @@ public class OutfitCreationActivity extends AppCompatActivity {
                                     if (progressDialog.isShowing()){
                                         progressDialog.dismiss();
                                     }
-                                    //top image will be stored in bitmap var
+                                    //bottoms image will be stored in bitmap var
                                     Bitmap bottomsbitmap = BitmapFactory.decodeFile(bottomsfile.getAbsolutePath());
                                     binding.bottomsImage.setImageBitmap(bottomsbitmap);
 
@@ -302,7 +302,7 @@ public class OutfitCreationActivity extends AppCompatActivity {
                                         progressDialog.dismiss();
                                     }
                                     //failure toast
-                                    Toast.makeText(OutfitCreationActivity.this, "Failed to retrieve bottoms image", Toast.LENGTH_SHORT);
+                                    Toast.makeText(OutfitCreationActivity.this, "Failed to retrieve bottoms image", Toast.LENGTH_SHORT).show();
                                 }
                             });
                         } catch(IOException e){
@@ -341,7 +341,7 @@ public class OutfitCreationActivity extends AppCompatActivity {
                                     if (progressDialog.isShowing()){
                                         progressDialog.dismiss();
                                     }
-                                    //top image will be stored in bitmap var
+                                    //shoes image will be stored in bitmap var
                                     Bitmap shoesbitmap = BitmapFactory.decodeFile(shoesfile.getAbsolutePath());
                                     binding.shoesImage.setImageBitmap(shoesbitmap);
                                 }
@@ -354,7 +354,7 @@ public class OutfitCreationActivity extends AppCompatActivity {
                                         progressDialog.dismiss();
                                     }
                                     //failure toast
-                                    Toast.makeText(OutfitCreationActivity.this, "Failed to retrieve shoes image", Toast.LENGTH_SHORT);
+                                    Toast.makeText(OutfitCreationActivity.this, "Failed to retrieve shoes image", Toast.LENGTH_SHORT).show();
                                 }
                             });
                         } catch(IOException e){
@@ -393,7 +393,7 @@ public class OutfitCreationActivity extends AppCompatActivity {
                                     if (progressDialog.isShowing()){
                                         progressDialog.dismiss();
                                     }
-                                    //top image will be stored in bitmap var
+                                    //headwear image will be stored in bitmap var
                                     Bitmap headwearbitmap = BitmapFactory.decodeFile(headwearfile.getAbsolutePath());
                                     binding.headwearImage.setImageBitmap(headwearbitmap);
                                 }
@@ -406,7 +406,7 @@ public class OutfitCreationActivity extends AppCompatActivity {
                                         progressDialog.dismiss();
                                     }
                                     //failure toast
-                                    Toast.makeText(OutfitCreationActivity.this, "Failed to retrieve headwear image", Toast.LENGTH_SHORT);
+                                    Toast.makeText(OutfitCreationActivity.this, "Failed to retrieve headwear image", Toast.LENGTH_SHORT).show();
                                 }
                             });
                         } catch(IOException e){
@@ -445,7 +445,7 @@ public class OutfitCreationActivity extends AppCompatActivity {
                                     if (progressDialog.isShowing()){
                                         progressDialog.dismiss();
                                     }
-                                    //top image will be stored in bitmap var
+                                    //socks image will be stored in bitmap var
                                     Bitmap socksbitmap = BitmapFactory.decodeFile(socksfile.getAbsolutePath());
                                     binding.socksImage.setImageBitmap(socksbitmap);
                                 }
@@ -481,6 +481,41 @@ public class OutfitCreationActivity extends AppCompatActivity {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
                         otherID = String.valueOf(otherIDtemp.getText());
+                        progressDialog = new ProgressDialog(OutfitCreationActivity.this);
+                        progressDialog.setMessage("Fetching other image...");
+                        progressDialog.setCancelable(false);
+                        progressDialog.show();
+                        storageReference = FirebaseStorage.getInstance().getReference("images/other/"+otherID+".png");
+                        //create local file for other image
+                        try{
+                            File otherfile = File.createTempFile("tempfile_other", ".png");
+                            storageReference.getFile(otherfile).addOnSuccessListener(new OnSuccessListener<FileDownloadTask.TaskSnapshot>() {
+                                //ON SUCCESS: image fetched
+                                @Override
+                                public void onSuccess(FileDownloadTask.TaskSnapshot taskSnapshot) {
+                                    //dismiss progress dialog if showing
+                                    if (progressDialog.isShowing()){
+                                        progressDialog.dismiss();
+                                    }
+                                    //other image will be stored in bitmap var
+                                    Bitmap otherbitmap = BitmapFactory.decodeFile(otherfile.getAbsolutePath());
+                                    binding.otherImage.setImageBitmap(otherbitmap);
+                                }
+                            }).addOnFailureListener(new OnFailureListener() {
+                                //ON FAILURE
+                                @Override
+                                public void onFailure(@NonNull Exception e) {
+                                    //dismiss progress dialog if showing
+                                    if (progressDialog.isShowing()){
+                                        progressDialog.dismiss();
+                                    }
+                                    //failure toast
+                                    Toast.makeText(OutfitCreationActivity.this, "Failed to retrieve other item image", Toast.LENGTH_SHORT).show();
+                                }
+                            });
+                        } catch(IOException e){
+                            e.printStackTrace();
+                        }
                     }
                 })
                 .setNegativeButton("Cancel", null)
