@@ -121,13 +121,6 @@ public class OutfitCreationActivity extends AppCompatActivity {
             public void onClick(View view) {
                 //outfit[] - [0]: name [1]: top [2]: bottoms [3]: shoes [4]: headwear [5]: socks [6]: other
                 showSaveOutfitDialog(OutfitCreationActivity.this); //get outfit name
-                outfit[0] = outfitName;
-                outfit[1] = topID;
-                outfit[2] = bottomsID;
-                outfit[3] = shoesID;
-                outfit[4] = headwearID;
-                outfit[5] = socksID;
-                outfit[6] = otherID;
                 //save to firebase
 
             }
@@ -202,6 +195,7 @@ public class OutfitCreationActivity extends AppCompatActivity {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
                         outfitName = String.valueOf(outfitNameTemp.getText());
+                        outfit[0] = outfitName;
                         //add check for existing outfit name
                     }
                 })
@@ -220,6 +214,7 @@ public class OutfitCreationActivity extends AppCompatActivity {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
                         topID = String.valueOf(topIDtemp.getText());
+                        outfit[1] = topID;
                         progressDialog = new ProgressDialog(OutfitCreationActivity.this);
                         progressDialog.setMessage("Fetching top image...");
                         progressDialog.setCancelable(false);
@@ -275,6 +270,7 @@ public class OutfitCreationActivity extends AppCompatActivity {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
                         bottomsID = String.valueOf(bottomsIDtemp.getText());
+                        outfit[2] = bottomsID;
                         progressDialog = new ProgressDialog(OutfitCreationActivity.this);
                         progressDialog.setMessage("Fetching bottoms image...");
                         progressDialog.setCancelable(false);
@@ -328,6 +324,7 @@ public class OutfitCreationActivity extends AppCompatActivity {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
                         shoesID = String.valueOf(shoesIDtemp.getText());
+                        outfit[3] = shoesID;
                         progressDialog = new ProgressDialog(OutfitCreationActivity.this);
                         progressDialog.setMessage("Fetching shoes image...");
                         progressDialog.setCancelable(false);
@@ -380,6 +377,7 @@ public class OutfitCreationActivity extends AppCompatActivity {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
                         headwearID = String.valueOf(headwearIDtemp.getText());
+                        outfit[4] = headwearID;
                         progressDialog = new ProgressDialog(OutfitCreationActivity.this);
                         progressDialog.setMessage("Fetching headwear image...");
                         progressDialog.setCancelable(false);
@@ -432,6 +430,7 @@ public class OutfitCreationActivity extends AppCompatActivity {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
                         socksID = String.valueOf(socksIDtemp.getText());
+                        outfit[5] = socksID;
                         progressDialog = new ProgressDialog(OutfitCreationActivity.this);
                         progressDialog.setMessage("Fetching socks image...");
                         progressDialog.setCancelable(false);
@@ -484,6 +483,7 @@ public class OutfitCreationActivity extends AppCompatActivity {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
                         otherID = String.valueOf(otherIDtemp.getText());
+                        outfit[6] = otherID;
                         progressDialog = new ProgressDialog(OutfitCreationActivity.this);
                         progressDialog.setMessage("Fetching other image...");
                         progressDialog.setCancelable(false);
