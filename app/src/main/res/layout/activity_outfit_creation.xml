@@ -5,35 +5,7 @@
     android:layout_height="match_parent"
     tools:context=".OutfitCreationActivity">
 
-    <!--
-    <FrameLayout
-        android:id="@+id/frame_layout"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"/>-->
 
-
-    <!--nav bar-->
-    <!--
-    <com.google.android.material.bottomnavigation.BottomNavigationView
-        android:id="@+id/bottomNavigationView"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:backgroundTint="#F3A3EB"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:menu="@menu/bottom_nav_menu">
-
-    </com.google.android.material.bottomnavigation.BottomNavigationView>-->
-
-    <!--header-->
-
-
-    <!--TOPS-->
-    <!--top image area-->
     <TextView
         android:id="@+id/outfitCreationHeader"
         android:layout_width="wrap_content"
@@ -47,29 +19,6 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.034" />
 
-    <!--get top button-->
-
-    <!--top name textbox-->
-    <!--end top area-->
-    <!--BOTTOMS-->
-    <!--bottoms image-->
-
-
-    <!-- get bottoms button-->
-
-    <!--bottoms name textbox-->
-
-    <!--end bottoms area-->
-    <!--SHOES-->
-    <!--shoes image-->
-
-    <!--get shoes button-->
-
-    <!--shoes name text box-->
-
-    <!--end shoes area-->
-
-    <!--nav buttons-->
 
     <ImageView
         android:id="@+id/topImage"
@@ -92,6 +41,9 @@
         android:id="@+id/bottomsImage"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:adjustViewBounds="true"
+        android:maxHeight="150dp"
+        android:maxWidth="150dp"
         android:layout_marginStart="64dp"
         android:layout_marginEnd="280dp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -106,6 +58,9 @@
         android:id="@+id/shoesImage"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:adjustViewBounds="true"
+        android:maxHeight="150dp"
+        android:maxWidth="150dp"
         android:layout_marginStart="64dp"
         android:layout_marginEnd="280dp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -263,6 +218,9 @@
         android:id="@+id/headwearImage"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:adjustViewBounds="true"
+        android:maxHeight="150dp"
+        android:maxWidth="150dp"
         android:layout_marginStart="100dp"
         android:layout_marginEnd="10dp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -277,6 +235,9 @@
         android:id="@+id/otherImage"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:adjustViewBounds="true"
+        android:maxHeight="150dp"
+        android:maxWidth="150dp"
         android:layout_marginStart="100dp"
         android:layout_marginEnd="10dp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -291,6 +252,9 @@
         android:id="@+id/socksImage"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:adjustViewBounds="true"
+        android:maxHeight="150dp"
+        android:maxWidth="150dp"
         android:layout_marginStart="100dp"
         android:layout_marginEnd="10dp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -301,14 +265,6 @@
         app:layout_constraintVertical_bias="0.623"
         tools:srcCompat="@tools:sample/avatars" />
 
-    <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/guideline"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        app:layout_constraintGuide_begin="20dp" />
-
-    <!--end nav buttons-->
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
