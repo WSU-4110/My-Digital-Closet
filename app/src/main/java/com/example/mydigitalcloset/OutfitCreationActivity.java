@@ -70,7 +70,6 @@ public class OutfitCreationActivity extends AppCompatActivity {
                 showAddTopDialog(OutfitCreationActivity.this);
             }
         });
-        //end top section
 
         //get bottoms image from firebase:
         binding.getBottoms.setOnClickListener(new View.OnClickListener(){
@@ -79,7 +78,6 @@ public class OutfitCreationActivity extends AppCompatActivity {
                 showAddBottomsDialog(OutfitCreationActivity.this);
             }
         });
-        //end bottoms section
 
         //get shoes image from firebase:
         binding.getShoes.setOnClickListener(new View.OnClickListener(){
@@ -88,7 +86,23 @@ public class OutfitCreationActivity extends AppCompatActivity {
                 showAddShoesDialog(OutfitCreationActivity.this);
             }
         });
-        //end shoes section
+
+        //get socks image from firebase:
+        binding.getSocks.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                showAddSocksDialog(OutfitCreationActivity.this);
+            }
+        });
+
+        //get headwear image from firebase:
+        binding.getHeadwear.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                showAddHeadwearDialog(OutfitCreationActivity.this);
+            }
+        });
+
 
         //save outfit button
         binding.saveButton.setOnClickListener(new View.OnClickListener() {
@@ -96,7 +110,7 @@ public class OutfitCreationActivity extends AppCompatActivity {
             public void onClick(View view) {
                 //outfit[] - [0]: name [1]: top [2]: bottoms [3]: shoes [4]: headwear [5]: socks [6]: other
                 showSaveOutfitDialog(OutfitCreationActivity.this); //get outfit name
-                outfit[0] = outfitName;
+                outfit[0] = outfitName; //maybe move to dialog??
                 outfit[1] = topID;
                 outfit[2] = bottomsID;
                 outfit[3] = shoesID;
@@ -166,7 +180,6 @@ public class OutfitCreationActivity extends AppCompatActivity {
             finish();
         }
     }
-
     //save outfit pop up
     private void showSaveOutfitDialog(Context c) {
         final EditText outfitNameTemp = new EditText(c);
