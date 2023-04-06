@@ -254,8 +254,6 @@ public class OutfitCreationActivity extends AppCompatActivity {
                         progressDialog.setMessage("Fetching bottoms image...");
                         progressDialog.setCancelable(false);
                         progressDialog.show();
-                        //use bottoms name entered by user to get top from database
-                        bottomsID = binding.getBottomsName.getText().toString();
                         storageReference = FirebaseStorage.getInstance().getReference("images/bottoms/"+bottomsID+".png");
                         //create local file for top image
                         try{
@@ -309,8 +307,6 @@ public class OutfitCreationActivity extends AppCompatActivity {
                         progressDialog.setMessage("Fetching shoes image...");
                         progressDialog.setCancelable(false);
                         progressDialog.show();
-                        //use shoes name entered by user to get shoes from database
-                        shoesID = binding.getShoesName.getText().toString();
                         storageReference = FirebaseStorage.getInstance().getReference("images/shoes/"+shoesID+".png");
                         //create local file for top image
                         try{
