@@ -67,12 +67,13 @@ public class OutfitCreationActivity extends AppCompatActivity {
         binding.getTop.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v){
+                showAddTopDialog(OutfitCreationActivity.this);
                 progressDialog = new ProgressDialog(OutfitCreationActivity.this);
                 progressDialog.setMessage("Fetching top image...");
                 progressDialog.setCancelable(false);
                 progressDialog.show();
                 //use top name entered by user to get top from database
-                topID = binding.getTopName.getText().toString();
+                //topID = binding.getTopName.getText().toString();
                 storageReference = FirebaseStorage.getInstance().getReference("images/tops/"+topID+".png");
                 //create local file for top image
                 try{
@@ -288,6 +289,108 @@ public class OutfitCreationActivity extends AppCompatActivity {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
                         outfitName = String.valueOf(outfitNameTemp.getText());
+                    }
+                })
+                .setNegativeButton("Cancel", null)
+                .create();
+        dialog.show();
+    }
+    //add top pop up
+    private void showAddTopDialog(Context c) {
+        final EditText topIDtemp = new EditText(c);
+        AlertDialog dialog = new AlertDialog.Builder(c)
+                .setTitle("Add Top")
+                .setMessage("Enter name of top:")
+                .setView(topIDtemp)
+                .setPositiveButton("Save", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        topID = String.valueOf(topIDtemp.getText());
+                    }
+                })
+                .setNegativeButton("Cancel", null)
+                .create();
+        dialog.show();
+    }
+    //add bottoms pop up
+    private void showAddBottomsDialog(Context c) {
+        final EditText bottomsIDtemp = new EditText(c);
+        AlertDialog dialog = new AlertDialog.Builder(c)
+                .setTitle("Add Bottoms")
+                .setMessage("Enter name of bottoms:")
+                .setView(bottomsIDtemp)
+                .setPositiveButton("Save", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        bottomsID = String.valueOf(bottomsIDtemp.getText());
+                    }
+                })
+                .setNegativeButton("Cancel", null)
+                .create();
+        dialog.show();
+    }
+    //add shoes pop up
+    private void showAddShoesDialog(Context c) {
+        final EditText shoesIDtemp = new EditText(c);
+        AlertDialog dialog = new AlertDialog.Builder(c)
+                .setTitle("Add Shoes")
+                .setMessage("Enter name of shoes:")
+                .setView(shoesIDtemp)
+                .setPositiveButton("Save", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        shoesID = String.valueOf(shoesIDtemp.getText());
+                    }
+                })
+                .setNegativeButton("Cancel", null)
+                .create();
+        dialog.show();
+    }
+    //add headwear pop up
+    private void showAddHeadwearDialog(Context c) {
+        final EditText headwearIDtemp = new EditText(c);
+        AlertDialog dialog = new AlertDialog.Builder(c)
+                .setTitle("Add Headwear")
+                .setMessage("Enter name of Headwear:")
+                .setView(headwearIDtemp)
+                .setPositiveButton("Save", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        headwearID = String.valueOf(headwearIDtemp.getText());
+                    }
+                })
+                .setNegativeButton("Cancel", null)
+                .create();
+        dialog.show();
+    }
+    //add socks pop up
+    private void showAddSocksDialog(Context c) {
+        final EditText socksIDtemp = new EditText(c);
+        AlertDialog dialog = new AlertDialog.Builder(c)
+                .setTitle("Add Socks")
+                .setMessage("Enter name of socks:")
+                .setView(socksIDtemp)
+                .setPositiveButton("Save", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        socksID = String.valueOf(socksIDtemp.getText());
+                    }
+                })
+                .setNegativeButton("Cancel", null)
+                .create();
+        dialog.show();
+    }
+    //add other pop up
+    private void showAddOtherDialog(Context c) {
+        final EditText otherIDtemp = new EditText(c);
+        AlertDialog dialog = new AlertDialog.Builder(c)
+                .setTitle("Add Other Item")
+                .setMessage("Enter name of other item:")
+                .setView(otherIDtemp)
+                .setPositiveButton("Save", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        otherID = String.valueOf(otherIDtemp.getText());
                     }
                 })
                 .setNegativeButton("Cancel", null)
