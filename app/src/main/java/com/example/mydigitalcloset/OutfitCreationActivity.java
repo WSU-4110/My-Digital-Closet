@@ -103,6 +103,14 @@ public class OutfitCreationActivity extends AppCompatActivity {
             }
         });
 
+        //get other image from firebase:
+        binding.getOther.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                showAddOtherDialog(OutfitCreationActivity.this);
+            }
+        });
+
 
         //save outfit button
         binding.saveButton.setOnClickListener(new View.OnClickListener() {
