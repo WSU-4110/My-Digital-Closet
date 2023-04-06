@@ -85,43 +85,7 @@ public class OutfitCreationActivity extends AppCompatActivity {
         binding.getShoes.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v){
-                progressDialog = new ProgressDialog(OutfitCreationActivity.this);
-                progressDialog.setMessage("Fetching shoes image...");
-                progressDialog.setCancelable(false);
-                progressDialog.show();
-                //use shoes name entered by user to get shoes from database
-                shoesID = binding.getShoesName.getText().toString();
-                storageReference = FirebaseStorage.getInstance().getReference("images/shoes/"+shoesID+".png");
-                //create local file for top image
-                try{
-                    File shoesfile = File.createTempFile("tempfile_shoes", ".png");
-                    storageReference.getFile(shoesfile).addOnSuccessListener(new OnSuccessListener<FileDownloadTask.TaskSnapshot>() {
-                        //ON SUCCESS: image fetched
-                        @Override
-                        public void onSuccess(FileDownloadTask.TaskSnapshot taskSnapshot) {
-                            //dismiss progress dialog if showing
-                            if (progressDialog.isShowing()){
-                                progressDialog.dismiss();
-                            }
-                            //top image will be stored in bitmap var
-                            Bitmap shoesbitmap = BitmapFactory.decodeFile(shoesfile.getAbsolutePath());
-                            binding.shoesImage.setImageBitmap(shoesbitmap);
-                        }
-                    }).addOnFailureListener(new OnFailureListener() {
-                        //ON FAILURE
-                        @Override
-                        public void onFailure(@NonNull Exception e) {
-                            //dismiss progress dialog if showing
-                            if (progressDialog.isShowing()){
-                                progressDialog.dismiss();
-                            }
-                            //failure toast
-                            Toast.makeText(OutfitCreationActivity.this, "Failed to retrieve shoes image", Toast.LENGTH_SHORT);
-                        }
-                    });
-                } catch(IOException e){
-                    e.printStackTrace();
-                }
+                showAddShoesDialog(OutfitCreationActivity.this);
             }
         });
         //end shoes section
@@ -341,6 +305,43 @@ public class OutfitCreationActivity extends AppCompatActivity {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
                         shoesID = String.valueOf(shoesIDtemp.getText());
+                        progressDialog = new ProgressDialog(OutfitCreationActivity.this);
+                        progressDialog.setMessage("Fetching shoes image...");
+                        progressDialog.setCancelable(false);
+                        progressDialog.show();
+                        //use shoes name entered by user to get shoes from database
+                        shoesID = binding.getShoesName.getText().toString();
+                        storageReference = FirebaseStorage.getInstance().getReference("images/shoes/"+shoesID+".png");
+                        //create local file for top image
+                        try{
+                            File shoesfile = File.createTempFile("tempfile_shoes", ".png");
+                            storageReference.getFile(shoesfile).addOnSuccessListener(new OnSuccessListener<FileDownloadTask.TaskSnapshot>() {
+                                //ON SUCCESS: image fetched
+                                @Override
+                                public void onSuccess(FileDownloadTask.TaskSnapshot taskSnapshot) {
+                                    //dismiss progress dialog if showing
+                                    if (progressDialog.isShowing()){
+                                        progressDialog.dismiss();
+                                    }
+                                    //top image will be stored in bitmap var
+                                    Bitmap shoesbitmap = BitmapFactory.decodeFile(shoesfile.getAbsolutePath());
+                                    binding.shoesImage.setImageBitmap(shoesbitmap);
+                                }
+                            }).addOnFailureListener(new OnFailureListener() {
+                                //ON FAILURE
+                                @Override
+                                public void onFailure(@NonNull Exception e) {
+                                    //dismiss progress dialog if showing
+                                    if (progressDialog.isShowing()){
+                                        progressDialog.dismiss();
+                                    }
+                                    //failure toast
+                                    Toast.makeText(OutfitCreationActivity.this, "Failed to retrieve shoes image", Toast.LENGTH_SHORT);
+                                }
+                            });
+                        } catch(IOException e){
+                            e.printStackTrace();
+                        }
                     }
                 })
                 .setNegativeButton("Cancel", null)
