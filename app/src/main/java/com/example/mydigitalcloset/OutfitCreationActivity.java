@@ -49,7 +49,10 @@ public class OutfitCreationActivity extends AppCompatActivity {
     String socksID = "";
     String otherID = "";
     String outfitName = "";
-    String outfit[] = new String[7];    //[0]: name [1]: top [2]: bottoms [3]: shoes [4]: headwear [5]: socks [6]: other
+    //[0]: name [1]: top [2]: bottoms [3]: shoes [4]: headwear [5]: socks [6]: other
+    String outfit[] = {outfitName, topID, bottomsID, shoesID, headwearID, socksID, otherID};
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -118,7 +121,7 @@ public class OutfitCreationActivity extends AppCompatActivity {
             public void onClick(View view) {
                 //outfit[] - [0]: name [1]: top [2]: bottoms [3]: shoes [4]: headwear [5]: socks [6]: other
                 showSaveOutfitDialog(OutfitCreationActivity.this); //get outfit name
-                outfit[0] = outfitName; //maybe move to dialog??
+                outfit[0] = outfitName;
                 outfit[1] = topID;
                 outfit[2] = bottomsID;
                 outfit[3] = shoesID;
