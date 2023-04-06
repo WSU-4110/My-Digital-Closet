@@ -50,6 +50,13 @@
         app:layout_constraintVertical_bias="0.034" />
 
     <!--get top button-->
+
+    <!--top name textbox-->
+    <!--end top area-->
+    <!--BOTTOMS-->
+    <!--bottoms image-->
+
+
     <ImageView
         android:id="@+id/topImage"
         android:layout_width="wrap_content"
@@ -61,36 +68,30 @@
         app:layout_constraintHorizontal_bias="0.491"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/outfitCreationHeader"
-        app:layout_constraintVertical_bias="0.121"
+        app:layout_constraintVertical_bias="0.05"
         tools:srcCompat="@tools:sample/avatars" />
+
+    <!-- get bottoms button-->
 
     <Button
         android:id="@+id/getTop"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Get Top Image"
+        android:text="Add Top"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/topImage"
-        app:layout_constraintTop_toBottomOf="@+id/getTopName"
-        app:layout_constraintVertical_bias="0.059" />
-    <!--top name textbox-->
-    <!--end top area-->
-    <!--BOTTOMS-->
-    <!--bottoms image-->
-    <EditText
-        android:id="@+id/getTopName"
-        android:layout_width="164dp"
-        android:layout_height="43dp"
-        android:ems="10"
-        android:inputType="textPersonName"
-        android:text="Top Name"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.505"
-        app:layout_constraintStart_toEndOf="@+id/topImage"
-        app:layout_constraintTop_toBottomOf="@+id/outfitCreationHeader"
-        app:layout_constraintVertical_bias="0.122" />
+        app:layout_constraintHorizontal_bias="0.049"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.778" />
+
+    <!--bottoms name textbox-->
+
+    <!--end bottoms area-->
+    <!--SHOES-->
+    <!--shoes image-->
+
+    <!--get shoes button-->
 
     <ImageView
         android:id="@+id/bottomsImage"
@@ -103,37 +104,21 @@
         app:layout_constraintHorizontal_bias="0.491"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/outfitCreationHeader"
-        app:layout_constraintVertical_bias="0.465"
+        app:layout_constraintVertical_bias="0.316"
         tools:srcCompat="@tools:sample/avatars" />
-    <!-- get bottoms button-->
+
     <Button
         android:id="@+id/getBottoms"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Get Bottoms"
+        android:text="Add Bottoms"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.469"
-        app:layout_constraintStart_toEndOf="@+id/bottomsImage"
-        app:layout_constraintTop_toBottomOf="@+id/outfitCreationHeader"
-        app:layout_constraintVertical_bias="0.53" />
-    <!--bottoms name textbox-->
-    <EditText
-        android:id="@+id/getBottomsName"
-        android:layout_width="164dp"
-        android:layout_height="43dp"
-        android:ems="10"
-        android:inputType="textPersonName"
-        android:text="Bottoms Name"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.505"
-        app:layout_constraintStart_toEndOf="@+id/bottomsImage"
-        app:layout_constraintTop_toBottomOf="@+id/outfitCreationHeader"
-        app:layout_constraintVertical_bias="0.425" />
-    <!--end bottoms area-->
-    <!--SHOES-->
-    <!--shoes image-->
+        app:layout_constraintHorizontal_bias="0.477"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.778" />
+
     <ImageView
         android:id="@+id/shoesImage"
         android:layout_width="wrap_content"
@@ -145,38 +130,27 @@
         app:layout_constraintHorizontal_bias="0.491"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/outfitCreationHeader"
-        app:layout_constraintVertical_bias="0.84"
+        app:layout_constraintVertical_bias="0.609"
         tools:srcCompat="@tools:sample/avatars" />
-    <!--get shoes button-->
+
+    <!--shoes name text box-->
+
+    <!--end shoes area-->
+
+    <!--nav buttons-->
+
     <Button
         android:id="@+id/getShoes"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="80dp"
-        android:text="Get Shoes"
+        android:text="Add Shoes"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toEndOf="@+id/shoesImage"
-        app:layout_constraintTop_toBottomOf="@+id/outfitCreationHeader"
-        app:layout_constraintVertical_bias="0.863" />
-    <!--shoes name text box-->
-    <EditText
-        android:id="@+id/getShoesName"
-        android:layout_width="164dp"
-        android:layout_height="43dp"
-        android:ems="10"
-        android:inputType="textPersonName"
-        android:text="Shoes Name"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.505"
-        app:layout_constraintStart_toEndOf="@+id/shoesImage"
-        app:layout_constraintTop_toBottomOf="@+id/outfitCreationHeader"
-        app:layout_constraintVertical_bias="0.76" />
-    <!--end shoes area-->
+        app:layout_constraintHorizontal_bias="0.897"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.778" />
 
-    <!--nav buttons-->
     <ImageButton
         android:id="@+id/homeButton"
         android:layout_width="wrap_content"
@@ -244,10 +218,9 @@
         android:text="save outfit"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/outfitCreationHeader"
-        app:layout_constraintVertical_bias="0.018" />
+        app:layout_constraintVertical_bias="0.909" />
     <!--end nav buttons-->
 
 
