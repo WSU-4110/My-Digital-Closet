@@ -3,14 +3,17 @@ package com.example.mydigitalcloset;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.AlertDialog;
 import android.app.ProgressDialog;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.EditText;
 import android.widget.ProgressBar;
 import android.widget.Toast;
 
@@ -59,38 +62,6 @@ public class OutfitCreationActivity extends AppCompatActivity {
         // Inflate the layout
         binding = ActivityOutfitCreationBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
-
-        //nav bar:
-        /*binding.bottomNavigationView.setOnItemSelectedListener(new BottomNavigationView.OnItemSelectedListener() {
-            @Override
-            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
-                switch (item.getItemId()) {
-                    case R.id.home:
-                        // stay in the same activity
-                        return true;
-                    case R.id.addItem:
-                        Intent intentAdd = new Intent(getApplicationContext(), clothingFront.class);
-                        startActivity(intentAdd);
-                        finish();
-                        break;
-                    case R.id.contactSupport:
-                        Intent intentContact = new Intent(getApplicationContext(), ContactForm.class);
-                        startActivity(intentContact);
-                        finish();
-                        break;
-                    case R.id.wardrobe:
-                        Intent intentWardrobe = new Intent(getApplicationContext(), AllSavedOufitsPage.class);
-                        startActivity(intentWardrobe);
-                        finish();
-                        break;
-                    /*case R.id.settings:
-                        startActivity(new Intent(OutfitCreationActivity.this, SETTINGS.class));
-                        break;
-                }
-                return true;
-            }
-        })*/
-        //end nav bar
 
         //get top image from firebase:
         binding.getTop.setOnClickListener(new View.OnClickListener(){
@@ -286,5 +257,23 @@ public class OutfitCreationActivity extends AppCompatActivity {
             startActivity(intent);
             finish();
         }
+    }
+
+    //save outfit pop up
+    private void showSaveOutfitDialog(Context c) {
+        final EditText outfitNameTemp = new EditText(c);
+        AlertDialog dialog = new AlertDialog.Builder(c)
+                .setTitle("Save Outfit")
+                .setMessage("Enter a name for your outfit")
+                .setView(outfitNameTemp)
+                .setPositiveButton("Save", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        outfitName = String.valueOf(outfitNameTemp.getText());
+                    }
+                })
+                .setNegativeButton("Cancel", null)
+                .create();
+        dialog.show();
     }
 }
