@@ -11,6 +11,7 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.storage.StorageReference;
 
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -93,39 +94,6 @@ public class clothingUpload extends AppCompatActivity {
             }
         });
 
-        //buttons!
-
-        //Back to clothing front page
-        Button b2c = findViewById(R.id.backToClothUp);
-        b2c.setOnClickListener(view -> {
-            Intent intent=new Intent(clothingUpload.this, clothingFront.class);
-            startActivity(intent);
-        });
-
-        Button topPage = findViewById(R.id.addTops);
-        topPage.setOnClickListener(view -> {
-            Intent intent=new Intent(clothingUpload.this,clothingFront.class);
-            startActivity(intent);
-        });
-
-        /*binding.addTops.setOnClickListener(new View.OnClickListener(){
-            public void onClick(View v){
-                progressDialog = new ProgressDialog(clothingUpload.this);
-                progressDialog.setMessage("Test...");
-                progressDialog.setCancelable(false);
-                progressDialog.show();
-
-                //String imageID = binding.etimageId.getText().toString();
-
-                //storageReference = FirebaseStorage.getInstance().getReference
-            }
-        });*/
-
-    }
-
-    }//end oncreate
-
-
         //navigation buttons
         binding.homeButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -158,6 +126,13 @@ public class clothingUpload extends AppCompatActivity {
                 startActivity(intent);
                 finish();
             }
+        });        //end nav buttons
+
+        //Back to clothing front page
+        Button b2c = findViewById(R.id.backToClothUp);
+        b2c.setOnClickListener(view -> {
+            Intent intent=new Intent(clothingUpload.this, clothingFront.class);
+            startActivity(intent);
         });
         /*binding.settingsButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -167,6 +142,6 @@ public class clothingUpload extends AppCompatActivity {
                 finish();
             }
         });*/
-        //end nav buttons
 
+    }//end oncreate
 }

@@ -1,10 +1,13 @@
 package com.example.mydigitalcloset;
 
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.storage.StorageReference;
+
 import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
-import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 
@@ -12,22 +15,20 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.mydigitalcloset.closetPage.AllSavedOufitsPage;
-//import com.example.mydigitalcloset.databinding.ActivityOutfitCreationBinding;
+import com.example.mydigitalcloset.databinding.ActivityOutfitCreationBinding;
 import com.example.mydigitalcloset.databinding.ActivityClothingFrontBinding;
-import com.google.android.material.bottomnavigation.BottomNavigationView;
-import com.google.firebase.storage.StorageReference;
+
 
 public class clothingFront extends AppCompatActivity {
 
     ActivityClothingFrontBinding binding;
     Context context;
-    ProgressDialog progressDialog;
-    StorageReference storageReference;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         context = this;
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_clothing_front);
+
         //NAV BAR STUFF:
         binding = ActivityClothingFrontBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
@@ -61,24 +62,13 @@ public class clothingFront extends AppCompatActivity {
         });
         //end nav bar*/
 
-        //buttons!
-
-
-
-        //go to clothing upload page
+        setContentView(R.layout.activity_clothing_front);
+        //this moves to the page that adds clothing items
         Button addPage = findViewById(R.id.addItem);
-        addPage.setOnClickListener(view -> {     //from THIS page to      THIS page
-            Intent intent = new Intent(clothingFront.this, clothingUpload.class);
+        addPage.setOnClickListener(view -> {
+            Intent intent=new Intent(clothingFront.this,clothingUpload.class);
             startActivity(intent);
         });
-
-        //go to all clothing items page
-        Button seeAll = findViewById(R.id.seeAll);
-        seeAll.setOnClickListener(view -> {
-            Intent intent=new Intent(clothingFront.this, clothingSeeAll.class);
-            startActivity(intent);
-        });
-   }//end of on create
 
         //navigation buttons
         binding.homeButton.setOnClickListener(new View.OnClickListener() {
@@ -122,4 +112,18 @@ public class clothingFront extends AppCompatActivity {
             }
         });*/
         //end nav buttons
+
+        //buttons!
+
+
+        //go to all clothing items page
+        Button seeAll = findViewById(R.id.seeAll);
+        seeAll.setOnClickListener(view -> {
+            Intent intent=new Intent(clothingFront.this, clothingSeeAll.class);
+            startActivity(intent);
+        });
+
+
+
+    }//end of on create
 }

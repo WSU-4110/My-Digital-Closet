@@ -111,11 +111,11 @@
         android:id="@+id/backToClothUp"
         android:layout_width="200dp"
         android:layout_height="70dp"
-        android:layout_marginBottom="36dp"
+        android:layout_marginBottom="120dp"
         android:text="@string/back"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintHorizontal_bias="0.459"
         app:layout_constraintStart_toStartOf="parent" />
 
     <EditText
