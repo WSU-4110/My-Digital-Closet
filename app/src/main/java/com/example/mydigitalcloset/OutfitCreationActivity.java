@@ -541,11 +541,11 @@ public class OutfitCreationActivity extends AppCompatActivity {
         dialog.show();
     }
 
-    public class outfit{
+    public class Outfit{
         //[0]: name [1]: top [2]: bottoms [3]: shoes [4]: headwear [5]: socks [6]: other
 
-        String top, bottoms, shoes, headwear, socks, other;
-        outfit(String fit[]){
+        public String top, bottoms, shoes, headwear, socks, other;
+        Outfit(String fit[]){
             top = fit[1];
             bottoms = fit[2];
             shoes = fit[3];
