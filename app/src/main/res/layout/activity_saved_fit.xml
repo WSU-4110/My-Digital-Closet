@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#FFE0E7"
+    tools:context=".closetPage.SavedFit">
+
+
+    <ImageView
+        android:id="@+id/image_2"
+        android:layout_width="228dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="80dp"
+        android:layout_marginTop="80dp"
+        android:layout_marginBottom="4dp"
+        android:contentDescription="image_2"
+        android:src="@drawable/image_2"
+        app:layout_constraintBottom_toBottomOf="@+id/image_3"
+        app:layout_constraintStart_toStartOf="@+id/relativeLayout"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/image_3"
+        android:layout_width="0dp"
+        android:layout_height="256dp"
+        android:layout_marginStart="88dp"
+        android:layout_marginTop="300dp"
+        android:layout_marginEnd="13dp"
+        android:contentDescription="image_3"
+        android:src="@drawable/image_3"
+        app:layout_constraintBottom_toBottomOf="@+id/image_5"
+        app:layout_constraintEnd_toEndOf="@+id/image_2"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/image_5" />
+
+    <ImageView
+        android:id="@+id/image_4"
+        android:layout_width="148dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="147dp"
+        android:layout_marginTop="560dp"
+        android:layout_marginBottom="13dp"
+        android:contentDescription="image_4"
+        android:src="@drawable/image_4"
+        app:layout_constraintBottom_toBottomOf="@+id/image_5"
+        app:layout_constraintStart_toStartOf="@+id/relativeLayout"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/image_5"
+        android:layout_width="0dp"
+        android:layout_height="129dp"
+        android:layout_marginStart="144dp"
+        android:layout_marginTop="570dp"
+        android:layout_marginEnd="15dp"
+        android:contentDescription="image_5"
+        android:src="@drawable/image_5"
+        app:layout_constraintEnd_toEndOf="@+id/image_4"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/relativeLayout" />
+
+    <TextView
+        android:id="@+id/saved_outfits"
+        android:layout_width="271dp"
+        android:layout_height="0dp"
+        android:layout_gravity="center_horizontal|center"
+        android:layout_marginLeft="63dp"
+        android:layout_marginTop="-22dp"
+        android:layout_marginBottom="17dp"
+        android:fontFamily="Roboto"
+        android:gravity="center"
+        android:shadowColor="#000000"
+        android:shadowDx="0"
+        android:shadowDy="4"
+        android:shadowRadius="4"
+        android:text="@string/saved_outfits_string"
+        android:textColor="@color/bg_light_color"
+        android:textSize="36sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@+id/image_4"
+        app:layout_constraintStart_toStartOf="@+id/relativeLayout"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/campus_green_sweater_and_jeans_skirt"
+        android:layout_width="383.5dp"
+        android:layout_height="39.5dp"
+        android:layout_marginLeft="39dp"
+        android:layout_marginTop="55dp"
+        android:fontFamily="@font/poppinsmedium"
+        android:shadowColor="#000000"
+        android:shadowDx="0"
+        android:shadowDy="2.5"
+        android:shadowRadius="4"
+        android:text="@string/campus_green_sweater_and_jeans_skirt_string"
+        android:textColor="@color/campus_green_sweater_and_jeans_skirt_color"
+        android:textSize="16sp"
+        app:layout_constraintStart_toStartOf="@+id/relativeLayout"
+        app:layout_constraintTop_toTopOf="@+id/relativeLayout" />
+
+    <!--NAV BAR STUFF-->
+
+    <FrameLayout
+        android:id="@+id/frame_layout"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toTopOf="@+id/bottomNavigationView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+
+    </FrameLayout>
+
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/bottomNavigationView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:menu="@menu/bottom_nav_menu"
+        android:background="#FFCFDA"/>
+    <!--nav bar-->
+
+</androidx.constraintlayout.widget.ConstraintLayout>
