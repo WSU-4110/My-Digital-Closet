@@ -205,6 +205,13 @@ public class OutfitCreationActivity extends AppCompatActivity {
                         outfitName = String.valueOf(outfitNameTemp.getText());
                         outfit[0] = outfitName;
                         //add check for existing outfit name
+                        //save array to firebase
+                        Outfit fit = new Outfit(outfit);    //create outfit object from array
+                        outfits.put(outfitName, fit);   //save outfit to map
+                        //outfitsRef.child(outfitName).setValue(fit);
+                        outfitsRef.setValue(outfits);
+                        Toast.makeText(OutfitCreationActivity.this, "Outfit " + outfitName + " saved!", Toast.LENGTH_SHORT).show();
+
                     }
                 })
                 .setNegativeButton("Cancel", null)
