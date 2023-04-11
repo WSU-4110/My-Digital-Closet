@@ -25,6 +25,25 @@ public class AboutUsPageActivity extends AppCompatActivity {
       binding = ActivityAboutusPageBinding.inflate(getLayoutInflater());
       setContentView(binding.getRoot());
 
+
+            Button b1=(Button)findViewById(R.id.btnContactForm);
+
+            b1.setOnClickListener(new View.OnClickListener() {
+
+                public void onClick(View v) {
+
+                    openContactForm();
+
+                    Log.i("MyDigitalCloset", "You have successfully opened the Contact Form Page");
+                    //Shows summited on the bottom of the screen
+                    Toast.makeText(getApplicationContext(), "Welcome to the Contact Form Page!", Toast.LENGTH_SHORT)
+                            .show();
+
+
+                }
+            });
+
+
       //navigation buttons
       binding.homeButton.setOnClickListener(new View.OnClickListener() {
           @Override
@@ -66,7 +85,14 @@ public class AboutUsPageActivity extends AppCompatActivity {
                 finish();
             }
         });
+
       //end nav buttons
+
     }//end onCreate
+
+    public void openContactForm(){
+        Intent intent = new Intent(this, ContactForm.class);
+        startActivity(intent);
+    }
 
 }

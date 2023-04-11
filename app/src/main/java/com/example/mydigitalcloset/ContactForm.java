@@ -49,7 +49,9 @@ public class ContactForm extends AppCompatActivity {
 */
             Button b1=(Button)findViewById(R.id.btnsubmit);
 
-            Button b2=(Button)findViewById(R.id.btn1AboutUs);
+            /*Button b2=(Button)findViewById(R.id.btn1AboutUs);*/
+
+
             b1.setOnClickListener(new View.OnClickListener() {
 
                 public void onClick(View view) {
@@ -63,7 +65,7 @@ public class ContactForm extends AppCompatActivity {
                             .show();
                 }
             });
-            b2.setOnClickListener(new View.OnClickListener() {
+           /* b2.setOnClickListener(new View.OnClickListener() {
 
                 public void onClick(View v) {
                     openAboutUsPageActivity();
@@ -75,7 +77,7 @@ public class ContactForm extends AppCompatActivity {
 
 
                 }
-            });
+            }); */
 
         //navigation buttons
         binding.homeButton.setOnClickListener(new View.OnClickListener() {
@@ -118,15 +120,17 @@ public class ContactForm extends AppCompatActivity {
                 finish();
             }
         });
+
         //end nav buttons
+
     }//end oncreate
 
     public void openSuccessPage(){
         Intent intent = new Intent(this, SuccessPage.class);
         startActivity(intent);
     }
-    public void openAboutUsPageActivity(){
+   /* public void openAboutUsPageActivity(){
         Intent intent1 = new Intent(this, AboutUsPageActivity.class);
         startActivity(intent1);
-    }
+    } */
 }
