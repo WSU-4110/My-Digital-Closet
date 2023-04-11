@@ -34,6 +34,8 @@ import org.jetbrains.annotations.Nullable;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.HashMap;
+import java.util.Map;
 
 public class OutfitCreationActivity extends AppCompatActivity {
 
@@ -42,19 +44,21 @@ public class OutfitCreationActivity extends AppCompatActivity {
     ProgressDialog progressDialog;
     FirebaseAuth mAuth;
     final FirebaseDatabase database = FirebaseDatabase.getInstance();
-    DatabaseReference ref = database.getReference("https://console.firebase.google.com/project/mydigitalcloset-bde1f/database/mydigitalcloset-bde1f-default-rtdb/data/~2F");
+    DatabaseReference ref = database.getReference();
     DatabaseReference outfitsRef = ref.child("outfits");
+    Map<String, Outfit> outfits = new HashMap<>();
+
 
     Context context;
 
     //clothing IDs
-    String topID = "";
-    String bottomsID = "";
-    String shoesID = "";
-    String headwearID = "";
-    String socksID = "";
-    String otherID = "";
-    String outfitName = "";
+    String topID = " ";
+    String bottomsID = " ";
+    String shoesID = " ";
+    String headwearID = " ";
+    String socksID = " ";
+    String otherID = " ";
+    String outfitName = " ";
     //[0]: name [1]: top [2]: bottoms [3]: shoes [4]: headwear [5]: socks [6]: other
     String outfit[] = {outfitName, topID, bottomsID, shoesID, headwearID, socksID, otherID};
 
@@ -127,9 +131,7 @@ public class OutfitCreationActivity extends AppCompatActivity {
             public void onClick(View view) {
                 //outfit[] - [0]: name [1]: top [2]: bottoms [3]: shoes [4]: headwear [5]: socks [6]: other
                 showSaveOutfitDialog(OutfitCreationActivity.this); //get outfit name
-                //save to firebase
-
-            }
+              }
         });
 
         //navigation buttons
