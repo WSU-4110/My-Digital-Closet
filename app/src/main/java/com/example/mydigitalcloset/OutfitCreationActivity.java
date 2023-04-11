@@ -229,7 +229,6 @@ public class OutfitCreationActivity extends AppCompatActivity {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
                         topID = String.valueOf(topIDtemp.getText());
-                        outfit[1] = topID;
                         progressDialog = new ProgressDialog(OutfitCreationActivity.this);
                         progressDialog.setMessage("Fetching top image...");
                         progressDialog.setCancelable(false);
@@ -248,6 +247,7 @@ public class OutfitCreationActivity extends AppCompatActivity {
                                     if (progressDialog.isShowing()){
                                         progressDialog.dismiss();
                                     }
+                                    outfit[1] = topID;
                                     //top image will be stored in bitmap var
                                     Bitmap topbitmap = BitmapFactory.decodeFile(topfile.getAbsolutePath());
                                     binding.topImage.setImageBitmap(topbitmap);
@@ -285,7 +285,6 @@ public class OutfitCreationActivity extends AppCompatActivity {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
                         bottomsID = String.valueOf(bottomsIDtemp.getText());
-                        outfit[2] = bottomsID;
                         progressDialog = new ProgressDialog(OutfitCreationActivity.this);
                         progressDialog.setMessage("Fetching bottoms image...");
                         progressDialog.setCancelable(false);
@@ -302,6 +301,7 @@ public class OutfitCreationActivity extends AppCompatActivity {
                                     if (progressDialog.isShowing()){
                                         progressDialog.dismiss();
                                     }
+                                    outfit[2] = bottomsID;
                                     //bottoms image will be stored in bitmap var
                                     Bitmap bottomsbitmap = BitmapFactory.decodeFile(bottomsfile.getAbsolutePath());
                                     binding.bottomsImage.setImageBitmap(bottomsbitmap);
@@ -339,7 +339,6 @@ public class OutfitCreationActivity extends AppCompatActivity {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
                         shoesID = String.valueOf(shoesIDtemp.getText());
-                        outfit[3] = shoesID;
                         progressDialog = new ProgressDialog(OutfitCreationActivity.this);
                         progressDialog.setMessage("Fetching shoes image...");
                         progressDialog.setCancelable(false);
@@ -356,6 +355,7 @@ public class OutfitCreationActivity extends AppCompatActivity {
                                     if (progressDialog.isShowing()){
                                         progressDialog.dismiss();
                                     }
+                                    outfit[3] = shoesID;
                                     //shoes image will be stored in bitmap var
                                     Bitmap shoesbitmap = BitmapFactory.decodeFile(shoesfile.getAbsolutePath());
                                     binding.shoesImage.setImageBitmap(shoesbitmap);
@@ -392,7 +392,6 @@ public class OutfitCreationActivity extends AppCompatActivity {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
                         headwearID = String.valueOf(headwearIDtemp.getText());
-                        outfit[4] = headwearID;
                         progressDialog = new ProgressDialog(OutfitCreationActivity.this);
                         progressDialog.setMessage("Fetching headwear image...");
                         progressDialog.setCancelable(false);
@@ -409,6 +408,7 @@ public class OutfitCreationActivity extends AppCompatActivity {
                                     if (progressDialog.isShowing()){
                                         progressDialog.dismiss();
                                     }
+                                    outfit[4] = headwearID;
                                     //headwear image will be stored in bitmap var
                                     Bitmap headwearbitmap = BitmapFactory.decodeFile(headwearfile.getAbsolutePath());
                                     binding.headwearImage.setImageBitmap(headwearbitmap);
@@ -445,7 +445,6 @@ public class OutfitCreationActivity extends AppCompatActivity {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
                         socksID = String.valueOf(socksIDtemp.getText());
-                        outfit[5] = socksID;
                         progressDialog = new ProgressDialog(OutfitCreationActivity.this);
                         progressDialog.setMessage("Fetching socks image...");
                         progressDialog.setCancelable(false);
@@ -462,6 +461,7 @@ public class OutfitCreationActivity extends AppCompatActivity {
                                     if (progressDialog.isShowing()){
                                         progressDialog.dismiss();
                                     }
+                                    outfit[5] = socksID;
                                     //socks image will be stored in bitmap var
                                     Bitmap socksbitmap = BitmapFactory.decodeFile(socksfile.getAbsolutePath());
                                     binding.socksImage.setImageBitmap(socksbitmap);
@@ -498,7 +498,6 @@ public class OutfitCreationActivity extends AppCompatActivity {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
                         otherID = String.valueOf(otherIDtemp.getText());
-                        outfit[6] = otherID;
                         progressDialog = new ProgressDialog(OutfitCreationActivity.this);
                         progressDialog.setMessage("Fetching other image...");
                         progressDialog.setCancelable(false);
@@ -515,6 +514,7 @@ public class OutfitCreationActivity extends AppCompatActivity {
                                     if (progressDialog.isShowing()){
                                         progressDialog.dismiss();
                                     }
+                                    outfit[6] = otherID;
                                     //other image will be stored in bitmap var
                                     Bitmap otherbitmap = BitmapFactory.decodeFile(otherfile.getAbsolutePath());
                                     binding.otherImage.setImageBitmap(otherbitmap);
