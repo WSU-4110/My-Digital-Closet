@@ -24,6 +24,8 @@ import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.storage.FileDownloadTask;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
@@ -39,6 +41,10 @@ public class OutfitCreationActivity extends AppCompatActivity {
     StorageReference storageReference;
     ProgressDialog progressDialog;
     FirebaseAuth mAuth;
+    final FirebaseDatabase database = FirebaseDatabase.getInstance();
+    DatabaseReference ref = database.getReference("https://console.firebase.google.com/project/mydigitalcloset-bde1f/database/mydigitalcloset-bde1f-default-rtdb/data/~2F");
+    DatabaseReference outfitsRef = ref.child("outfits");
+
     Context context;
 
     //clothing IDs
@@ -524,5 +530,20 @@ public class OutfitCreationActivity extends AppCompatActivity {
                 .setNegativeButton("Cancel", null)
                 .create();
         dialog.show();
+    }
+
+    public class outfit{
+        //[0]: name [1]: top [2]: bottoms [3]: shoes [4]: headwear [5]: socks [6]: other
+
+        String top, bottoms, shoes, headwear, socks, other;
+        outfit(String fit[]){
+            top = fit[1];
+            bottoms = fit[2];
+            shoes = fit[3];
+            headwear = fit[4];
+            socks = fit[5];
+            other = fit[6];
+        }
+
     }
 }
