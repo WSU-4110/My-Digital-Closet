@@ -58,14 +58,14 @@ public class AboutUsPageActivity extends AppCompatActivity {
               finish();
           }
       });
-        /*binding.settingsButton.setOnClickListener(new View.OnClickListener() {
+        binding.settingsButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(getApplicationContext(), ?.class);
+                Intent intent = new Intent(getApplicationContext(), SettingsPage.class);
                 startActivity(intent);
                 finish();
             }
-        });*/
+        });
       //end nav buttons
     }//end onCreate
 
