@@ -23,7 +23,7 @@ public class clothingSeeAll extends AppCompatActivity {
     StorageReference storageReference;
 
 
-    //end of singleton design pattern
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -85,6 +85,8 @@ public class clothingSeeAll extends AppCompatActivity {
                 mDatabase.child("other").child(clothingId).setValue("new item");
             }
         });
+
+
         //buttons!
 
         //Back to clothing front page

@@ -1,5 +1,7 @@
 package com.example.mydigitalcloset;
 
+import androidx.activity.result.ActivityResultLauncher;
+import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.appcompat.app.AppCompatActivity;
 
 
@@ -11,11 +13,18 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.storage.StorageReference;
 
+import android.app.Activity;
 import android.app.ProgressDialog;
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.net.Uri;
 import android.os.Bundle;
+import android.provider.MediaStore;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
+
+import java.io.IOException;
 
 public class clothingUpload extends AppCompatActivity {
     private DatabaseReference mDatabase;
@@ -23,6 +32,8 @@ public class clothingUpload extends AppCompatActivity {
     ProgressDialog progressDialog;
     ActivityClothingUploadBinding binding;
     StorageReference storageReference;
+
+    int SELECT_PICTURE = 200;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,12 +46,13 @@ public class clothingUpload extends AppCompatActivity {
         mDatabase = FirebaseDatabase.getInstance().getReference().child("clothing");
 
         Button topsButton = findViewById(R.id.addTops);
+        ImageView IVPreviewImage = findViewById(R.id.IVPreviewImage);
         topsButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 // Create a new clothing item under the "clothing/tops" node in your database
                 String clothingId = mDatabase.child("tops").push().getKey();
-                mDatabase.child("tops").child(clothingId).setValue("new item");
+                mDatabase.child("tops").child(clothingId).setValue("test");
             }
         });
 
@@ -131,7 +143,7 @@ public class clothingUpload extends AppCompatActivity {
         //Back to clothing front page
         Button b2c = findViewById(R.id.backToClothUp);
         b2c.setOnClickListener(view -> {
-            Intent intent=new Intent(clothingUpload.this, clothingFront.class);
+            Intent intent = new Intent(clothingUpload.this, clothingFront.class);
             startActivity(intent);
         });
         /*binding.settingsButton.setOnClickListener(new View.OnClickListener() {
@@ -144,4 +156,38 @@ public class clothingUpload extends AppCompatActivity {
         });*/
 
     }//end oncreate
+
+    void imageChooser() {
+        Intent i = new Intent();
+        i.setType("image/*");
+        i.setAction(Intent.ACTION_GET_CONTENT);
+
+        launchSomeActivity.launch(i);
+    }
+
+    ActivityResultLauncher<Intent> launchSomeActivity
+            = registerForActivityResult(
+            new ActivityResultContracts
+                    .StartActivityForResult(),
+            result -> {
+                if (result.getResultCode()
+                        == Activity.RESULT_OK) {
+                    Intent data = result.getData();
+                    // do your operation from here....
+                    if (data != null
+                            && data.getData() != null) {
+                        Uri selectedImageUri = data.getData();
+                        Bitmap selectedImageBitmap;
+                        try {
+                            selectedImageBitmap
+                                    = MediaStore.Images.Media.getBitmap(
+                                    this.getContentResolver(),
+                                    selectedImageUri);
+                        } catch (IOException e) {
+                            e.printStackTrace();
+                        }
+
+                    }
+                }
+            });
 }
