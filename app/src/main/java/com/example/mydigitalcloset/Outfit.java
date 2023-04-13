@@ -5,6 +5,15 @@ public class Outfit {
 
     public String name, top, bottoms, shoes, headwear, socks, other;
 
+    public Outfit(){
+        name = " ";
+        top = " ";
+        bottoms = " ";
+        shoes = " ";
+        headwear = " ";
+        socks = " ";
+        other = " ";
+    }
     public Outfit(String fit[]){
         name = fit[0];
         top = fit[1];
