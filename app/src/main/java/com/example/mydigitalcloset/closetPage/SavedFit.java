@@ -21,39 +21,39 @@ public class SavedFit extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-//NAV BAR STUFF:
-        binding = ActivitySavedFitBinding.inflate(getLayoutInflater());
-        setContentView(binding.getRoot());
+////NAV BAR STUFF:
+//        binding = ActivitySavedFitBinding.inflate(getLayoutInflater());
+//        setContentView(binding.getRoot());
+//
+//        binding.bottomNavigationView.setOnItemSelectedListener(item -> {
+//            switch(item.getItemId()){
+//                case R.id.home:
+//                    Intent intentHome = new Intent(getApplicationContext(), OutfitCreationActivity.class);
+//                    startActivity(intentHome);
+//                    finish();
+//                    break;
+//                /*case R.id.wardrobe:
+//                    Intent intentWardrobe = new Intent(getApplicationContext(), OutfitCreationActivity.class);
+//                    startActivity(intentWardrobe);
+//                    finish();
+//                    break;*/
+//                case R.id.addItem:
+//                    Intent intentAdd = new Intent(getApplicationContext(), clothingFront.class);
+//                    startActivity(intentAdd);
+//                    finish();
+//                    break;
+//                case R.id.contactSupport:
+//                    Intent intentContact = new Intent(getApplicationContext(), ContactForm.class);
+//                    startActivity(intentContact);
+//                    finish();
+//                    break;
+//            }
+//
+//            return true;
+//        });
+//        //end nav bar
 
-        binding.bottomNavigationView.setOnItemSelectedListener(item -> {
-            switch(item.getItemId()){
-                case R.id.home:
-                    Intent intentHome = new Intent(getApplicationContext(), OutfitCreationActivity.class);
-                    startActivity(intentHome);
-                    finish();
-                    break;
-                /*case R.id.wardrobe:
-                    Intent intentWardrobe = new Intent(getApplicationContext(), OutfitCreationActivity.class);
-                    startActivity(intentWardrobe);
-                    finish();
-                    break;*/
-                case R.id.addItem:
-                    Intent intentAdd = new Intent(getApplicationContext(), clothingFront.class);
-                    startActivity(intentAdd);
-                    finish();
-                    break;
-                case R.id.contactSupport:
-                    Intent intentContact = new Intent(getApplicationContext(), ContactForm.class);
-                    startActivity(intentContact);
-                    finish();
-                    break;
-            }
-
-            return true;
-        });
-        //end nav bar
-
-        setContentView(R.layout.activity_saved_fit);
+        //setContentView(R.layout.activity_saved_fit);
     }
 
 
