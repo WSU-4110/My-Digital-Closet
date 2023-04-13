@@ -37,7 +37,7 @@ public class AllSavedOutfits extends AppCompatActivity {
 
     final FirebaseDatabase database = FirebaseDatabase.getInstance();
     DatabaseReference ref = database.getReference();
-    DatabaseReference outfitsRef = ref.child("outfits");
+    DatabaseReference outfitsRef = database.getReference("outfits");
     ListView listView;
     ArrayList<String> arrayList = new ArrayList<>();
     ArrayAdapter<String> arrayAdapter;

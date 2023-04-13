@@ -211,6 +211,7 @@ public class OutfitCreationActivity extends AppCompatActivity {
                         outfits.put(outfitName, fit);   //save outfit to map
                         //outfitsRef.child(outfitName).setValue(fit);
                         outfitsRef.setValue(outfits);
+
                         Toast.makeText(OutfitCreationActivity.this, "Outfit " + outfitName + " saved!", Toast.LENGTH_SHORT).show();
 
                     }
