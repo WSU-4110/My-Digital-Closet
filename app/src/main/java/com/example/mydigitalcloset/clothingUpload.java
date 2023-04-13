@@ -3,6 +3,7 @@ package com.example.mydigitalcloset;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.mydigitalcloset.closetPage.AllSavedOufitsPage;
+import com.example.mydigitalcloset.closetPage.AllSavedOutfits;
 import com.example.mydigitalcloset.databinding.ActivityClothingUploadBinding;
 import com.example.mydigitalcloset.databinding.ActivityOutfitCreationBinding;
 import com.google.firebase.database.DatabaseReference;
@@ -99,7 +100,7 @@ public class clothingUpload extends AppCompatActivity {
         binding.wardrobeButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(getApplicationContext(), AllSavedOufitsPage.class);
+                Intent intent = new Intent(getApplicationContext(),  AllSavedOutfits.class);
                 startActivity(intent);
                 finish();
             }

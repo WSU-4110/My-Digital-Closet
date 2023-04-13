@@ -11,6 +11,7 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.mydigitalcloset.closetPage.AllSavedOufitsPage;
+import com.example.mydigitalcloset.closetPage.AllSavedOutfits;
 import com.example.mydigitalcloset.databinding.ActivityClothingFrontBinding;
 //import com.example.mydigitalcloset.databinding.ActivityOutfitCreationBinding;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
@@ -22,43 +23,13 @@ public class clothingFront extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        context = this;
         super.onCreate(savedInstanceState);
 
         //NAV BAR STUFF:
         binding = ActivityClothingFrontBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
-        /*binding.bottomNavigationView.setOnItemSelectedListener(new BottomNavigationView.OnItemSelectedListener() {
-            @Override
-            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
-                switch (item.getItemId()) {
-                    case R.id.home:
-                        Intent intentHome = new Intent(getApplicationContext(), OutfitCreationActivity.class);
-                        startActivity(intentHome);
-                        finish();
-                        break;
-                    case R.id.addItem:
-                        return true;
-                    case R.id.contactSupport:
-                        Intent intentContact = new Intent(getApplicationContext(), ContactForm.class);
-                        startActivity(intentContact);
-                        finish();
-                        break;
-                    case R.id.wardrobe:
-                        Intent intentWardrobe = new Intent(getApplicationContext(), AllSavedOufitsPage.class);
-                        startActivity(intentWardrobe);
-                        finish();
-                        break;
-                    case R.id.settings:
-                        startActivity(new Intent(OutfitCreationActivity.this, SETTINGS.class));
-                        break;
-                }
-                return true;
-            }
-        });
-        //end nav bar*/
 
-        setContentView(R.layout.activity_clothing_front);
+        //setContentView(R.layout.activity_clothing_front);
         //this moves to the page that adds clothing items
         Button addPage = findViewById(R.id.addItem);
         addPage.setOnClickListener(view -> {
@@ -78,7 +49,7 @@ public class clothingFront extends AppCompatActivity {
         binding.wardrobeButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(getApplicationContext(), AllSavedOufitsPage.class);
+                Intent intent = new Intent(getApplicationContext(),  AllSavedOutfits.class);
                 startActivity(intent);
                 finish();
             }
@@ -99,14 +70,5 @@ public class clothingFront extends AppCompatActivity {
                 finish();
             }
         });
-        /*binding.settingsButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(getApplicationContext(), ?.class);
-                startActivity(intent);
-                finish();
-            }
-        });*/
-        //end nav buttons
     }//end oncreate
 }

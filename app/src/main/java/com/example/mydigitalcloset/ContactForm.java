@@ -13,6 +13,7 @@ import android.widget.Button;
 import android.widget.Toast;
 
 import com.example.mydigitalcloset.closetPage.AllSavedOufitsPage;
+import com.example.mydigitalcloset.closetPage.AllSavedOutfits;
 import com.example.mydigitalcloset.databinding.ActivityClothingFrontBinding;
 import com.example.mydigitalcloset.databinding.ActivityContactFormBinding;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
@@ -91,7 +92,7 @@ public class ContactForm extends AppCompatActivity {
         binding.wardrobeButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(getApplicationContext(), AllSavedOufitsPage.class);
+                Intent intent = new Intent(getApplicationContext(), AllSavedOutfits.class);
                 startActivity(intent);
                 finish();
             }
