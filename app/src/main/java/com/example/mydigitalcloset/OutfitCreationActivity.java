@@ -18,6 +18,7 @@ import android.widget.ProgressBar;
 import android.widget.Toast;
 
 import com.example.mydigitalcloset.closetPage.AllSavedOufitsPage;
+import com.example.mydigitalcloset.closetPage.AllSavedOutfits;
 import com.example.mydigitalcloset.databinding.ActivityOutfitCreationBinding;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
@@ -146,7 +147,7 @@ public class OutfitCreationActivity extends AppCompatActivity {
         binding.wardrobeButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(getApplicationContext(), AllSavedOufitsPage.class);
+                Intent intent = new Intent(getApplicationContext(),  AllSavedOutfits.class);
                 startActivity(intent);
                 finish();
             }
