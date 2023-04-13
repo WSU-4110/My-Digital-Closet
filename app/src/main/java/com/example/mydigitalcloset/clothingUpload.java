@@ -1,59 +1,77 @@
 package com.example.mydigitalcloset;
 
 import androidx.activity.result.ActivityResultLauncher;
+import androidx.activity.result.PickVisualMediaRequest;
 import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.appcompat.app.AppCompatActivity;
 
 
 import com.example.mydigitalcloset.closetPage.AllSavedOufitsPage;
 import com.example.mydigitalcloset.databinding.ActivityClothingUploadBinding;
-import com.example.mydigitalcloset.databinding.ActivityOutfitCreationBinding;
 
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.annotations.Nullable;
+import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 
-import android.app.Activity;
+
 import android.app.ProgressDialog;
 import android.content.Intent;
-import android.graphics.Bitmap;
-import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 
-import java.io.IOException;
 
 public class clothingUpload extends AppCompatActivity {
     private DatabaseReference mDatabase;
 
     ProgressDialog progressDialog;
     ActivityClothingUploadBinding binding;
-    StorageReference storageReference;
+    //Initialize storage
+    FirebaseStorage storage = FirebaseStorage.getInstance();
+    StorageReference stoRef = storage.getReference();
 
     int SELECT_PICTURE = 200;
-
+    ImageView IVimg;
+    ActivityResultLauncher<PickVisualMediaRequest> pickMedia =
+            registerForActivityResult(new ActivityResultContracts.PickVisualMedia(), uri -> {
+                // Callback is invoked after the user selects a media item or closes the
+                // photo picker.
+                if (uri != null) {
+                    Log.d("PhotoPicker", "Selected URI: " + uri);
+                } else {
+                    Log.d("PhotoPicker", "No media selected");
+                }
+            });
+private final int gallery_r_code = 1000;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         // Inflate the layout
         binding = ActivityClothingUploadBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
-
         // Get a reference to the "clothing" node in your Firebase Realtime Database
         mDatabase = FirebaseDatabase.getInstance().getReference().child("clothing");
 
+        IVimg = findViewById(R.id.IVimg);
         Button topsButton = findViewById(R.id.addTops);
-        ImageView IVPreviewImage = findViewById(R.id.IVPreviewImage);
         topsButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
+                Intent gallery = new Intent(Intent.ACTION_PICK);
+                gallery.setData(MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
+                startActivityForResult(gallery, gallery_r_code );
                 // Create a new clothing item under the "clothing/tops" node in your database
-                String clothingId = mDatabase.child("tops").push().getKey();
-                mDatabase.child("tops").child(clothingId).setValue("test");
+                //String clothingId = mDatabase.child("tops").push().getKey();
+                //uploadImage();
+                //mDatabase.child("tops").child("Blue T").setValue(pickMedia);
             }
+
         });
 
         Button bottomsButton = findViewById(R.id.addBottoms);
@@ -138,7 +156,8 @@ public class clothingUpload extends AppCompatActivity {
                 startActivity(intent);
                 finish();
             }
-        });        //end nav buttons
+        });
+        //end nav buttons
 
         //Back to clothing front page
         Button b2c = findViewById(R.id.backToClothUp);
@@ -157,37 +176,17 @@ public class clothingUpload extends AppCompatActivity {
 
     }//end oncreate
 
-    void imageChooser() {
-        Intent i = new Intent();
-        i.setType("image/*");
-        i.setAction(Intent.ACTION_GET_CONTENT);
+protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data){
+        super.onActivityResult(requestCode, resultCode, data);
 
-        launchSomeActivity.launch(i);
+        if (resultCode == RESULT_OK){
+            if (requestCode==gallery_r_code){
+                IVimg.setImageURI(data.getData());
+            }
+        }
+
     }
 
-    ActivityResultLauncher<Intent> launchSomeActivity
-            = registerForActivityResult(
-            new ActivityResultContracts
-                    .StartActivityForResult(),
-            result -> {
-                if (result.getResultCode()
-                        == Activity.RESULT_OK) {
-                    Intent data = result.getData();
-                    // do your operation from here....
-                    if (data != null
-                            && data.getData() != null) {
-                        Uri selectedImageUri = data.getData();
-                        Bitmap selectedImageBitmap;
-                        try {
-                            selectedImageBitmap
-                                    = MediaStore.Images.Media.getBitmap(
-                                    this.getContentResolver(),
-                                    selectedImageUri);
-                        } catch (IOException e) {
-                            e.printStackTrace();
-                        }
+} //end of class
 
-                    }
-                }
-            });
-}
+
