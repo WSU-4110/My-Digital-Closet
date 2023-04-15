@@ -67,8 +67,10 @@ public class AllSavedOufitsPage extends AppCompatActivity {
         }
 
         public void openOutfit(){
+
             Intent intent = new Intent(this, SavedOutfit.class);
             startActivity(intent);
+
         }
     }
 

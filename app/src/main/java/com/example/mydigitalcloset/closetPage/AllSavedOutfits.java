@@ -15,11 +15,23 @@ import com.example.mydigitalcloset.databinding.ActivityAllSavedOutfitsBinding;
 
 public class AllSavedOutfits extends AppCompatActivity {
     private ImageView rectangle_1;
-    ActivityAllSavedOutfitsBinding binding;
+    static ActivityAllSavedOutfitsBinding binding;
+
+
+
+    static Boolean isCreated = true;
+    public static int getContentView() {
+        return R.id.AllSavedOutfitsLayout;
+    }
+    public static Boolean isCreatedSuccessfully()
+    {
+        return isCreated;
+    }
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
+        isCreated = true;
         //NAV BAR STUFF:
         binding = ActivityAllSavedOutfitsBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
