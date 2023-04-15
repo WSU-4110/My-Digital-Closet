@@ -8,9 +8,11 @@ buildscript {
         mavenCentral()
     }
     dependencies {
-
         // Add the dependency for the Google services Gradle plugin
         classpath 'com.google.gms:google-services:4.3.15'
+        //add fragment dependency
+        //def fragment_version = "1.5.5"
+        //implementation ("androidx.fragment:fragment:$fragment_version")
 
     }
 }
@@ -19,8 +21,8 @@ buildscript {
 
 
 plugins {
-    id 'com.android.application' version '7.4.0' apply false
-    id 'com.android.library' version '7.4.0' apply false
+    id 'com.android.application' version '7.4.1' apply false
+    id 'com.android.library' version '7.4.1' apply false
 }
 
 
@@ -29,7 +31,7 @@ allprojects{
         google()
         mavenCentral()
         jcenter()
-        maven{ url "https:jitpack.io" } //for HTTP dependency
+        //maven{ url "https:jitpack.io" } //for HTTP dependency
 
     }
 }

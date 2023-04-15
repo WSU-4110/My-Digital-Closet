@@ -4,21 +4,29 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
+import android.widget.ArrayAdapter;
+import android.widget.Button;
+import android.widget.ListView;
+import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.mydigitalcloset.closetPage.AllSavedOufitsPage;
+import com.example.mydigitalcloset.databinding.ActivityAboutusPageBinding;
 import com.example.mydigitalcloset.databinding.ActivityOutfitCreationBinding;
-import com.example.mydigitalcloset.databinding.ActivitySuccessPageBinding;
+import com.example.mydigitalcloset.databinding.ActivitySettingsPageBinding;
 
-public class SuccessPage extends AppCompatActivity {
-    ActivitySuccessPageBinding binding;
+public class SettingsPage extends AppCompatActivity {
 
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    ActivitySettingsPageBinding binding;
+
+    @Override protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         // Inflate the layout
-        binding = ActivitySuccessPageBinding.inflate(getLayoutInflater());
+        binding = ActivitySettingsPageBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
+
         //navigation buttons
         binding.homeButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -61,5 +69,5 @@ public class SuccessPage extends AppCompatActivity {
             }
         });
         //end nav buttons
-    }//end oncreate
+    }//end onCreate
 }

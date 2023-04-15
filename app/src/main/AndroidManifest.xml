@@ -19,11 +19,13 @@
             android:exported="true" />
         <activity
             android:name=".closetPage.AllSavedOutfits"
-            android:exported="true"/> <!-- <activity -->
-        <!-- android:name=".AllOutfitsPage" -->
-        <!-- android:exported="false" -->
-        <!-- android:label="@string/title_activity_all_outfits_page" -->
-        <!-- android:theme="@style/Theme.MyDigitalCloset.NoActionBar" /> -->
+            android:exported="true"/> 
+        <activity
+            android:name=".SettingsPage"
+            android:exported="true" />
+        <activity
+            android:name=".AboutUsPageActivity"
+            android:exported="false" />
         <activity
             android:name=".SuccessPage"
             android:exported="false" />
@@ -39,6 +41,7 @@
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+            <!-- add intent filter back -->
         </activity>
         <activity
             android:name=".SignUp"
@@ -51,8 +54,16 @@
         <activity
             android:name="com.example.mydigitalcloset.clothingUpload"
             android:exported="false" />
+        <!--
         <activity
             android:name="com.example.mydigitalcloset.clothingFront"
+
+            android:name=".clothingUpload"
+            android:exported="false" />
+            -->
+        <activity
+            android:name=".clothingFront"
+
             android:exported="true" />
         <!--
  duplicate login activity
@@ -64,6 +75,7 @@
         <activity
             android:name=".closetPage.SavedOutfit"
             android:configChanges="orientation|keyboardHidden|screenSize"
+
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -77,10 +89,11 @@
         <activity
             android:name=".clothingFront"
             android:exported="true" />
+
         <activity
             android:name=".closetPage.AllSavedOufitsPage"
             android:configChanges="orientation|keyboardHidden|screenSize"
             android:exported="true" />
-    </application>
 
+    </application>
 </manifest>
