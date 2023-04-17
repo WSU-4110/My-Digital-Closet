@@ -13,6 +13,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.MyDigitalCloset"
         android:usesCleartextTraffic="true"
+        android:name=".Module"
         tools:targetApi="31">
         <activity
             android:name=".closetPage.SavedFit"
@@ -63,22 +64,15 @@
             -->
         <activity
             android:name=".clothingFront"
-
             android:exported="true" />
-        <!--
- duplicate login activity
-        <activity
-            android:name=".ui.login.LoginActivity"
-            android:exported="false"
-            android:label="@string/title_activity_login" />
-        -->
+
         <activity
             android:name=".closetPage.SavedOutfit"
             android:configChanges="orientation|keyboardHidden|screenSize"
 
             android:exported="true">
-        </activity>
 
+        </activity>
         <activity
             android:name=".clothingUpload"
             android:exported="false" />
@@ -87,13 +81,6 @@
         <activity
             android:name=".closetPage.AllSavedOufitsPage"
             android:configChanges="orientation|keyboardHidden|screenSize"
-            android:exported="true">
-       
-       </activity>
-
-
-        <activity
-            android:name=".clothingSeeAll"
             android:exported="true" />
 
     </application>
