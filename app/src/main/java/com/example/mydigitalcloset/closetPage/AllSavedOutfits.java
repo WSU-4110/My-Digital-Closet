@@ -46,9 +46,6 @@ public class AllSavedOutfits extends AppCompatActivity {
     ListView listView;
     ArrayList<String> arrayList = new ArrayList<>();
     ArrayAdapter<String> arrayAdapter;
-    Module module;
-    Button btnDelete, btnUpdate, btnView;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -57,15 +54,9 @@ public class AllSavedOutfits extends AppCompatActivity {
         binding = ActivityAllSavedOutfitsBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
-        //list stuff
         listView = (ListView) findViewById(R.id.outfitList);
         arrayAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, arrayList);
         listView.setAdapter(arrayAdapter);
-
-        //buttons
-        btnDelete = findViewById(R.id.deleteButton);
-        btnUpdate = findViewById(R.id.viewButton);
-
         outfitsRef.addChildEventListener(new ChildEventListener() {
             @Override
             public void onChildAdded(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
@@ -94,16 +85,6 @@ public class AllSavedOutfits extends AppCompatActivity {
 
             }
         });
-
-
-        /*
-        rectangle_1 = (ImageView) findViewById(R.id.rectangle_1);
-        rectangle_1.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-            openOutfit();
-        }
-        });*/
 
         //navigation buttons
         binding.homeButton.setOnClickListener(new View.OnClickListener() {
@@ -148,15 +129,15 @@ public class AllSavedOutfits extends AppCompatActivity {
         });
 
         //get name of outfit clicked in list
-        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+        /*listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
                 module.setGvalue_Name(arrayList.get(i));
             }
-        });
+        });*/
 
         //delete:
-        btnDelete.setOnClickListener(new View.OnClickListener() {
+        /*btnDelete.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 final String str = module.getGvalue_Name();
@@ -180,7 +161,7 @@ public class AllSavedOutfits extends AppCompatActivity {
                     startActivity(intent);
                 }
             }
-        });
+        });*/
 
     }//end oncreate
 
