@@ -237,7 +237,7 @@ public class OutfitCreationActivity extends AppCompatActivity {
                         progressDialog.show();
                         //use top name entered by user to get top from database
                         //topID = binding.getTopName.getText().toString();
-                        storageReference = FirebaseStorage.getInstance().getReference("images/tops/"+topID+".png");
+                        storageReference = FirebaseStorage.getInstance().getReference("images/tops/"+topID);
                         //create local file for top image
                         try{
                             File topfile = File.createTempFile("tempfile_top", ".png");
