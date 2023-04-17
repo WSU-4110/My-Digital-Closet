@@ -1,29 +1,44 @@
 package com.example.mydigitalcloset;
 
-import androidx.activity.result.ActivityResultLauncher;
-import androidx.activity.result.PickVisualMediaRequest;
-import androidx.activity.result.contract.ActivityResultContracts;
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 
 import com.example.mydigitalcloset.closetPage.AllSavedOufitsPage;
 import com.example.mydigitalcloset.databinding.ActivityClothingUploadBinding;
 
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.database.annotations.Nullable;
 import com.google.firebase.storage.FirebaseStorage;
+import com.google.firebase.storage.OnProgressListener;
 import com.google.firebase.storage.StorageReference;
+import com.google.firebase.storage.UploadTask;
 
 
+import android.app.AlertDialog;
 import android.app.ProgressDialog;
+import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
-import android.util.Log;
+import android.view.KeyEvent;
 import android.view.View;
+import android.view.inputmethod.EditorInfo;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.TextView;
+import android.widget.Toast;
+
+import java.io.IOException;
+import java.util.Arrays;
+import java.util.UUID;
 
 
 public class clothingUpload extends AppCompatActivity {
@@ -31,97 +46,110 @@ public class clothingUpload extends AppCompatActivity {
 
     ProgressDialog progressDialog;
     ActivityClothingUploadBinding binding;
+    
     //Initialize storage
-    FirebaseStorage storage = FirebaseStorage.getInstance();
-    StorageReference stoRef = storage.getReference();
+    FirebaseStorage storage;
+    StorageReference stoRef;
+    
+    ImageView imgView;
 
-    int SELECT_PICTURE = 200;
-    ImageView IVimg;
-    ActivityResultLauncher<PickVisualMediaRequest> pickMedia =
-            registerForActivityResult(new ActivityResultContracts.PickVisualMedia(), uri -> {
-                // Callback is invoked after the user selects a media item or closes the
-                // photo picker.
-                if (uri != null) {
-                    Log.d("PhotoPicker", "Selected URI: " + uri);
-                } else {
-                    Log.d("PhotoPicker", "No media selected");
-                }
-            });
-private final int gallery_r_code = 1000;
+    private Uri filePath;
+    private final int PICK_IMAGE_REQUEST = 71;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        //Firebase
+        storage = FirebaseStorage.getInstance();
+        stoRef = storage.getReference();
         // Inflate the layout
         binding = ActivityClothingUploadBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
         // Get a reference to the "clothing" node in your Firebase Realtime Database
         mDatabase = FirebaseDatabase.getInstance().getReference().child("clothing");
 
-        IVimg = findViewById(R.id.IVimg);
-        Button topsButton = findViewById(R.id.addTops);
-        topsButton.setOnClickListener(new View.OnClickListener() {
+        imgView = findViewById(R.id.imgView); //Preview picture
+
+        TextView addItem = findViewById(R.id.headerAddItem); //going to see the add item text to the user text
+        Button galleryButton = findViewById(R.id.openGallery); //Access gallery
+        Button catButton = findViewById(R.id.itemCat); //Choose the category
+        TextView catDisplay = findViewById(R.id.confirmCat);
+        EditText itemText = findViewById(R.id.itemName); //Type in the name of the item
+        Button acceptButton = findViewById(R.id.accept); //submit to firebase
+
+        galleryButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                chooseImage();
 
-                Intent gallery = new Intent(Intent.ACTION_PICK);
-                gallery.setData(MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
-                startActivityForResult(gallery, gallery_r_code );
                 // Create a new clothing item under the "clothing/tops" node in your database
                 //String clothingId = mDatabase.child("tops").push().getKey();
-                //uploadImage();
+
                 //mDatabase.child("tops").child("Blue T").setValue(pickMedia);
             }
 
         });
 
-        Button bottomsButton = findViewById(R.id.addBottoms);
-        bottomsButton.setOnClickListener(new View.OnClickListener() {
+        //Choose the category of the item
+
+        catButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                // Create a new clothing item under the "clothing/bottoms" node in your database
-                String clothingId = mDatabase.child("bottoms").push().getKey();
-                mDatabase.child("bottoms").child(clothingId).setValue("new item");
+                chooseCat();
+                //String catPicked = catDisplay.getText().toString();
+                //String catID = mDatabase.child(catPicked).push().getKey();
             }
+
         });
 
-        Button shoesButton = findViewById(R.id.addShoes);
-        shoesButton.setOnClickListener(new View.OnClickListener() {
+        //Type in the name of the item
+        itemText.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v) {
-                // Create a new clothing item under the "clothing/shoes" node in your database
-                String clothingId = mDatabase.child("shoes").push().getKey();
-                mDatabase.child("shoes").child(clothingId).setValue("new item");
+                String name = itemText.getText().toString();
+            }
+        //submit everything to the database
+        });
+        itemText.setOnEditorActionListener(new EditText.OnEditorActionListener() {
+            public boolean onEditorAction(TextView v, int actionId, KeyEvent event) {
+                if ((event != null && (event.getKeyCode() == KeyEvent.KEYCODE_ENTER)) || (actionId == EditorInfo.IME_ACTION_DONE)) {
+                    //do what you want on the press of 'done'
+                    closeKeyboard();
+                }
+                return false;
             }
         });
-
-        Button socksButton = findViewById(R.id.addSocks);
-        socksButton.setOnClickListener(new View.OnClickListener() {
+        acceptButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                // Create a new clothing item under the "clothing/socks" node in your database
-                String clothingId = mDatabase.child("socks").push().getKey();
-                mDatabase.child("socks").child(clothingId).setValue("new item");
+                String catPicked = catDisplay.getText().toString();
+                String namePicked = itemText.getText().toString();
+                //testing default names
+                if (catPicked.equals("Category"))
+                    catPicked = "other";
+
+                if (namePicked.equals(""))
+                    namePicked = "item";
+
+                String result = namePicked + ", " + catPicked;
+                addItem.setText(result); //Replaces the header of the page with the item name + category
+                //String clothingId = mDatabase.child(catPicked).push().getKey();
+
+                //mDatabase.child(catPicked).child(clothingId).setValue(namePicked);
+                uploadImage(namePicked,catPicked);
+                
+                /*            String clothingId = mDatabase.child("tops").push().getKey();
+            mDatabase.child("tops").child(clothingId).setValue("new item");*/
+
             }
+
         });
 
-        Button headwearButton = findViewById(R.id.addHeadwear);
-        headwearButton.setOnClickListener(new View.OnClickListener() {
+        addItem.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                // Create a new clothing item under the "clothing/headwear" node in your database
-                String clothingId = mDatabase.child("headwear").push().getKey();
-                mDatabase.child("headwear").child(clothingId).setValue("new item");
-            }
-        });
 
-        Button otherButton = findViewById(R.id.addOther);
-        otherButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                // Create a new clothing item under the "clothing/other" node in your database
-                String clothingId = mDatabase.child("other").push().getKey();
-                mDatabase.child("other").child(clothingId).setValue("new item");
             }
+
         });
 
         //navigation buttons
@@ -157,14 +185,7 @@ private final int gallery_r_code = 1000;
                 finish();
             }
         });
-        //end nav buttons
 
-        //Back to clothing front page
-        Button b2c = findViewById(R.id.backToClothUp);
-        b2c.setOnClickListener(view -> {
-            Intent intent = new Intent(clothingUpload.this, clothingFront.class);
-            startActivity(intent);
-        });
         /*binding.settingsButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -173,19 +194,122 @@ private final int gallery_r_code = 1000;
                 finish();
             }
         });*/
+        //end nav buttons
+
+        //Back to clothing front page - commented out in order to test the accept button
+        /*Button b2c = findViewById(R.id.backToClothUp);
+        b2c.setOnClickListener(view -> {
+            Intent intent = new Intent(clothingUpload.this, clothingFront.class);
+            startActivity(intent);
+        });*/
 
     }//end oncreate
 
-protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data){
+/*protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data){
         super.onActivityResult(requestCode, resultCode, data);
 
         if (resultCode == RESULT_OK){
             if (requestCode==gallery_r_code){
-                IVimg.setImageURI(data.getData());
+                imgView.setImageURI(data.getData());
             }
         }
 
+    }*/
+    //Grab image from gallery
+private void chooseImage() {
+    Intent intent = new Intent();
+    intent.setType("image/*");
+    intent.setAction(Intent.ACTION_GET_CONTENT);
+    startActivityForResult(Intent.createChooser(intent, "Select Picture"), PICK_IMAGE_REQUEST);
+}
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if(requestCode == PICK_IMAGE_REQUEST && resultCode == RESULT_OK
+                && data != null && data.getData() != null )
+        {
+            filePath = data.getData();
+            try {
+                Bitmap bitmap = MediaStore.Images.Media.getBitmap(getContentResolver(), filePath);
+                imgView.setImageBitmap(bitmap);
+            }
+            catch (IOException e)
+            {
+                e.printStackTrace();
+            }
+        }
     }
+
+    private void uploadImage(String name, String cat) {
+        if(filePath != null)
+        {
+            //String clothingID = UUID.randomUUID().toString();
+            final ProgressDialog progressDialog = new ProgressDialog(this);
+            progressDialog.setTitle("Uploading...");
+            progressDialog.show();
+            StorageReference ref = stoRef.child("images/"+ cat + "/"+name);
+            ref.putFile(filePath)
+                    .addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
+                        @Override
+                        public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
+                            progressDialog.dismiss();
+                            Toast.makeText(clothingUpload.this, "Uploaded", Toast.LENGTH_SHORT).show();
+                        }
+                    })
+                    .addOnFailureListener(new OnFailureListener() {
+                        @Override
+                        public void onFailure(@NonNull Exception e) {
+                            progressDialog.dismiss();
+                            Toast.makeText(clothingUpload.this, "Failed "+e.getMessage(), Toast.LENGTH_SHORT).show();
+                        }
+                    })
+                    .addOnProgressListener(new OnProgressListener<UploadTask.TaskSnapshot>() {
+                        @Override
+                        public void onProgress(UploadTask.TaskSnapshot taskSnapshot) {
+                            double progress = (100.0*taskSnapshot.getBytesTransferred()/taskSnapshot
+                                    .getTotalByteCount());
+                            progressDialog.setMessage("Uploaded "+(int)progress+"%");
+                        }
+                    });
+        }
+    }
+
+    //Choose the category
+    public String chooseCat() {
+        String[] category = {"tops","bottoms","headwear","shoes","socks","other"};
+        TextView catDisplay = findViewById(R.id.confirmCat);                    //shows the category name next to the button
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setTitle("Pick a category");
+        builder.setItems(category, new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                // the user clicked on category[which]
+                catDisplay.setText(category[which]);                            //stores the category name is the nearby textboxString catPick =
+            }
+        });
+        builder.show();
+        return Arrays.toString(category);
+    }
+
+    public String chooseName(){
+        return null;
+    }
+
+    private void closeKeyboard()
+    {
+        View view = this.getCurrentFocus();
+        if (view != null) {
+
+            InputMethodManager manager
+                    = (InputMethodManager)
+                    getSystemService(
+                            Context.INPUT_METHOD_SERVICE);
+            manager
+                    .hideSoftInputFromWindow(
+                            view.getWindowToken(), 0);
+        }
+    }
+
 
 } //end of class
 

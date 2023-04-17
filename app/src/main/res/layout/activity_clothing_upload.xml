@@ -7,130 +7,71 @@
     android:background="#FFE0E7"
     tools:context="com.example.mydigitalcloset.clothingUpload">
 
+
     <Button
-        android:id="@+id/addSocks"
-        android:layout_width="142dp"
-        android:layout_height="70dp"
-        android:layout_marginTop="64dp"
-        android:layout_marginEnd="24dp"
-        android:layout_marginBottom="260dp"
-        android:text="@string/socks"
+        android:id="@+id/openGallery"
+        android:layout_width="201dp"
+        android:layout_height="68dp"
+        android:layout_marginBottom="32dp"
+        android:text="@string/open_gallery"
+
+        android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintHorizontal_bias="0.495"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/addOther"
+        app:layout_constraintTop_toBottomOf="@+id/headerAddItem"
         app:layout_constraintVertical_bias="0.0" />
 
     <Button
-        android:id="@+id/addShoes"
-        android:layout_width="142dp"
-        android:layout_height="70dp"
-        android:layout_marginStart="24dp"
-        android:layout_marginTop="64dp"
-        android:layout_marginBottom="260dp"
-        android:text="@string/shoes"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/addSocks"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/addBottoms"
-        app:layout_constraintVertical_bias="0.0" />
-
-    <Button
-        android:id="@+id/addHeadwear"
-        android:layout_width="142dp"
-        android:layout_height="70dp"
-        android:layout_marginTop="128dp"
-        android:layout_marginEnd="24dp"
-        android:text="@string/headwear"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0" />
-
-    <Button
-        android:id="@+id/addTops"
-        android:layout_width="142dp"
-        android:layout_height="70dp"
-        android:layout_marginStart="24dp"
-        android:layout_marginTop="128dp"
-        android:text="@string/tops"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/addHeadwear"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0" />
-
-    <Button
-        android:id="@+id/addOther"
-        android:layout_width="142dp"
-        android:layout_height="70dp"
-        android:layout_marginTop="64dp"
-        android:layout_marginEnd="24dp"
-        android:text="@string/other"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/addHeadwear"
-        app:layout_constraintVertical_bias="0.0" />
-
-    <Button
-        android:id="@+id/addBottoms"
-        android:layout_width="142dp"
-        android:layout_height="70dp"
-        android:layout_marginStart="24dp"
-        android:layout_marginTop="64dp"
-        android:text="@string/bottoms"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/addOther"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/addTops"
-        app:layout_constraintVertical_bias="0.0" />
-
-    <Button
-        android:id="@+id/backToClothUp"
+        android:id="@+id/accept"
         android:layout_width="200dp"
         android:layout_height="70dp"
-        android:layout_marginBottom="112dp"
-        android:text="@string/back"
+        android:layout_marginBottom="75dp"
+        android:text="@string/accept"
+        android:textSize="24sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent" />
 
     <ImageView
-        android:id="@+id/IVimg"
-        android:layout_width="match_parent"
-        android:layout_height="300dp"
-        app:layout_constraintBottom_toTopOf="@+id/backToClothUp"
-        app:layout_constraintTop_toBottomOf="@+id/headerSeeAll"
-        tools:layout_editor_absoluteX="16dp" />
+        android:id="@+id/imgView"
+        android:layout_width="291dp"
+        android:layout_height="272dp"
+        app:layout_constraintBottom_toTopOf="@+id/accept"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/openGallery"
+        app:layout_constraintVertical_bias="0.072" />
+
+    <!--nav buttons-->
 
     <EditText
         android:id="@+id/itemName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="200dp"
+        android:layout_marginBottom="24dp"
         android:autofillHints=""
         android:ems="10"
-        android:inputType="textPersonName"
+        android:inputType="text"
+        android:imeOptions="actionDone"
         android:minHeight="48dp"
-        android:text="@string/image_id"
-        app:layout_constraintBottom_toTopOf="@+id/backToClothUp"
+        android:hint="@string/item_name"
+        app:layout_constraintBottom_toTopOf="@+id/accept"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/headerSeeAll"
-        app:layout_constraintVertical_bias="0.938" />
+        app:layout_constraintTop_toBottomOf="@+id/headerAddItem"
+        app:layout_constraintVertical_bias="1.0"
+        tools:ignore="LabelFor" />
+
     <TextView
-        android:id="@+id/headerSeeAll"
+        android:id="@+id/headerAddItem"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="64dp"
+        android:layout_marginTop="24dp"
         android:text="@string/add_item"
         android:textSize="24sp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -140,7 +81,33 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.0" />
 
-    <!--nav buttons-->
+    <!--Nav buttons-->
+
+    <Button
+        android:id="@+id/itemCat"
+        android:layout_width="137dp"
+        android:layout_height="69dp"
+        android:text="@string/category"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toTopOf="@+id/homeButton"
+        app:layout_constraintEnd_toStartOf="@+id/confirmCat"
+        app:layout_constraintHorizontal_bias="0.638"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.693" />
+
+    <TextView
+        android:id="@+id/confirmCat"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="60dp"
+        android:text="@string/categorytext"
+        android:textSize="30sp"
+        app:layout_constraintBottom_toTopOf="@+id/settingsButton"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.678" />
+
     <ImageButton
         android:id="@+id/homeButton"
         android:layout_width="wrap_content"
@@ -200,6 +167,8 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.981"
         app:srcCompat="@drawable/ic_settings" />
+
+
     <!--end nav buttons-->
 
 </androidx.constraintlayout.widget.ConstraintLayout>
