@@ -8,12 +8,15 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.ListView;
 
 import com.example.mydigitalcloset.AboutUsPageActivity;
 import com.example.mydigitalcloset.ContactForm;
+import com.example.mydigitalcloset.Module;
 import com.example.mydigitalcloset.Outfit;
 import com.example.mydigitalcloset.OutfitCreationActivity;
 import com.example.mydigitalcloset.R;
@@ -41,6 +44,9 @@ public class AllSavedOutfits extends AppCompatActivity {
     ListView listView;
     ArrayList<String> arrayList = new ArrayList<>();
     ArrayAdapter<String> arrayAdapter;
+    Module module;
+    Button btnDelete, btnUpdate, btnView;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -49,9 +55,15 @@ public class AllSavedOutfits extends AppCompatActivity {
         binding = ActivityAllSavedOutfitsBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
+        //list stuff
         listView = (ListView) findViewById(R.id.outfitList);
         arrayAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, arrayList);
         listView.setAdapter(arrayAdapter);
+
+        //buttons
+        btnDelete = findViewById(R.id.deleteButton);
+        btnUpdate = findViewById(R.id.viewButton);
+
         outfitsRef.addChildEventListener(new ChildEventListener() {
             @Override
             public void onChildAdded(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
@@ -133,7 +145,14 @@ public class AllSavedOutfits extends AppCompatActivity {
             }
         });
 
-    }
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                module.setGvalue_Name(arrayList.get(i));
+            }
+        });
+
+    }//end oncreate
 
     public void openOutfit(){
         Intent intent = new Intent(this, SavedFit.class);
