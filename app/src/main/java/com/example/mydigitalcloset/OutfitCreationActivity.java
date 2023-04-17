@@ -18,12 +18,15 @@ import android.widget.ProgressBar;
 import android.widget.Toast;
 
 import com.example.mydigitalcloset.closetPage.AllSavedOufitsPage;
+import com.example.mydigitalcloset.closetPage.AllSavedOutfits;
 import com.example.mydigitalcloset.databinding.ActivityOutfitCreationBinding;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.storage.FileDownloadTask;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
@@ -32,6 +35,8 @@ import org.jetbrains.annotations.Nullable;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.HashMap;
+import java.util.Map;
 
 public class OutfitCreationActivity extends AppCompatActivity {
 
@@ -39,16 +44,22 @@ public class OutfitCreationActivity extends AppCompatActivity {
     StorageReference storageReference;
     ProgressDialog progressDialog;
     FirebaseAuth mAuth;
+    final FirebaseDatabase database = FirebaseDatabase.getInstance();
+    DatabaseReference ref = database.getReference();
+    DatabaseReference outfitsRef = ref.child("outfits");
+    Map<String, Outfit> outfits = new HashMap<>();
+
+
     Context context;
 
     //clothing IDs
-    String topID = "";
-    String bottomsID = "";
-    String shoesID = "";
-    String headwearID = "";
-    String socksID = "";
-    String otherID = "";
-    String outfitName = "";
+    String topID = " ";
+    String bottomsID = " ";
+    String shoesID = " ";
+    String headwearID = " ";
+    String socksID = " ";
+    String otherID = " ";
+    String outfitName = " ";
     //[0]: name [1]: top [2]: bottoms [3]: shoes [4]: headwear [5]: socks [6]: other
     String outfit[] = {outfitName, topID, bottomsID, shoesID, headwearID, socksID, otherID};
 
@@ -121,9 +132,7 @@ public class OutfitCreationActivity extends AppCompatActivity {
             public void onClick(View view) {
                 //outfit[] - [0]: name [1]: top [2]: bottoms [3]: shoes [4]: headwear [5]: socks [6]: other
                 showSaveOutfitDialog(OutfitCreationActivity.this); //get outfit name
-                //save to firebase
-
-            }
+              }
         });
 
         //navigation buttons
@@ -138,7 +147,7 @@ public class OutfitCreationActivity extends AppCompatActivity {
         binding.wardrobeButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(getApplicationContext(), AllSavedOufitsPage.class);
+                Intent intent = new Intent(getApplicationContext(),  AllSavedOutfits.class);
                 startActivity(intent);
                 finish();
             }
@@ -197,6 +206,13 @@ public class OutfitCreationActivity extends AppCompatActivity {
                         outfitName = String.valueOf(outfitNameTemp.getText());
                         outfit[0] = outfitName;
                         //add check for existing outfit name
+                        //save array to firebase
+                        Outfit fit = new Outfit(outfit);    //create outfit object from array
+                        outfits.put(outfitName, fit);   //save outfit to map
+                        //outfitsRef.child(outfitName).setValue(fit);
+                        outfitsRef.setValue(outfits);
+                        Toast.makeText(OutfitCreationActivity.this, "Outfit " + outfitName + " saved!", Toast.LENGTH_SHORT).show();
+
                     }
                 })
                 .setNegativeButton("Cancel", null)
@@ -214,7 +230,6 @@ public class OutfitCreationActivity extends AppCompatActivity {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
                         topID = String.valueOf(topIDtemp.getText());
-                        outfit[1] = topID;
                         progressDialog = new ProgressDialog(OutfitCreationActivity.this);
                         progressDialog.setMessage("Fetching top image...");
                         progressDialog.setCancelable(false);
@@ -233,6 +248,7 @@ public class OutfitCreationActivity extends AppCompatActivity {
                                     if (progressDialog.isShowing()){
                                         progressDialog.dismiss();
                                     }
+                                    outfit[1] = topID;
                                     //top image will be stored in bitmap var
                                     Bitmap topbitmap = BitmapFactory.decodeFile(topfile.getAbsolutePath());
                                     binding.topImage.setImageBitmap(topbitmap);
@@ -270,7 +286,6 @@ public class OutfitCreationActivity extends AppCompatActivity {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
                         bottomsID = String.valueOf(bottomsIDtemp.getText());
-                        outfit[2] = bottomsID;
                         progressDialog = new ProgressDialog(OutfitCreationActivity.this);
                         progressDialog.setMessage("Fetching bottoms image...");
                         progressDialog.setCancelable(false);
@@ -287,6 +302,7 @@ public class OutfitCreationActivity extends AppCompatActivity {
                                     if (progressDialog.isShowing()){
                                         progressDialog.dismiss();
                                     }
+                                    outfit[2] = bottomsID;
                                     //bottoms image will be stored in bitmap var
                                     Bitmap bottomsbitmap = BitmapFactory.decodeFile(bottomsfile.getAbsolutePath());
                                     binding.bottomsImage.setImageBitmap(bottomsbitmap);
@@ -324,7 +340,6 @@ public class OutfitCreationActivity extends AppCompatActivity {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
                         shoesID = String.valueOf(shoesIDtemp.getText());
-                        outfit[3] = shoesID;
                         progressDialog = new ProgressDialog(OutfitCreationActivity.this);
                         progressDialog.setMessage("Fetching shoes image...");
                         progressDialog.setCancelable(false);
@@ -341,6 +356,7 @@ public class OutfitCreationActivity extends AppCompatActivity {
                                     if (progressDialog.isShowing()){
                                         progressDialog.dismiss();
                                     }
+                                    outfit[3] = shoesID;
                                     //shoes image will be stored in bitmap var
                                     Bitmap shoesbitmap = BitmapFactory.decodeFile(shoesfile.getAbsolutePath());
                                     binding.shoesImage.setImageBitmap(shoesbitmap);
@@ -377,7 +393,6 @@ public class OutfitCreationActivity extends AppCompatActivity {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
                         headwearID = String.valueOf(headwearIDtemp.getText());
-                        outfit[4] = headwearID;
                         progressDialog = new ProgressDialog(OutfitCreationActivity.this);
                         progressDialog.setMessage("Fetching headwear image...");
                         progressDialog.setCancelable(false);
@@ -394,6 +409,7 @@ public class OutfitCreationActivity extends AppCompatActivity {
                                     if (progressDialog.isShowing()){
                                         progressDialog.dismiss();
                                     }
+                                    outfit[4] = headwearID;
                                     //headwear image will be stored in bitmap var
                                     Bitmap headwearbitmap = BitmapFactory.decodeFile(headwearfile.getAbsolutePath());
                                     binding.headwearImage.setImageBitmap(headwearbitmap);
@@ -430,7 +446,6 @@ public class OutfitCreationActivity extends AppCompatActivity {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
                         socksID = String.valueOf(socksIDtemp.getText());
-                        outfit[5] = socksID;
                         progressDialog = new ProgressDialog(OutfitCreationActivity.this);
                         progressDialog.setMessage("Fetching socks image...");
                         progressDialog.setCancelable(false);
@@ -447,6 +462,7 @@ public class OutfitCreationActivity extends AppCompatActivity {
                                     if (progressDialog.isShowing()){
                                         progressDialog.dismiss();
                                     }
+                                    outfit[5] = socksID;
                                     //socks image will be stored in bitmap var
                                     Bitmap socksbitmap = BitmapFactory.decodeFile(socksfile.getAbsolutePath());
                                     binding.socksImage.setImageBitmap(socksbitmap);
@@ -483,7 +499,6 @@ public class OutfitCreationActivity extends AppCompatActivity {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
                         otherID = String.valueOf(otherIDtemp.getText());
-                        outfit[6] = otherID;
                         progressDialog = new ProgressDialog(OutfitCreationActivity.this);
                         progressDialog.setMessage("Fetching other image...");
                         progressDialog.setCancelable(false);
@@ -500,6 +515,7 @@ public class OutfitCreationActivity extends AppCompatActivity {
                                     if (progressDialog.isShowing()){
                                         progressDialog.dismiss();
                                     }
+                                    outfit[6] = otherID;
                                     //other image will be stored in bitmap var
                                     Bitmap otherbitmap = BitmapFactory.decodeFile(otherfile.getAbsolutePath());
                                     binding.otherImage.setImageBitmap(otherbitmap);
@@ -524,5 +540,20 @@ public class OutfitCreationActivity extends AppCompatActivity {
                 .setNegativeButton("Cancel", null)
                 .create();
         dialog.show();
+    }
+
+    public class Outfit{
+        //[0]: name [1]: top [2]: bottoms [3]: shoes [4]: headwear [5]: socks [6]: other
+
+        public String top, bottoms, shoes, headwear, socks, other;
+        Outfit(String fit[]){
+            top = fit[1];
+            bottoms = fit[2];
+            shoes = fit[3];
+            headwear = fit[4];
+            socks = fit[5];
+            other = fit[6];
+        }
+
     }
 }

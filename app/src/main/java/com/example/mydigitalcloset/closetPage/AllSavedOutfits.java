@@ -1,47 +1,41 @@
-package com.example.mydigitalcloset;
+package com.example.mydigitalcloset.closetPage;
 
-import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.storage.StorageReference;
+import androidx.appcompat.app.AppCompatActivity;
 
-import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.Button;
+import android.widget.ImageView;
 
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
+import com.example.mydigitalcloset.AboutUsPageActivity;
+import com.example.mydigitalcloset.ContactForm;
+import com.example.mydigitalcloset.OutfitCreationActivity;
+import com.example.mydigitalcloset.R;
+import com.example.mydigitalcloset.SettingsPage;
+import com.example.mydigitalcloset.clothingFront;
+import com.example.mydigitalcloset.databinding.ActivityAllSavedOutfitsBinding;
+import com.example.mydigitalcloset.databinding.ActivityOutfitCreationBinding;
 
-import com.example.mydigitalcloset.closetPage.AllSavedOufitsPage;
+public class AllSavedOutfits extends AppCompatActivity {
+    private ImageView rectangle_1;
+    ActivityAllSavedOutfitsBinding binding;
 
-//import com.example.mydigitalcloset.databinding.ActivityOutfitCreationBinding;
-
-import com.example.mydigitalcloset.closetPage.AllSavedOutfits;
-
-import com.example.mydigitalcloset.databinding.ActivityClothingFrontBinding;
-
-
-public class clothingFront extends AppCompatActivity {
-
-    ActivityClothingFrontBinding binding;
     Context context;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        //NAV BAR STUFF:
-        binding = ActivityClothingFrontBinding.inflate(getLayoutInflater());
+        // Inflate the layout
+        binding = ActivityAllSavedOutfitsBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
-        //setContentView(R.layout.activity_clothing_front);
-        //this moves to the page that adds clothing items
-        Button addPage = findViewById(R.id.addItem);
-        addPage.setOnClickListener(view -> {
-            Intent intent=new Intent(clothingFront.this,clothingUpload.class);
-            startActivity(intent);
+        rectangle_1 = (ImageView) findViewById(R.id.rectangle_1);
+        rectangle_1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+            openOutfit();
+        }
         });
 
         //navigation buttons
@@ -77,29 +71,20 @@ public class clothingFront extends AppCompatActivity {
                 finish();
             }
         });
-
-        /*binding.settingsButton.setOnClickListener(new View.OnClickListener() {
+        binding.settingsButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(getApplicationContext(), ?.class);
+                Intent intent = new Intent(getApplicationContext(), SettingsPage.class);
                 startActivity(intent);
                 finish();
             }
-        });*/
-        //end nav buttons
-
-        //buttons!
-
-
-        //go to all clothing items page
-        Button seeAll = findViewById(R.id.seeAll);
-        seeAll.setOnClickListener(view -> {
-            Intent intent=new Intent(clothingFront.this, clothingSeeAll.class);
-            startActivity(intent);
         });
 
+    }
 
-
-    }//end of on create
+    public void openOutfit(){
+        Intent intent = new Intent(this, SavedFit.class);
+        startActivity(intent);
+    }
 
 }

@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.view.View;
 
 import com.example.mydigitalcloset.closetPage.AllSavedOufitsPage;
+import com.example.mydigitalcloset.closetPage.AllSavedOutfits;
 import com.example.mydigitalcloset.databinding.ActivityOutfitCreationBinding;
 import com.example.mydigitalcloset.databinding.ActivitySuccessPageBinding;
 
@@ -31,7 +32,7 @@ public class SuccessPage extends AppCompatActivity {
         binding.wardrobeButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(getApplicationContext(), AllSavedOufitsPage.class);
+                Intent intent = new Intent(getApplicationContext(),  AllSavedOutfits.class);
                 startActivity(intent);
                 finish();
             }

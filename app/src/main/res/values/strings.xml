@@ -26,8 +26,8 @@
     <string name="ek_img_content">ExportKit Image</string>
     <string name="caption_string">Wishlist</string>
     <string name="saved_outfits_string">SAVED OUTFITS</string>
-    <string name="campus_green_sweater_and_jeans_skirt_string">Campus green sweater and jeans skirt</string>
 
+    <string name="campus_green_sweater_and_jeans_skirt_string">Campus Green Sweater and Jeans Skirt</string>
     <string name="title_activity_saved_outfit">SavedOutfitActivity</string>
     <!-- Strings used for fragments for navigation -->
     <string name="first_fragment_label">First Fragment</string>
@@ -37,6 +37,7 @@
 
     <string name="hello_first_fragment">Hello first fragment</string>
     <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
+    <string name="title_activity_all_outfits_page">AllOutfitsPage</string>
 
     <string name="back">back</string>
     <string name="image_id">Image ID</string>
