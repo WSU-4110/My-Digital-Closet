@@ -4,11 +4,13 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
+import android.widget.Toast;
 
-import com.example.mydigitalcloset.closetPage.AllSavedOufitsPage;
+
 import com.example.mydigitalcloset.closetPage.AllSavedOutfits;
-import com.example.mydigitalcloset.databinding.ActivityOutfitCreationBinding;
+
 import com.example.mydigitalcloset.databinding.ActivitySuccessPageBinding;
 
 public class SuccessPage extends AppCompatActivity {
@@ -50,6 +52,10 @@ public class SuccessPage extends AppCompatActivity {
             public void onClick(View view) {
                 Intent intent = new Intent(getApplicationContext(), AboutUsPageActivity.class); //change depending on romans pages
                 startActivity(intent);
+                Log.i("MyDigitalCloset", "You have successfully opened the About Us Page");
+                //Shows summited on the bottom of the screen
+                Toast.makeText(getApplicationContext(), "Welcome to the About Us Page!", Toast.LENGTH_SHORT)
+                        .show();
                 finish();
             }
         });
