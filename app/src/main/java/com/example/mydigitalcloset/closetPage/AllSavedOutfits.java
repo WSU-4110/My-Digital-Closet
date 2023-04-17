@@ -8,12 +8,16 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.ListView;
+import android.widget.Toast;
 
 import com.example.mydigitalcloset.AboutUsPageActivity;
 import com.example.mydigitalcloset.ContactForm;
+import com.example.mydigitalcloset.Module;
 import com.example.mydigitalcloset.Outfit;
 import com.example.mydigitalcloset.OutfitCreationActivity;
 import com.example.mydigitalcloset.R;
@@ -26,6 +30,7 @@ import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
 
@@ -41,6 +46,9 @@ public class AllSavedOutfits extends AppCompatActivity {
     ListView listView;
     ArrayList<String> arrayList = new ArrayList<>();
     ArrayAdapter<String> arrayAdapter;
+    Module module;
+    Button btnDelete, btnUpdate, btnView;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -49,9 +57,15 @@ public class AllSavedOutfits extends AppCompatActivity {
         binding = ActivityAllSavedOutfitsBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
+        //list stuff
         listView = (ListView) findViewById(R.id.outfitList);
         arrayAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, arrayList);
         listView.setAdapter(arrayAdapter);
+
+        //buttons
+        btnDelete = findViewById(R.id.deleteButton);
+        btnUpdate = findViewById(R.id.viewButton);
+
         outfitsRef.addChildEventListener(new ChildEventListener() {
             @Override
             public void onChildAdded(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
@@ -133,7 +147,42 @@ public class AllSavedOutfits extends AppCompatActivity {
             }
         });
 
-    }
+        //get name of outfit clicked in list
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                module.setGvalue_Name(arrayList.get(i));
+            }
+        });
+
+        //delete:
+        btnDelete.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                final String str = module.getGvalue_Name();
+                if (str==""){
+                    Toast.makeText(AllSavedOutfits.this, "Please select an outfit to delete", Toast.LENGTH_LONG).show();
+                }
+                else {
+                    ref.child("outfits").child(str).addListenerForSingleValueEvent(new ValueEventListener() {
+                        @Override
+                        public void onDataChange(@NonNull DataSnapshot snapshot) {
+                            ref.child(str).removeValue();
+                        }
+
+                        @Override
+                        public void onCancelled(@NonNull DatabaseError error) {
+
+                        }
+                    });
+                    Toast.makeText(AllSavedOutfits.this, "Outfit " + str + " has been deleted", Toast.LENGTH_LONG).show();
+                    Intent intent = new Intent(getApplicationContext(), AllSavedOutfits.class);
+                    startActivity(intent);
+                }
+            }
+        });
+
+    }//end oncreate
 
     public void openOutfit(){
         Intent intent = new Intent(this, SavedFit.class);
