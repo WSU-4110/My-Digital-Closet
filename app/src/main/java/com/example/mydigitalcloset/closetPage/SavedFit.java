@@ -17,10 +17,18 @@ public class SavedFit extends AppCompatActivity {
 
     ActivitySavedFitBinding binding;
 
+    static Boolean isCreated = true;
+    public static int getContentView() {
+        return R.id.SavedOutfitLayout;
+    }
+    public static Boolean isCreatedSuccessfully()
+    {
+        return isCreated;
+    }
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
+        isCreated = true;
 ////NAV BAR STUFF:
 //        binding = ActivitySavedFitBinding.inflate(getLayoutInflater());
 //        setContentView(binding.getRoot());
