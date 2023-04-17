@@ -8,107 +8,196 @@
     tools:context=".closetPage.AllSavedOutfits"
     android:background="#FFE0E7">
 
-    <RelativeLayout
-        android:id="@+id/relativeLayout"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
 
-        <ImageView android:id="@+id/image_2"
-            android:src="@drawable/image_2"
-            android:contentDescription="image_2"
-            android:layout_marginStart="39dp"
-            android:layout_marginTop="105dp"
-            android:layout_width="65dp"
-            android:layout_height="67dp" />
 
-        <ImageView android:id="@+id/image_3"
-            android:src="@drawable/image_3"
-            android:contentDescription="image_3"
-            android:layout_marginStart="50dp"
-            android:layout_marginTop="137dp"
-            android:layout_width="59dp"
-            android:layout_height="71dp" />
+    <!--
+    <ImageView android:id="@+id/image_2"
+        android:src="@drawable/image_2"
+        android:contentDescription="image_2"
+        android:layout_marginStart="39dp"
+        android:layout_marginTop="105dp"
+        android:layout_width="65dp"
+        android:layout_height="67dp" />
 
-        <ImageView android:id="@+id/image_4"
-            android:src="@drawable/image_4"
-            android:contentDescription="image_4"
-            android:layout_marginStart="50dp"
-            android:layout_marginTop="182dp"
-            android:layout_width="39dp"
-            android:layout_height="41dp" />
+    <ImageView android:id="@+id/image_3"
+        android:src="@drawable/image_3"
+        android:contentDescription="image_3"
+        android:layout_marginStart="50dp"
+        android:layout_marginTop="137dp"
+        android:layout_width="59dp"
+        android:layout_height="71dp" />
 
-        <ImageView android:id="@+id/image_5"
-            android:src="@drawable/image_5"
-            android:contentDescription="image_5"
-            android:layout_marginStart="33dp"
-            android:layout_marginTop="189dp"
-            android:layout_width="48dp"
-            android:layout_height="41dp" />
+    <ImageView android:id="@+id/image_4"
+        android:src="@drawable/image_4"
+        android:contentDescription="image_4"
+        android:layout_marginStart="50dp"
+        android:layout_marginTop="182dp"
+        android:layout_width="39dp"
+        android:layout_height="41dp" />
 
-        <ImageView android:id="@+id/rectangle_1"
-            android:src="@drawable/rectangle_1"
-            android:contentDescription="rectangle_1"
-            android:layout_marginStart="20dp"
-            android:layout_marginTop="92dp"
-            android:layout_width="103dp"
-            android:layout_height="148dp" />
+    <ImageView android:id="@+id/image_5"
+        android:src="@drawable/image_5"
+        android:contentDescription="image_5"
+        android:layout_marginStart="33dp"
+        android:layout_marginTop="189dp"
+        android:layout_width="48dp"
+        android:layout_height="41dp" />
 
-        <TextView
-            android:id="@+id/saved_outfits"
-            android:layout_width="271dp"
-            android:layout_height="99dp"
-            android:layout_gravity="center_horizontal|center"
-            android:layout_marginLeft="62dp"
-            android:layout_marginTop="-10dp"
-            android:fontFamily="Roboto"
-            android:gravity="center"
-            android:shadowColor="#000000"
-            android:shadowDx="0"
-            android:shadowDy="4"
-            android:shadowRadius="4"
-            android:text="@string/saved_outfits_string"
-            android:textColor="@color/bg_light_color"
-            android:textSize="36sp"
-            android:textStyle="bold" />
+    <ImageView android:id="@+id/rectangle_1"
+        android:src="@drawable/rectangle_1"
+        android:contentDescription="rectangle_1"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="92dp"
+        android:layout_width="103dp"
+        android:layout_height="148dp" />
 
-        <TextView
-            android:id="@+id/campus_green_sweater_and_jeans_skirt"
-            android:layout_width="95dp"
-            android:layout_height="57.5dp"
-            android:layout_gravity="center_horizontal|center"
-            android:layout_marginLeft="26dp"
-            android:layout_marginTop="190dp"
-            android:fontFamily="@font/poppinsmedium"
-            android:gravity="center"
-            android:text="@string/campus_green_sweater_and_jeans_skirt_string"
-            android:textColor="@color/caption_color"
-            android:textSize="11sp" />
-    </RelativeLayout>
 
-    <!--NAV BAR STUFF-->
-
-    <FrameLayout
-        android:id="@+id/frame_layout"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        app:layout_constraintBottom_toTopOf="@+id/bottomNavigationView"
+    <TextView
+        android:id="@+id/saved_outfits"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent">
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_width="271dp"
+        android:layout_height="99dp"
+        android:layout_gravity="center_horizontal|center"
+        android:layout_marginLeft="62dp"
+        android:layout_marginTop="-10dp"
+        android:fontFamily="Roboto"
+        android:gravity="center"
+        android:shadowColor="#000000"
+        android:shadowDx="0"
+        android:shadowDy="4"
+        android:shadowRadius="4"
+        android:text="@string/saved_outfits_string"
+        android:textColor="@color/bg_light_color"
+        android:textSize="36sp"
+        android:textStyle="bold" />
 
-    </FrameLayout>
+    <TextView
+        android:id="@+id/campus_green_sweater_and_jeans_skirt"
+        android:layout_width="95dp"
+        android:layout_height="57.5dp"
+        android:layout_gravity="center_horizontal|center"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginLeft="26dp"
+        android:layout_marginTop="190dp"
+        android:fontFamily="@font/poppinsmedium"
+        android:gravity="center"
+        android:text="@string/campus_green_sweater_and_jeans_skirt_string"
+        android:textColor="@color/caption_color"
+        android:textSize="11sp" />-->
 
-    <com.google.android.material.bottomnavigation.BottomNavigationView
-        android:id="@+id/bottomNavigationView"
+
+    <!--nav buttons-->
+    <ListView
+        android:id="@+id/outfitList"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:menu="@menu/bottom_nav_menu"
-        android:background="#FFCFDA"/>
-    <!--nav bar-->
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_alignParentTop="true"/>
+
+    <ImageButton
+        android:id="@+id/homeButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.044"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.981"
+        app:srcCompat="@drawable/ic_home" />
+
+    <ImageButton
+        android:id="@+id/wardrobeButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.267"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.981"
+        app:srcCompat="@drawable/ic_wardrobe" />
+
+    <ImageButton
+        android:id="@+id/addItemButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.981"
+        app:srcCompat="@drawable/ic_add_photo" />
+
+    <ImageButton
+        android:id="@+id/contactButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.713"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.981"
+        app:srcCompat="@drawable/ic_contact_support" />
+
+    <ImageButton
+        android:id="@+id/settingsButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.911"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.981"
+        app:srcCompat="@drawable/ic_settings" />
+
+    <Button
+        android:id="@+id/viewButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="View"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.111"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.863" />
+
+    <Button
+        android:id="@+id/updateButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="update"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.863" />
+
+    <Button
+        android:id="@+id/deleteButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="delete"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.9"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.863" />
+    <!--end nav buttons-->
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
