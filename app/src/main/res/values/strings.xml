@@ -40,7 +40,17 @@
     <string name="title_activity_all_outfits_page">AllOutfitsPage</string>
 
     <string name="back">back</string>
+
     <string name="image_id">Image ID</string>
     <string name="see_item">See All</string>
+
+
+    <!-- Strings used for the About Us Page -->
+
+    <string name="AboutUs">My Digital Closet is a wardrobe cataloguing app that helps users organize their clothing items into different categories and create outfits based on what they find suites them best in terms of matching and or style. Users can add items by uploading images of there clothes into the app and it saves right to our database. </string>
+    <string name="Team"> Katie O\'Donnell, Ayesha Helal, Roman Gjokaj, David Rodgers, Nick Zuke </string>
+
+
+
 
 </resources>
