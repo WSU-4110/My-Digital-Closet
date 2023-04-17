@@ -211,6 +211,7 @@ public class OutfitCreationActivity extends AppCompatActivity {
                         outfits.put(outfitName, fit);   //save outfit to map
                         //outfitsRef.child(outfitName).setValue(fit);
                         outfitsRef.setValue(outfits);
+
                         Toast.makeText(OutfitCreationActivity.this, "Outfit " + outfitName + " saved!", Toast.LENGTH_SHORT).show();
 
                     }
@@ -542,11 +543,21 @@ public class OutfitCreationActivity extends AppCompatActivity {
         dialog.show();
     }
 
-    public class Outfit{
+    /*public class outfit{
         //[0]: name [1]: top [2]: bottoms [3]: shoes [4]: headwear [5]: socks [6]: other
 
-        public String top, bottoms, shoes, headwear, socks, other;
-        Outfit(String fit[]){
+        public String name, top, bottoms, shoes, headwear, socks, other;
+        public Outfit(){
+            name = " ";
+            top = " ";
+            bottoms = " ";
+            shoes = " ";
+            headwear = " ";
+            socks = " ";
+            other = " ";
+        }
+        public Outfit(String fit[]){
+            name = fit[0];
             top = fit[1];
             bottoms = fit[2];
             shoes = fit[3];
@@ -555,5 +566,9 @@ public class OutfitCreationActivity extends AppCompatActivity {
             other = fit[6];
         }
 
-    }
+        public String toString(){
+            return this.name;
+        }
+
+    }*/
 }
