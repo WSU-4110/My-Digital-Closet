@@ -50,9 +50,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView3" />
 
-
-    <!--nav buttons-->
-
     <ImageView
         android:id="@+id/imageView"
         android:layout_width="339dp"
@@ -63,6 +60,9 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:srcCompat="@drawable/checkmark" />
+
+
+    <!--nav buttons-->
 
     <ImageButton
         android:id="@+id/homeButton"

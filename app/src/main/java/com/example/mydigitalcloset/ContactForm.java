@@ -1,22 +1,22 @@
 package com.example.mydigitalcloset;
 
-import androidx.annotation.NonNull;
+
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
-import android.view.MenuItem;
+
 import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
 
-import com.example.mydigitalcloset.closetPage.AllSavedOufitsPage;
+
 import com.example.mydigitalcloset.closetPage.AllSavedOutfits;
-import com.example.mydigitalcloset.databinding.ActivityClothingFrontBinding;
+
 import com.example.mydigitalcloset.databinding.ActivityContactFormBinding;
-import com.google.android.material.bottomnavigation.BottomNavigationView;
+
 
 public class ContactForm extends AppCompatActivity {
 
@@ -84,6 +84,10 @@ public class ContactForm extends AppCompatActivity {
             public void onClick(View view) {
                 Intent intent = new Intent(getApplicationContext(), AboutUsPageActivity.class); //change depending on romans pages
                 startActivity(intent);
+                Log.i("MyDigitalCloset", "You have successfully opened the About Us Page");
+                //Shows summited on the bottom of the screen
+                Toast.makeText(getApplicationContext(), "Welcome to the About Us Page!", Toast.LENGTH_SHORT)
+                        .show();
                 finish();
             }
         });
