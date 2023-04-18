@@ -22,7 +22,7 @@
             android:gravity="center"
             android:text="@string/signup"
             android:textSize="30sp"
-            android:textColor="@color/colorAccent"
+            android:textColor="#F47EC9"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
@@ -127,7 +127,7 @@
 
         <Button
             android:id="@+id/buttonSignUp"
-            android:background="@color/colorAccent"
+            app:backgroundTint="#F47EC9"
             style="@style/Widget.AppCompat.Button.Colored"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -145,6 +145,7 @@
             android:fontFamily="@font/poppinsmedium"
             android:text="@string/loginhere"
             app:layout_constraintEnd_toEndOf="parent"
+            android:textColor="#F47EC9"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/buttonSignUp"
             tools:targetApi="jelly_bean" />

@@ -79,6 +79,7 @@
             android:exported="false" />
 
 
+
         <activity
             android:name=".closetPage.AllSavedOufitsPage"
             android:configChanges="orientation|keyboardHidden|screenSize"
@@ -89,6 +90,7 @@
         <activity
             android:name=".clothingSeeAll"
             android:exported="true" />
+
 
     </application>
 </manifest>
