@@ -63,7 +63,7 @@ public class AllSavedOutfits extends AppCompatActivity {
     ArrayList<String> arrayList = new ArrayList<>();
     ArrayAdapter<String> arrayAdapter;
     Module module;
-    Button btnDelete, btnUpdate, btnView;
+    Button btnDelete, btnUpdate, btnView, btnBack;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -203,7 +203,6 @@ public class AllSavedOutfits extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 final String fit = module.getGvalue_Name();
-
                 DatabaseReference fitRef = outfitsRef.child(fit);
                 DatabaseReference topRef = fitRef.child("top");
                 DatabaseReference bottomsRef = fitRef.child("bottoms");
@@ -211,6 +210,10 @@ public class AllSavedOutfits extends AppCompatActivity {
                 DatabaseReference headwearRef = fitRef.child("headwear");
                 DatabaseReference otherRef = fitRef.child("other");
                 DatabaseReference socksRef = fitRef.child("socks");
+                progressDialog = new ProgressDialog(AllSavedOutfits.this);
+                progressDialog.setMessage("Fetching outfit images...");
+                progressDialog.setCancelable(false);
+                progressDialog.show();
                 topRef.addValueEventListener(new ValueEventListener() {
                     @Override
                     public void onDataChange(@NonNull DataSnapshot snapshot) {
@@ -292,13 +295,6 @@ public class AllSavedOutfits extends AppCompatActivity {
 
     public void showTop(String top){
         String topID = top;
-        Toast.makeText(AllSavedOutfits.this, topID, Toast.LENGTH_SHORT).show();
-        progressDialog = new ProgressDialog(AllSavedOutfits.this);
-        progressDialog.setMessage("Fetching top image...");
-        progressDialog.setCancelable(false);
-        progressDialog.show();
-        //use top name entered by user to get top from database
-        //topID = binding.getTopName.getText().toString();
         storageReference = FirebaseStorage.getInstance().getReference("images/tops/"+topID+".png");
         //create local file for top image
         try{
@@ -307,11 +303,6 @@ public class AllSavedOutfits extends AppCompatActivity {
                 //ON SUCCESS: image fetched
                 @Override
                 public void onSuccess(FileDownloadTask.TaskSnapshot taskSnapshot) {
-                    //dismiss progress dialog if showing
-                    if (progressDialog.isShowing()){
-                        progressDialog.dismiss();
-                    }
-
                     //top image will be stored in bitmap var
                     Bitmap topbitmap = BitmapFactory.decodeFile(topfile.getAbsolutePath());
                     binding.topImage.setImageBitmap(topbitmap);
@@ -336,14 +327,7 @@ public class AllSavedOutfits extends AppCompatActivity {
 
     public void showBottoms(String bottoms){
         String bottomsID = bottoms;
-        Toast.makeText(AllSavedOutfits.this, bottomsID, Toast.LENGTH_SHORT).show();
-        progressDialog = new ProgressDialog(AllSavedOutfits.this);
-        progressDialog.setMessage("Fetching bottoms image...");
-        progressDialog.setCancelable(false);
-        progressDialog.show();
-        //use top name entered by user to get top from database
-        //topID = binding.getTopName.getText().toString();
-        storageReference = FirebaseStorage.getInstance().getReference("images/tops/"+bottomsID+".png");
+        storageReference = FirebaseStorage.getInstance().getReference("images/bottoms/"+bottomsID+".png");
         //create local file for top image
         try{
             File topfile = File.createTempFile("tempfile_top", ".png");
@@ -351,24 +335,14 @@ public class AllSavedOutfits extends AppCompatActivity {
                 //ON SUCCESS: image fetched
                 @Override
                 public void onSuccess(FileDownloadTask.TaskSnapshot taskSnapshot) {
-                    //dismiss progress dialog if showing
-                    if (progressDialog.isShowing()){
-                        progressDialog.dismiss();
-                    }
-
                     //top image will be stored in bitmap var
                     Bitmap topbitmap = BitmapFactory.decodeFile(topfile.getAbsolutePath());
-                    binding.topImage.setImageBitmap(topbitmap);
+                    binding.bottomsImage.setImageBitmap(topbitmap);
                 }
             }).addOnFailureListener(new OnFailureListener() {
                 //ON FAILURE
                 @Override
                 public void onFailure(@NonNull Exception e) {
-                    //dismiss progress dialog if showing
-                    if (progressDialog.isShowing()){
-                        progressDialog.dismiss();
-                    }
-
                     //failure toast
                     Toast.makeText(AllSavedOutfits.this, "Failed to retrieve bottoms image", Toast.LENGTH_SHORT).show();
                 }
@@ -377,5 +351,115 @@ public class AllSavedOutfits extends AppCompatActivity {
             e.printStackTrace();
         }
     }
+
+    public void showShoes(String shoes){
+        String shoesID = shoes;
+        storageReference = FirebaseStorage.getInstance().getReference("images/shoes/"+shoesID+".png");
+        //create local file for top image
+        try{
+            File topfile = File.createTempFile("tempfile_top", ".png");
+            storageReference.getFile(topfile).addOnSuccessListener(new OnSuccessListener<FileDownloadTask.TaskSnapshot>() {
+                //ON SUCCESS: image fetched
+                @Override
+                public void onSuccess(FileDownloadTask.TaskSnapshot taskSnapshot) {
+                    //top image will be stored in bitmap var
+                    Bitmap topbitmap = BitmapFactory.decodeFile(topfile.getAbsolutePath());
+                    binding.shoesImage.setImageBitmap(topbitmap);
+                }
+            }).addOnFailureListener(new OnFailureListener() {
+                //ON FAILURE
+                @Override
+                public void onFailure(@NonNull Exception e) {
+                    //failure toast
+                    Toast.makeText(AllSavedOutfits.this, "Failed to retrieve shoes image", Toast.LENGTH_SHORT).show();
+                }
+            });
+        } catch(IOException e){
+            e.printStackTrace();
+        }
+    }
+
+    public void showHeadwear(String headwear){
+        String headwearID = headwear;
+        storageReference = FirebaseStorage.getInstance().getReference("images/headwear/"+headwearID+".png");
+        //create local file for top image
+        try{
+            File topfile = File.createTempFile("tempfile_top", ".png");
+            storageReference.getFile(topfile).addOnSuccessListener(new OnSuccessListener<FileDownloadTask.TaskSnapshot>() {
+                //ON SUCCESS: image fetched
+                @Override
+                public void onSuccess(FileDownloadTask.TaskSnapshot taskSnapshot) {
+                    //top image will be stored in bitmap var
+                    Bitmap topbitmap = BitmapFactory.decodeFile(topfile.getAbsolutePath());
+                    binding.headwearImage.setImageBitmap(topbitmap);
+                }
+            }).addOnFailureListener(new OnFailureListener() {
+                //ON FAILURE
+                @Override
+                public void onFailure(@NonNull Exception e) {
+                    //failure toast
+                    Toast.makeText(AllSavedOutfits.this, "Failed to retrieve headwear image", Toast.LENGTH_SHORT).show();
+                }
+            });
+        } catch(IOException e){
+            e.printStackTrace();
+        }
+    }
+
+    public void showOther(String other){
+        String otherID = other;
+        storageReference = FirebaseStorage.getInstance().getReference("images/other/"+otherID+".png");
+        //create local file for top image
+        try{
+            File topfile = File.createTempFile("tempfile_top", ".png");
+            storageReference.getFile(topfile).addOnSuccessListener(new OnSuccessListener<FileDownloadTask.TaskSnapshot>() {
+                //ON SUCCESS: image fetched
+                @Override
+                public void onSuccess(FileDownloadTask.TaskSnapshot taskSnapshot) {
+                    //top image will be stored in bitmap var
+                    Bitmap topbitmap = BitmapFactory.decodeFile(topfile.getAbsolutePath());
+                    binding.otherImage.setImageBitmap(topbitmap);
+                }
+            }).addOnFailureListener(new OnFailureListener() {
+                //ON FAILURE
+                @Override
+                public void onFailure(@NonNull Exception e) {
+                    //failure toast
+                    Toast.makeText(AllSavedOutfits.this, "Failed to retrieve other image", Toast.LENGTH_SHORT).show();
+                }
+            });
+        } catch(IOException e){
+            e.printStackTrace();
+        }
+    }
+
+    public void showSocks(String socks){
+        String socksID = socks;
+        storageReference = FirebaseStorage.getInstance().getReference("images/socks/"+socksID+".png");
+        //create local file for top image
+        try{
+            File topfile = File.createTempFile("tempfile_top", ".png");
+            storageReference.getFile(topfile).addOnSuccessListener(new OnSuccessListener<FileDownloadTask.TaskSnapshot>() {
+                //ON SUCCESS: image fetched
+                @Override
+                public void onSuccess(FileDownloadTask.TaskSnapshot taskSnapshot) {
+                    //top image will be stored in bitmap var
+                    Bitmap topbitmap = BitmapFactory.decodeFile(topfile.getAbsolutePath());
+                    binding.socksImage.setImageBitmap(topbitmap);
+                }
+            }).addOnFailureListener(new OnFailureListener() {
+                //ON FAILURE
+                @Override
+                public void onFailure(@NonNull Exception e) {
+                    //failure toast
+                    Toast.makeText(AllSavedOutfits.this, "Failed to retrieve bottoms image", Toast.LENGTH_SHORT).show();
+                }
+            });
+        } catch(IOException e){
+            e.printStackTrace();
+        }
+    }
+
+
 
 }
