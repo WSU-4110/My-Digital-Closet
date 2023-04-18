@@ -35,7 +35,7 @@ import com.google.firebase.database.ValueEventListener;
 import java.util.ArrayList;
 
 public class AllSavedOutfits extends AppCompatActivity {
-    private ImageView rectangle_1;
+    //private ImageView rectangle_1;
     ActivityAllSavedOutfitsBinding binding;
 
     Context context;
@@ -46,6 +46,8 @@ public class AllSavedOutfits extends AppCompatActivity {
     ListView listView;
     ArrayList<String> arrayList = new ArrayList<>();
     ArrayAdapter<String> arrayAdapter;
+    Module module;
+    Button btnDelete, btnUpdate, btnView;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -54,6 +56,12 @@ public class AllSavedOutfits extends AppCompatActivity {
         binding = ActivityAllSavedOutfitsBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
+        //INITIALIZE VARS:
+        btnDelete = (Button) findViewById(R.id.deleteButton);
+        btnUpdate = (Button) findViewById(R.id.updateButton);
+        btnView = (Button) findViewById(R.id.updateButton);
+        module = new Module();
+        //list stuff
         listView = (ListView) findViewById(R.id.outfitList);
         arrayAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, arrayList);
         listView.setAdapter(arrayAdapter);
