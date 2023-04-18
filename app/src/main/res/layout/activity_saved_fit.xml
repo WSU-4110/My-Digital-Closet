@@ -25,6 +25,7 @@
 
             <!-- Media -->
             <ImageView
+                android:id="@+id/topImage"
                 android:layout_width="match_parent"
                 android:layout_height="183dp"
                 android:contentDescription=""
@@ -51,6 +52,7 @@
 
             <!-- Media -->
             <ImageView
+                android:id="@+id/bottomImage"
                 android:layout_width="match_parent"
                 android:layout_height="183dp"
                 android:contentDescription=""
@@ -77,6 +79,7 @@
 
             <!-- Media -->
             <ImageView
+                android:id="@+id/shoesImage"
                 android:layout_width="match_parent"
                 android:layout_height="183dp"
                 android:contentDescription=""
@@ -175,5 +178,7 @@
         app:icon="@drawable/vector_ek4"
         tools:layout_editor_absoluteX="16dp"
         tools:layout_editor_absoluteY="549dp" />
+
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
