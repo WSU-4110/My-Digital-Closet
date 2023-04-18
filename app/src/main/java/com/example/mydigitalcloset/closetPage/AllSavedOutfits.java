@@ -222,7 +222,65 @@ public class AllSavedOutfits extends AppCompatActivity {
 
                     }
                 });
-            }
+                bottomsRef.addValueEventListener(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(@NonNull DataSnapshot snapshot) {
+                        String bottomsID = snapshot.getValue(String.class);
+                        if (bottomsID != " "){showBottoms(bottomsID);}
+                    }
+                    @Override
+                    public void onCancelled(@NonNull DatabaseError error) {
+
+                    }
+                });
+                shoesRef.addValueEventListener(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(@NonNull DataSnapshot snapshot) {
+                        String shoesID = snapshot.getValue(String.class);
+                        if (shoesID != " "){showShoes(shoesID);}
+                    }
+                    @Override
+                    public void onCancelled(@NonNull DatabaseError error) {
+
+                    }
+                });
+                headwearRef.addValueEventListener(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(@NonNull DataSnapshot snapshot) {
+                        String headwearID = snapshot.getValue(String.class);
+                        if (headwearID != " "){showHeadwear(headwearID);}
+                    }
+                    @Override
+                    public void onCancelled(@NonNull DatabaseError error) {
+
+                    }
+                });
+                socksRef.addValueEventListener(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(@NonNull DataSnapshot snapshot) {
+                        String socksID = snapshot.getValue(String.class);
+                        if (socksID != " "){showSocks(socksID);}
+                    }
+                    @Override
+                    public void onCancelled(@NonNull DatabaseError error) {
+
+                    }
+                });
+                otherRef.addValueEventListener(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(@NonNull DataSnapshot snapshot) {
+                        String otherID = snapshot.getValue(String.class);
+                        if (otherID != " "){showOther(otherID);}
+                    }
+                    @Override
+                    public void onCancelled(@NonNull DatabaseError error) {
+
+                    }
+                });
+                if (progressDialog.isShowing()){
+                    progressDialog.dismiss();
+                }
+            }//end view onclick
         });
 
     }//end oncreate
