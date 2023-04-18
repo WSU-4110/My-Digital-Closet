@@ -190,6 +190,41 @@ public class AllSavedOutfits extends AppCompatActivity {
             }
         });
 
+        //update:
+        btnUpdate.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+            }
+        });
+
+        //view:
+        btnView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                final String fit = module.getGvalue_Name();
+
+                DatabaseReference fitRef = outfitsRef.child(fit);
+                DatabaseReference topRef = fitRef.child("top");
+                DatabaseReference bottomsRef = fitRef.child("bottoms");
+                DatabaseReference shoesRef = fitRef.child("shoes");
+                DatabaseReference headwearRef = fitRef.child("headwear");
+                DatabaseReference otherRef = fitRef.child("other");
+                DatabaseReference socksRef = fitRef.child("socks");
+                topRef.addValueEventListener(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(@NonNull DataSnapshot snapshot) {
+                        String topID = snapshot.getValue(String.class);
+                        if (topID != " "){showTop(topID);}
+                    }
+                    @Override
+                    public void onCancelled(@NonNull DatabaseError error) {
+
+                    }
+                });
+            }
+        });
+
     }//end oncreate
 
     public void openOutfit(){
