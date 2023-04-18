@@ -43,6 +43,7 @@ public class ContactForm extends AppCompatActivity {
 
                 public void onClick(View view) {
 
+
                     String name = binding.editTextTextPersonName.getText().toString();
                     String email = binding.editTextTextPersonName2.getText().toString();
                     String message = binding.editTextTextPersonName4.getText().toString();
@@ -87,7 +88,7 @@ public class ContactForm extends AppCompatActivity {
                             .show();
                 }
             });
-*/
+
 
         //navigation buttons
         binding.homeButton.setOnClickListener(new View.OnClickListener() {

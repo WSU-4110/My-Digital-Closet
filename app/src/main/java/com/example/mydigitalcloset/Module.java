@@ -17,8 +17,4 @@ public class Module extends Application {
 
     public String getGvalue_Name() { return gvalue_Name; }
     public void setGvalue_Name(String name) { this.gvalue_Name = name; }
-    public Module(){
-        this.gvalue_Name = "";
-        this.gvalue_id = "";
-    }
 }
