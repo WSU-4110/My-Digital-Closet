@@ -142,6 +142,7 @@ public class AllSavedOutfits extends AppCompatActivity {
             public void onItemClick(AdapterView<?> parent, View view, int position, long l) {
                 module.setGvalue_Name(arrayList.get(position));
                 module.setGvalue_id(arrayList.get(position));
+                Toast.makeText(AllSavedOutfits.this, "Outfit '" + arrayList.get(position) + "' selected!", Toast.LENGTH_LONG).show();
             }
         });
 
