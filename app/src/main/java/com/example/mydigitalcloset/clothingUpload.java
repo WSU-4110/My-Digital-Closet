@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 
 import com.example.mydigitalcloset.closetPage.AllSavedOufitsPage;
+import com.example.mydigitalcloset.closetPage.AllSavedOutfits;
 import com.example.mydigitalcloset.databinding.ActivityClothingUploadBinding;
 
 import com.google.android.gms.tasks.OnFailureListener;
@@ -156,7 +157,7 @@ public class clothingUpload extends AppCompatActivity {
         binding.wardrobeButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(getApplicationContext(), AllSavedOufitsPage.class);
+                Intent intent = new Intent(getApplicationContext(),  AllSavedOutfits.class);
                 startActivity(intent);
                 finish();
             }

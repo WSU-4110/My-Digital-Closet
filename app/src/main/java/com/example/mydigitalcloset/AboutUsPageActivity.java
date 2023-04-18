@@ -6,15 +6,15 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
-import android.widget.ArrayAdapter;
+
 import android.widget.Button;
-import android.widget.ListView;
-import android.widget.TextView;
+
 import android.widget.Toast;
 
-import com.example.mydigitalcloset.closetPage.AllSavedOufitsPage;
+
+import com.example.mydigitalcloset.closetPage.AllSavedOutfits;
 import com.example.mydigitalcloset.databinding.ActivityAboutusPageBinding;
-import com.example.mydigitalcloset.databinding.ActivityOutfitCreationBinding;
+
 
 public class AboutUsPageActivity extends AppCompatActivity {
     ActivityAboutusPageBinding binding;
@@ -24,6 +24,25 @@ public class AboutUsPageActivity extends AppCompatActivity {
       // Inflate the layout
       binding = ActivityAboutusPageBinding.inflate(getLayoutInflater());
       setContentView(binding.getRoot());
+
+
+            Button b1=(Button)findViewById(R.id.btnContactForm);
+
+            b1.setOnClickListener(new View.OnClickListener() {
+
+                public void onClick(View v) {
+
+                    openContactForm();
+
+                    Log.i("MyDigitalCloset", "You have successfully opened the Contact Form");
+                    //Shows summited on the bottom of the screen
+                    Toast.makeText(getApplicationContext(), "Welcome to the Contact Form!", Toast.LENGTH_SHORT)
+                            .show();
+
+
+                }
+            });
+
 
       //navigation buttons
       binding.homeButton.setOnClickListener(new View.OnClickListener() {
@@ -37,7 +56,7 @@ public class AboutUsPageActivity extends AppCompatActivity {
       binding.wardrobeButton.setOnClickListener(new View.OnClickListener() {
           @Override
           public void onClick(View view) {
-              Intent intent = new Intent(getApplicationContext(), AllSavedOufitsPage.class);
+              Intent intent = new Intent(getApplicationContext(),  AllSavedOutfits.class);
               startActivity(intent);
               finish();
           }
@@ -55,6 +74,10 @@ public class AboutUsPageActivity extends AppCompatActivity {
           public void onClick(View view) {
               Intent intent = new Intent(getApplicationContext(), AboutUsPageActivity.class); //change depending on romans pages
               startActivity(intent);
+              Log.i("MyDigitalCloset", "You have successfully opened the About Us Page");
+              //Shows summited on the bottom of the screen
+              Toast.makeText(getApplicationContext(), "Welcome to the About Us Page!", Toast.LENGTH_SHORT)
+                      .show();
               finish();
           }
       });
@@ -66,7 +89,14 @@ public class AboutUsPageActivity extends AppCompatActivity {
                 finish();
             }
         });
+
       //end nav buttons
+
     }//end onCreate
+
+    public void openContactForm(){
+        Intent intent = new Intent(this, ContactForm.class);
+        startActivity(intent);
+    }
 
 }

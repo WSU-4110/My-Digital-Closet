@@ -4,25 +4,37 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".SettingsPage"
-    android:background="#FFE0E7">
+    android:background="#FFE0E7"
+    tools:context=".SettingsPage">
 
     <TextView
         android:id="@+id/SettingsTitle"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="24dp"
-        android:layout_marginBottom="228dp"
+        android:layout_marginTop="4dp"
         android:gravity="center"
         android:text="Settings"
         android:textSize="30sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
+    <Button
+        android:id="@+id/btnLogOut"
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="92dp"
+        android:text="CLick here to Log Out"
+        app:backgroundTint="#F3A3EB"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent" />
+
     <!--nav buttons-->
+
     <ImageButton
         android:id="@+id/homeButton"
         android:layout_width="wrap_content"
@@ -82,6 +94,7 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.981"
         app:srcCompat="@drawable/ic_settings" />
+
     <!--end nav buttons-->
 
 </androidx.constraintlayout.widget.ConstraintLayout>

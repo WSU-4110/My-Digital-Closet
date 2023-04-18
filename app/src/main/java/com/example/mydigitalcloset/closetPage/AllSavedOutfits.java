@@ -1,48 +1,41 @@
-package com.example.mydigitalcloset;
+package com.example.mydigitalcloset.closetPage;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
+import android.widget.ImageView;
 
-import android.widget.Button;
+import com.example.mydigitalcloset.AboutUsPageActivity;
+import com.example.mydigitalcloset.ContactForm;
+import com.example.mydigitalcloset.OutfitCreationActivity;
+import com.example.mydigitalcloset.R;
+import com.example.mydigitalcloset.SettingsPage;
+import com.example.mydigitalcloset.clothingFront;
+import com.example.mydigitalcloset.databinding.ActivityAllSavedOutfitsBinding;
+import com.example.mydigitalcloset.databinding.ActivityOutfitCreationBinding;
 
-import android.widget.Toast;
+public class AllSavedOutfits extends AppCompatActivity {
+    private ImageView rectangle_1;
+    ActivityAllSavedOutfitsBinding binding;
 
-import com.example.mydigitalcloset.closetPage.AllSavedOutfits;
-import com.example.mydigitalcloset.databinding.ActivitySettingsPageBinding;
-
-
-import com.google.firebase.auth.FirebaseAuth;
-
-public class SettingsPage extends AppCompatActivity {
-
-    ActivitySettingsPageBinding binding;
-
-    private FirebaseAuth mAuth;
-
-    @Override protected void onCreate(Bundle savedInstanceState) {
+    Context context;
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
         // Inflate the layout
-        binding = ActivitySettingsPageBinding.inflate(getLayoutInflater());
+        binding = ActivityAllSavedOutfitsBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
-        mAuth = FirebaseAuth.getInstance();
-        Button btnLogOut = findViewById(R.id.btnLogOut);
-
-        btnLogOut.setOnClickListener(new View.OnClickListener() {
+        rectangle_1 = (ImageView) findViewById(R.id.rectangle_1);
+        rectangle_1.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v) {
-                mAuth.signOut();
-                Intent intent = new Intent(SettingsPage.this, Login.class);
-                startActivity(intent);
-                finish();
-                Log.i("MyDigitalCloset", "You have successfully Logout of your account");
-                Toast.makeText(SettingsPage.this, "You have been Logout Successfully!", Toast.LENGTH_SHORT).show();
-            }
+            public void onClick(View view) {
+            openOutfit();
+        }
         });
 
         //navigation buttons
@@ -75,10 +68,6 @@ public class SettingsPage extends AppCompatActivity {
             public void onClick(View view) {
                 Intent intent = new Intent(getApplicationContext(), AboutUsPageActivity.class); //change depending on romans pages
                 startActivity(intent);
-                Log.i("MyDigitalCloset", "You have successfully opened the About Us Page");
-                //Shows summited on the bottom of the screen
-                Toast.makeText(getApplicationContext(), "Welcome to the About Us Page!", Toast.LENGTH_SHORT)
-                        .show();
                 finish();
             }
         });
@@ -90,6 +79,12 @@ public class SettingsPage extends AppCompatActivity {
                 finish();
             }
         });
-        //end nav buttons
-    }//end onCreate
+
+    }
+
+    public void openOutfit(){
+        Intent intent = new Intent(this, SavedFit.class);
+        startActivity(intent);
+    }
+
 }
