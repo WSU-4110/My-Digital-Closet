@@ -166,5 +166,14 @@
         tools:layout_editor_absoluteX="38dp"
         tools:layout_editor_absoluteY="2dp" />
 
+    <Button
+        android:id="@+id/backbutton"
+        style="@style/Widget.MaterialComponents.Button.Icon"
+        android:layout_width="57dp"
+        android:layout_height="44dp"
+        android:text="Back"
+        app:icon="@drawable/vector_ek4"
+        tools:layout_editor_absoluteX="16dp"
+        tools:layout_editor_absoluteY="549dp" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
