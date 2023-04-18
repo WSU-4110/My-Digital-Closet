@@ -71,8 +71,7 @@
             android:fontFamily="@font/poppinsmedium"
 
             android:drawableRight="@drawable/ic_password"
-            android:layout_height="wrap_content"
-            android:inputType="textPassword" />
+            />
 
     </com.google.android.material.textfield.TextInputLayout>
 
