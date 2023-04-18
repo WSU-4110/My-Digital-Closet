@@ -1,22 +1,20 @@
 package com.example.mydigitalcloset;
 
-import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.storage.StorageReference;
-
-import android.app.ProgressDialog;
+import android.app.AlertDialog;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.TextView;
 
-import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.mydigitalcloset.closetPage.AllSavedOufitsPage;
-import com.example.mydigitalcloset.databinding.ActivityOutfitCreationBinding;
 import com.example.mydigitalcloset.databinding.ActivityClothingFrontBinding;
+
+import java.util.Arrays;
 
 
 public class clothingFront extends AppCompatActivity {
@@ -29,46 +27,11 @@ public class clothingFront extends AppCompatActivity {
         context = this;
         super.onCreate(savedInstanceState);
 
-        //NAV BAR STUFF:
+
         binding = ActivityClothingFrontBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
-        /*binding.bottomNavigationView.setOnItemSelectedListener(new BottomNavigationView.OnItemSelectedListener() {
-            @Override
-            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
-                switch (item.getItemId()) {
-                    case R.id.home:
-                        Intent intentHome = new Intent(getApplicationContext(), OutfitCreationActivity.class);
-                        startActivity(intentHome);
-                        finish();
-                        break;
-                    case R.id.addItem:
-                        return true;
-                    case R.id.contactSupport:
-                        Intent intentContact = new Intent(getApplicationContext(), ContactForm.class);
-                        startActivity(intentContact);
-                        finish();
-                        break;
-                    case R.id.wardrobe:
-                        Intent intentWardrobe = new Intent(getApplicationContext(), AllSavedOufitsPage.class);
-                        startActivity(intentWardrobe);
-                        finish();
-                        break;
-                    case R.id.settings:
-                        startActivity(new Intent(OutfitCreationActivity.this, SETTINGS.class));
-                        break;
-                }
-                return true;
-            }
-        });
-        //end nav bar*/
+        //setContentView(R.layout.activity_clothing_front);
 
-        setContentView(R.layout.activity_clothing_front);
-        //this moves to the page that adds clothing items
-        Button addPage = findViewById(R.id.addItem);
-        addPage.setOnClickListener(view -> {
-            Intent intent=new Intent(clothingFront.this,clothingUpload.class);
-            startActivity(intent);
-        });
 
         //navigation buttons
         binding.homeButton.setOnClickListener(new View.OnClickListener() {
@@ -115,13 +78,35 @@ public class clothingFront extends AppCompatActivity {
 
         //buttons!
 
-
-        //go to all clothing items page
-        Button seeAll = findViewById(R.id.seeAll);
-        seeAll.setOnClickListener(view -> {
-            Intent intent=new Intent(clothingFront.this, clothingSeeAll.class);
+        //this moves to the page that adds clothing items
+        Button addPage = findViewById(R.id.addItem);
+        addPage.setOnClickListener(view -> {
+            Intent intent=new Intent(clothingFront.this,clothingUpload.class);
             startActivity(intent);
         });
+
+        //go to all clothing items page
+        Button catBut = findViewById(R.id.categoryButton);
+        catBut.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                String[] category = {"tops","bottoms","headwear","shoes","socks","other"};
+                TextView catDisplay = findViewById(R.id.categoryButton);                    //shows the category name next to the button
+                AlertDialog.Builder builder = new AlertDialog.Builder(this);
+                builder.setTitle("Pick a category");
+                builder.setItems(category, new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        // the user clicked on category[which]
+                        catDisplay.setText(category[which]);                            //stores the category name is the nearby textboxString catPick =
+                    }
+                });
+                builder.show();
+                //return Arrays.toString(category);
+            }
+        });
+
+
 
 
 

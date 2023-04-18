@@ -8,123 +8,18 @@
     android:background="#FFE0E7">
 
     <Button
-        android:id="@+id/seeSocks"
-        android:layout_width="142dp"
-        android:layout_height="70dp"
-        android:layout_marginTop="64dp"
-        android:layout_marginEnd="24dp"
-        android:layout_marginBottom="260dp"
-        android:text="@string/socks"
-        android:textColor="#5D4037"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/seeOther"
-        app:layout_constraintVertical_bias="0.0" />
-
-    <Button
-        android:id="@+id/seeShoes"
-        android:layout_width="142dp"
-        android:layout_height="70dp"
-        android:layout_marginStart="24dp"
-        android:layout_marginTop="64dp"
-        android:layout_marginBottom="260dp"
-        android:text="@string/shoes"
-        android:textColor="#5D4037"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/seeSocks"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/seeBottoms"
-        app:layout_constraintVertical_bias="0.0" />
-
-    <Button
-        android:id="@+id/seeHeadwear"
-        android:layout_width="142dp"
-        android:layout_height="70dp"
-        android:layout_marginTop="128dp"
-        android:layout_marginEnd="24dp"
-        android:text="@string/headwear"
-        android:textColor="#5D4037"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0" />
-
-    <Button
-        android:id="@+id/seeTops"
-        android:layout_width="142dp"
-        android:layout_height="70dp"
-        android:layout_marginStart="24dp"
-        android:layout_marginTop="128dp"
-        android:text="@string/tops"
-        android:textColor="#5D4037"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/seeHeadwear"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0" />
-
-    <Button
-        android:id="@+id/seeOther"
-        android:layout_width="142dp"
-        android:layout_height="70dp"
-        android:layout_marginTop="64dp"
-        android:layout_marginEnd="24dp"
-        android:text="@string/other"
-        android:textColor="#5D4037"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/seeHeadwear"
-        app:layout_constraintVertical_bias="0.0" />
-
-    <Button
-        android:id="@+id/seeBottoms"
-        android:layout_width="142dp"
-        android:layout_height="70dp"
-        android:layout_marginStart="24dp"
-        android:layout_marginTop="64dp"
-        android:text="@string/bottoms"
-        android:textColor="#5D4037"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/seeOther"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/seeTops"
-        app:layout_constraintVertical_bias="0.0" />
-
-    <TextView
-        android:id="@+id/headerSeeAll"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="64dp"
-        android:text="@string/see_item"
-        android:textSize="24sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0" />
-
-    <Button
         android:id="@+id/backToClothUp"
         android:layout_width="200dp"
         android:layout_height="70dp"
-        android:layout_marginBottom="36dp"
         android:text="@string/back"
         android:textColor="#5D4037"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/headerSeeAll"
-        app:layout_constraintVertical_bias="0.82" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.96" />
+
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

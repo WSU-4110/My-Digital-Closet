@@ -80,17 +80,10 @@ public class clothingUpload extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 chooseImage();
-
-                // Create a new clothing item under the "clothing/tops" node in your database
-                //String clothingId = mDatabase.child("tops").push().getKey();
-
-                //mDatabase.child("tops").child("Blue T").setValue(pickMedia);
             }
 
         });
-
         //Choose the category of the item
-
         catButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -98,7 +91,6 @@ public class clothingUpload extends AppCompatActivity {
                 //String catPicked = catDisplay.getText().toString();
                 //String catID = mDatabase.child(catPicked).push().getKey();
             }
-
         });
 
         //Type in the name of the item
@@ -185,7 +177,7 @@ public class clothingUpload extends AppCompatActivity {
                 finish();
             }
         });
-
+        //end nav buttons
         /*binding.settingsButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -247,7 +239,7 @@ private void chooseImage() {
             final ProgressDialog progressDialog = new ProgressDialog(this);
             progressDialog.setTitle("Uploading...");
             progressDialog.show();
-            StorageReference ref = stoRef.child("images/"+ cat + "/"+name);
+            StorageReference ref = stoRef.child("images/"+ cat + "/"+name + ".png");
             ref.putFile(filePath)
                     .addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
                         @Override
