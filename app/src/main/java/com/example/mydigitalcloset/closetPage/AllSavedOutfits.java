@@ -77,9 +77,12 @@ public class AllSavedOutfits extends AppCompatActivity {
         btnDelete = (Button) findViewById(R.id.deleteButton);
         btnUpdate = (Button) findViewById(R.id.updateButton);
         btnView = (Button) findViewById(R.id.viewButton);
+        btnBack = (Button) findViewById(R.id.backButton);
+        btnBack.setVisibility(View.INVISIBLE);
         module = new Module();
         //list stuff
         listView = (ListView) findViewById(R.id.outfitList);
+        listView.setVisibility(View.VISIBLE);
         arrayAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, arrayList);
         listView.setAdapter(arrayAdapter);
         outfitsRef.addChildEventListener(new ChildEventListener() {
