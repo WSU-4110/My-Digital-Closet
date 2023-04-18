@@ -78,13 +78,11 @@
 
             android:exported="true">
         </activity>
-        </activity>
+
         <activity
             android:name=".clothingUpload"
             android:exported="false" />
-        <activity
-            android:name=".clothingFront"
-            android:exported="true" />
+
 
         <activity
             android:name=".closetPage.AllSavedOufitsPage"
@@ -93,14 +91,6 @@
        
        </activity>
 
-        <activity
-            android:name=".clothingFront"
-            android:exported="true" />
-
-        <activity
-            android:name=".clothingUpload"
-            android:exported="false">
-        </activity>
 
         <activity
             android:name=".clothingSeeAll"

@@ -85,26 +85,7 @@ public class clothingFront extends AppCompatActivity {
             startActivity(intent);
         });
 
-        //go to all clothing items page
-        Button catBut = findViewById(R.id.categoryButton);
-        catBut.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                String[] category = {"tops","bottoms","headwear","shoes","socks","other"};
-                TextView catDisplay = findViewById(R.id.categoryButton);                    //shows the category name next to the button
-                AlertDialog.Builder builder = new AlertDialog.Builder(this);
-                builder.setTitle("Pick a category");
-                builder.setItems(category, new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialog, int which) {
-                        // the user clicked on category[which]
-                        catDisplay.setText(category[which]);                            //stores the category name is the nearby textboxString catPick =
-                    }
-                });
-                builder.show();
-                //return Arrays.toString(category);
-            }
-        });
+
 
 
 
