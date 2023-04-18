@@ -43,6 +43,13 @@
 
     <string name="image_id">Image ID</string>
     <string name="see_item">See All</string>
+    <string name="open_gallery">Gallery</string>
+    <string name="accept">Accept</string>
+    <string name="item_name">Item name</string>
+    <string name="category">category</string>
+    <string name="categorytext">category</string>
+    <string name="addDescription">Upload a photo from your gallery</string>
+    <string name="view_saved_items">View saved items</string>
 
 
     <!-- Strings used for the About Us Page -->
