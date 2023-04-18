@@ -62,7 +62,7 @@ public class ContactForm extends AppCompatActivity {
                     openSuccessPage();
 
                     try {
-                        startActivity(Intent.createChooser(emailIn, "Send email using on of the following apps..."));
+                        startActivity(Intent.createChooser(emailIn, "Send email using one of the following apps..."));
                         Log.i("MyDigitalCloset", "Your form has been successfully submitted");
                         //Shows summited on the bottom of the screen
                         Toast.makeText(getApplicationContext(), "Submitted!", Toast.LENGTH_SHORT)
