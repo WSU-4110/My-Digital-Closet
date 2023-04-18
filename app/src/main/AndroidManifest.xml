@@ -26,10 +26,10 @@
             android:exported="true" />
         <activity
             android:name=".AboutUsPageActivity"
-            android:exported="false" />
+            android:exported="true" />
         <activity
             android:name=".SuccessPage"
-            android:exported="false" />
+            android:exported="true" />
         <activity
             android:name=".ContactForm"
             android:exported="true" />
