@@ -11,7 +11,8 @@ import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.example.mydigitalcloset.closetPage.AllSavedOufitsPage;
+
+import com.example.mydigitalcloset.closetPage.AllSavedOutfits;
 import com.example.mydigitalcloset.databinding.ActivityClothingFrontBinding;
 
 import java.util.Arrays;
@@ -45,7 +46,7 @@ public class clothingFront extends AppCompatActivity {
         binding.wardrobeButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(getApplicationContext(), AllSavedOufitsPage.class);
+                Intent intent = new Intent(getApplicationContext(), AllSavedOutfits.class);
                 startActivity(intent);
                 finish();
             }
