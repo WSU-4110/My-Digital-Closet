@@ -1,5 +1,7 @@
 package com.example.mydigitalcloset.closetPage;
 
+import static android.view.View.GONE;
+
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
@@ -17,6 +19,7 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.ListView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.mydigitalcloset.AboutUsPageActivity;
@@ -42,15 +45,15 @@ import com.google.firebase.storage.FileDownloadTask;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 
+import org.w3c.dom.Text;
+
 import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Map;
 
 public class AllSavedOutfits extends AppCompatActivity {
-
     //private ImageView rectangle_1;
-
     ActivityAllSavedOutfitsBinding binding;
 
     Context context;
@@ -65,38 +68,32 @@ public class AllSavedOutfits extends AppCompatActivity {
     ArrayList<String> arrayList = new ArrayList<>();
     ArrayAdapter<String> arrayAdapter;
     Module module;
-
-    Button btnDelete, btnUpdate, btnView, btnBack;
-
-    static Boolean isCreated = true;
-    public static int getContentView() {
-        return R.id.AllSavedOutfitsLayout;
-    }
-    public static Boolean isCreatedSuccessfully()
-    {
-        return isCreated;
-    }
-
+    Button btnDelete, btnView, btnBack;
+    TextView header, desc;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
 
         // Inflate the layout
-
-        isCreated = true;
-        //NAV BAR STUFF:
-
         binding = ActivityAllSavedOutfitsBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
         //INITIALIZE VARS:
         btnDelete = (Button) findViewById(R.id.deleteButton);
-        btnUpdate = (Button) findViewById(R.id.updateButton);
+
         btnView = (Button) findViewById(R.id.viewButton);
+        btnBack = (Button) findViewById(R.id.backButton);
+        header = (TextView) findViewById(R.id.savedOutfitsHeader);
+        desc = (TextView) findViewById(R.id.savedOutfitDescription);
+
+        header.setText("Saved Outfits");
+
+        btnBack.setVisibility(View.INVISIBLE);
         module = new Module();
         //list stuff
         listView = (ListView) findViewById(R.id.outfitList);
+        //listView.setVisibility(View.VISIBLE);
         arrayAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, arrayList);
         listView.setAdapter(arrayAdapter);
         outfitsRef.addChildEventListener(new ChildEventListener() {
@@ -207,100 +204,112 @@ public class AllSavedOutfits extends AppCompatActivity {
             }
         });
 
-        //update:
-        btnUpdate.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
 
-            }
-        });
 
         //view:
         btnView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                final String fit = module.getGvalue_Name();
-                DatabaseReference fitRef = outfitsRef.child(fit);
-                DatabaseReference topRef = fitRef.child("top");
-                DatabaseReference bottomsRef = fitRef.child("bottoms");
-                DatabaseReference shoesRef = fitRef.child("shoes");
-                DatabaseReference headwearRef = fitRef.child("headwear");
-                DatabaseReference otherRef = fitRef.child("other");
-                DatabaseReference socksRef = fitRef.child("socks");
-                progressDialog = new ProgressDialog(AllSavedOutfits.this);
-                progressDialog.setMessage("Fetching outfit images...");
-                progressDialog.setCancelable(false);
-                progressDialog.show();
-                topRef.addValueEventListener(new ValueEventListener() {
-                    @Override
-                    public void onDataChange(@NonNull DataSnapshot snapshot) {
-                        String topID = snapshot.getValue(String.class);
-                        if (topID != " "){showTop(topID);}
-                    }
-                    @Override
-                    public void onCancelled(@NonNull DatabaseError error) {
-
-                    }
-                });
-                bottomsRef.addValueEventListener(new ValueEventListener() {
-                    @Override
-                    public void onDataChange(@NonNull DataSnapshot snapshot) {
-                        String bottomsID = snapshot.getValue(String.class);
-                        if (bottomsID != " "){showBottoms(bottomsID);}
-                    }
-                    @Override
-                    public void onCancelled(@NonNull DatabaseError error) {
-
-                    }
-                });
-                shoesRef.addValueEventListener(new ValueEventListener() {
-                    @Override
-                    public void onDataChange(@NonNull DataSnapshot snapshot) {
-                        String shoesID = snapshot.getValue(String.class);
-                        if (shoesID != " "){showShoes(shoesID);}
-                    }
-                    @Override
-                    public void onCancelled(@NonNull DatabaseError error) {
-
-                    }
-                });
-                headwearRef.addValueEventListener(new ValueEventListener() {
-                    @Override
-                    public void onDataChange(@NonNull DataSnapshot snapshot) {
-                        String headwearID = snapshot.getValue(String.class);
-                        if (headwearID != " "){showHeadwear(headwearID);}
-                    }
-                    @Override
-                    public void onCancelled(@NonNull DatabaseError error) {
-
-                    }
-                });
-                socksRef.addValueEventListener(new ValueEventListener() {
-                    @Override
-                    public void onDataChange(@NonNull DataSnapshot snapshot) {
-                        String socksID = snapshot.getValue(String.class);
-                        if (socksID != " "){showSocks(socksID);}
-                    }
-                    @Override
-                    public void onCancelled(@NonNull DatabaseError error) {
-
-                    }
-                });
-                otherRef.addValueEventListener(new ValueEventListener() {
-                    @Override
-                    public void onDataChange(@NonNull DataSnapshot snapshot) {
-                        String otherID = snapshot.getValue(String.class);
-                        if (otherID != " "){showOther(otherID);}
-                    }
-                    @Override
-                    public void onCancelled(@NonNull DatabaseError error) {
-
-                    }
-                });
-                if (progressDialog.isShowing()){
-                    progressDialog.dismiss();
+                final String str = module.getGvalue_Name();
+                if (str==""){
+                    Toast.makeText(AllSavedOutfits.this, "Please select an outfit to view", Toast.LENGTH_LONG).show();
                 }
-            }//end view onclick
+                else{
+                    final String fit = module.getGvalue_Name();
+                    btnBack.setVisibility(View.VISIBLE);
+                    listView.setVisibility(View.INVISIBLE);
+                    btnDelete.setVisibility(View.INVISIBLE);
+                    btnView.setVisibility(View.INVISIBLE);
+                    desc.setVisibility(View.INVISIBLE);
+                    header.setText(fit);
+
+                    DatabaseReference fitRef = outfitsRef.child(fit);
+                    DatabaseReference topRef = fitRef.child("top");
+                    DatabaseReference bottomsRef = fitRef.child("bottoms");
+                    DatabaseReference shoesRef = fitRef.child("shoes");
+                    DatabaseReference headwearRef = fitRef.child("headwear");
+                    DatabaseReference otherRef = fitRef.child("other");
+                    DatabaseReference socksRef = fitRef.child("socks");
+                    progressDialog = new ProgressDialog(AllSavedOutfits.this);
+                    progressDialog.setMessage("Fetching outfit images...");
+                    progressDialog.setCancelable(false);
+                    progressDialog.show();
+                    topRef.addValueEventListener(new ValueEventListener() {
+                        @Override
+                        public void onDataChange(@NonNull DataSnapshot snapshot) {
+                            String topID = snapshot.getValue(String.class);
+                            if (topID != " "){showTop(topID);}
+                        }
+                        @Override
+                        public void onCancelled(@NonNull DatabaseError error) {
+
+                        }
+                    });
+                    bottomsRef.addValueEventListener(new ValueEventListener() {
+                        @Override
+                        public void onDataChange(@NonNull DataSnapshot snapshot) {
+                            String bottomsID = snapshot.getValue(String.class);
+                            if (bottomsID != " "){showBottoms(bottomsID);}
+                        }
+                        @Override
+                        public void onCancelled(@NonNull DatabaseError error) {
+
+                        }
+                    });
+                    shoesRef.addValueEventListener(new ValueEventListener() {
+                        @Override
+                        public void onDataChange(@NonNull DataSnapshot snapshot) {
+                            String shoesID = snapshot.getValue(String.class);
+                            if (shoesID != " "){showShoes(shoesID);}
+                        }
+                        @Override
+                        public void onCancelled(@NonNull DatabaseError error) {
+
+                        }
+                    });
+                    headwearRef.addValueEventListener(new ValueEventListener() {
+                        @Override
+                        public void onDataChange(@NonNull DataSnapshot snapshot) {
+                            String headwearID = snapshot.getValue(String.class);
+                            if (headwearID != " "){showHeadwear(headwearID);}
+                        }
+                        @Override
+                        public void onCancelled(@NonNull DatabaseError error) {
+
+                        }
+                    });
+                    socksRef.addValueEventListener(new ValueEventListener() {
+                        @Override
+                        public void onDataChange(@NonNull DataSnapshot snapshot) {
+                            String socksID = snapshot.getValue(String.class);
+                            if (socksID != " "){showSocks(socksID);}
+                        }
+                        @Override
+                        public void onCancelled(@NonNull DatabaseError error) {
+
+                        }
+                    });
+                    otherRef.addValueEventListener(new ValueEventListener() {
+                        @Override
+                        public void onDataChange(@NonNull DataSnapshot snapshot) {
+                            String otherID = snapshot.getValue(String.class);
+                            if (otherID != " "){showOther(otherID);}
+                        }
+                        @Override
+                        public void onCancelled(@NonNull DatabaseError error) {
+
+                        }
+                    });
+                }
+            }
+        });//end 'view' onclick
+
+        btnBack.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getApplicationContext(), AllSavedOutfits.class);
+                startActivity(intent);
+            }
         });
 
     }//end oncreate
@@ -321,6 +330,9 @@ public class AllSavedOutfits extends AppCompatActivity {
                 @Override
                 public void onSuccess(FileDownloadTask.TaskSnapshot taskSnapshot) {
                     //top image will be stored in bitmap var
+                    if (progressDialog.isShowing()){
+                        progressDialog.dismiss();
+                    }
                     Bitmap topbitmap = BitmapFactory.decodeFile(topfile.getAbsolutePath());
                     binding.topImage.setImageBitmap(topbitmap);
                 }
@@ -352,6 +364,9 @@ public class AllSavedOutfits extends AppCompatActivity {
                 //ON SUCCESS: image fetched
                 @Override
                 public void onSuccess(FileDownloadTask.TaskSnapshot taskSnapshot) {
+                    if (progressDialog.isShowing()){
+                        progressDialog.dismiss();
+                    }
                     //top image will be stored in bitmap var
                     Bitmap topbitmap = BitmapFactory.decodeFile(topfile.getAbsolutePath());
                     binding.bottomsImage.setImageBitmap(topbitmap);
@@ -360,6 +375,9 @@ public class AllSavedOutfits extends AppCompatActivity {
                 //ON FAILURE
                 @Override
                 public void onFailure(@NonNull Exception e) {
+                    if (progressDialog.isShowing()){
+                        progressDialog.dismiss();
+                    }
                     //failure toast
                     Toast.makeText(AllSavedOutfits.this, "Failed to retrieve bottoms image", Toast.LENGTH_SHORT).show();
                 }
@@ -379,6 +397,9 @@ public class AllSavedOutfits extends AppCompatActivity {
                 //ON SUCCESS: image fetched
                 @Override
                 public void onSuccess(FileDownloadTask.TaskSnapshot taskSnapshot) {
+                    if (progressDialog.isShowing()){
+                        progressDialog.dismiss();
+                    }
                     //top image will be stored in bitmap var
                     Bitmap topbitmap = BitmapFactory.decodeFile(topfile.getAbsolutePath());
                     binding.shoesImage.setImageBitmap(topbitmap);
@@ -387,6 +408,9 @@ public class AllSavedOutfits extends AppCompatActivity {
                 //ON FAILURE
                 @Override
                 public void onFailure(@NonNull Exception e) {
+                    if (progressDialog.isShowing()){
+                        progressDialog.dismiss();
+                    }
                     //failure toast
                     Toast.makeText(AllSavedOutfits.this, "Failed to retrieve shoes image", Toast.LENGTH_SHORT).show();
                 }
@@ -406,6 +430,9 @@ public class AllSavedOutfits extends AppCompatActivity {
                 //ON SUCCESS: image fetched
                 @Override
                 public void onSuccess(FileDownloadTask.TaskSnapshot taskSnapshot) {
+                    if (progressDialog.isShowing()){
+                        progressDialog.dismiss();
+                    }
                     //top image will be stored in bitmap var
                     Bitmap topbitmap = BitmapFactory.decodeFile(topfile.getAbsolutePath());
                     binding.headwearImage.setImageBitmap(topbitmap);
@@ -414,6 +441,9 @@ public class AllSavedOutfits extends AppCompatActivity {
                 //ON FAILURE
                 @Override
                 public void onFailure(@NonNull Exception e) {
+                    if (progressDialog.isShowing()){
+                        progressDialog.dismiss();
+                    }
                     //failure toast
                     Toast.makeText(AllSavedOutfits.this, "Failed to retrieve headwear image", Toast.LENGTH_SHORT).show();
                 }
@@ -433,6 +463,9 @@ public class AllSavedOutfits extends AppCompatActivity {
                 //ON SUCCESS: image fetched
                 @Override
                 public void onSuccess(FileDownloadTask.TaskSnapshot taskSnapshot) {
+                    if (progressDialog.isShowing()){
+                        progressDialog.dismiss();
+                    }
                     //top image will be stored in bitmap var
                     Bitmap topbitmap = BitmapFactory.decodeFile(topfile.getAbsolutePath());
                     binding.otherImage.setImageBitmap(topbitmap);
@@ -441,6 +474,9 @@ public class AllSavedOutfits extends AppCompatActivity {
                 //ON FAILURE
                 @Override
                 public void onFailure(@NonNull Exception e) {
+                    if (progressDialog.isShowing()){
+                        progressDialog.dismiss();
+                    }
                     //failure toast
                     Toast.makeText(AllSavedOutfits.this, "Failed to retrieve other image", Toast.LENGTH_SHORT).show();
                 }
@@ -460,6 +496,9 @@ public class AllSavedOutfits extends AppCompatActivity {
                 //ON SUCCESS: image fetched
                 @Override
                 public void onSuccess(FileDownloadTask.TaskSnapshot taskSnapshot) {
+                    if (progressDialog.isShowing()){
+                        progressDialog.dismiss();
+                    }
                     //top image will be stored in bitmap var
                     Bitmap topbitmap = BitmapFactory.decodeFile(topfile.getAbsolutePath());
                     binding.socksImage.setImageBitmap(topbitmap);
@@ -468,8 +507,11 @@ public class AllSavedOutfits extends AppCompatActivity {
                 //ON FAILURE
                 @Override
                 public void onFailure(@NonNull Exception e) {
+                    if (progressDialog.isShowing()){
+                        progressDialog.dismiss();
+                    }
                     //failure toast
-                    Toast.makeText(AllSavedOutfits.this, "Failed to retrieve bottoms image", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(AllSavedOutfits.this, "Failed to retrieve socks image", Toast.LENGTH_SHORT).show();
                 }
             });
         } catch(IOException e){
