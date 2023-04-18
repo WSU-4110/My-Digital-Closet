@@ -9,7 +9,6 @@
     android:background="#FFE0E7">
 
 
-
     <!--
     <ImageView android:id="@+id/image_2"
         android:src="@drawable/image_2"
