@@ -1,47 +1,48 @@
 package com.example.mydigitalcloset;
 
-import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.storage.StorageReference;
-
-import android.app.ProgressDialog;
-import android.content.Context;
-import android.content.Intent;
-import android.os.Bundle;
-import android.view.View;
-import android.widget.Button;
-
-import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.example.mydigitalcloset.closetPage.AllSavedOufitsPage;
+import android.content.Intent;
+import android.os.Bundle;
+import android.util.Log;
+import android.view.View;
 
-//import com.example.mydigitalcloset.databinding.ActivityOutfitCreationBinding;
+import android.widget.Button;
+
+import android.widget.Toast;
 
 import com.example.mydigitalcloset.closetPage.AllSavedOutfits;
+import com.example.mydigitalcloset.databinding.ActivitySettingsPageBinding;
 
-import com.example.mydigitalcloset.databinding.ActivityClothingFrontBinding;
 
+import com.google.firebase.auth.FirebaseAuth;
 
-public class clothingFront extends AppCompatActivity {
+public class SettingsPage extends AppCompatActivity {
 
-    ActivityClothingFrontBinding binding;
-    Context context;
+    ActivitySettingsPageBinding binding;
 
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    private FirebaseAuth mAuth;
+
+    @Override protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        //NAV BAR STUFF:
-        binding = ActivityClothingFrontBinding.inflate(getLayoutInflater());
+        // Inflate the layout
+        binding = ActivitySettingsPageBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
-        //setContentView(R.layout.activity_clothing_front);
-        //this moves to the page that adds clothing items
-        Button addPage = findViewById(R.id.addItem);
-        addPage.setOnClickListener(view -> {
-            Intent intent=new Intent(clothingFront.this,clothingUpload.class);
-            startActivity(intent);
+        mAuth = FirebaseAuth.getInstance();
+        Button btnLogOut = findViewById(R.id.btnLogOut);
+
+        btnLogOut.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                mAuth.signOut();
+                Intent intent = new Intent(SettingsPage.this, Login.class);
+                startActivity(intent);
+                finish();
+                Log.i("MyDigitalCloset", "You have successfully Logout of your account");
+                Toast.makeText(SettingsPage.this, "You have been Logout Successfully!", Toast.LENGTH_SHORT).show();
+            }
         });
 
         //navigation buttons
@@ -74,32 +75,21 @@ public class clothingFront extends AppCompatActivity {
             public void onClick(View view) {
                 Intent intent = new Intent(getApplicationContext(), AboutUsPageActivity.class); //change depending on romans pages
                 startActivity(intent);
+                Log.i("MyDigitalCloset", "You have successfully opened the About Us Page");
+                //Shows summited on the bottom of the screen
+                Toast.makeText(getApplicationContext(), "Welcome to the About Us Page!", Toast.LENGTH_SHORT)
+                        .show();
                 finish();
             }
         });
-
-        /*binding.settingsButton.setOnClickListener(new View.OnClickListener() {
+        binding.settingsButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(getApplicationContext(), ?.class);
+                Intent intent = new Intent(getApplicationContext(), SettingsPage.class);
                 startActivity(intent);
                 finish();
             }
-        });*/
-        //end nav buttons
-
-        //buttons!
-
-
-        //go to all clothing items page
-        Button seeAll = findViewById(R.id.seeAll);
-        seeAll.setOnClickListener(view -> {
-            Intent intent=new Intent(clothingFront.this, clothingSeeAll.class);
-            startActivity(intent);
         });
-
-
-
-    }//end of on create
-
+        //end nav buttons
+    }//end onCreate
 }
