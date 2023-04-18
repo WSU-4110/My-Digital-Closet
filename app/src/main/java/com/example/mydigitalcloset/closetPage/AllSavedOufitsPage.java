@@ -11,7 +11,7 @@ import android.widget.TextView;
 import com.example.mydigitalcloset.R;
 
 public class AllSavedOufitsPage extends AppCompatActivity {
-
+/*
     private View _bg__iphone_14___1_ek2;
     private View bg_light;
     private ImageView vector;
@@ -38,6 +38,7 @@ public class AllSavedOufitsPage extends AppCompatActivity {
 
 
         // _bg__iphone_14___1_ek2 = (View) findViewById(R.id._bg__iphone_14___1_ek2);
+        /*
         bg_light = (View) findViewById(R.id.bg_light);
         vector = (ImageView) findViewById(R.id.vector);
         vector_ek1 = (ImageView) findViewById(R.id.vector_ek1);
@@ -63,7 +64,7 @@ public class AllSavedOufitsPage extends AppCompatActivity {
                 openOutfit();
             }
         });
-    }
+    }*/
 
     public void openOutfit() {
         Intent intent = new Intent(this, SavedOutfit.class);
