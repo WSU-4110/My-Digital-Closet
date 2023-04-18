@@ -4,9 +4,13 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -25,14 +29,23 @@ import com.example.mydigitalcloset.SettingsPage;
 import com.example.mydigitalcloset.clothingFront;
 import com.example.mydigitalcloset.databinding.ActivityAllSavedOutfitsBinding;
 import com.example.mydigitalcloset.databinding.ActivityOutfitCreationBinding;
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.ChildEventListener;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
+import com.google.firebase.storage.FileDownloadTask;
+import com.google.firebase.storage.FirebaseStorage;
+import com.google.firebase.storage.StorageReference;
 
+import java.io.File;
+import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Map;
 
 public class AllSavedOutfits extends AppCompatActivity {
     //private ImageView rectangle_1;
@@ -41,6 +54,9 @@ public class AllSavedOutfits extends AppCompatActivity {
     Context context;
 
     final FirebaseDatabase database = FirebaseDatabase.getInstance();
+    FirebaseAuth mAuth;
+    StorageReference storageReference;
+    ProgressDialog progressDialog;
     DatabaseReference ref = database.getReference();
     DatabaseReference outfitsRef = database.getReference("outfits");
     ListView listView;
@@ -52,6 +68,7 @@ public class AllSavedOutfits extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
+
         // Inflate the layout
         binding = ActivityAllSavedOutfitsBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
@@ -59,7 +76,7 @@ public class AllSavedOutfits extends AppCompatActivity {
         //INITIALIZE VARS:
         btnDelete = (Button) findViewById(R.id.deleteButton);
         btnUpdate = (Button) findViewById(R.id.updateButton);
-        btnView = (Button) findViewById(R.id.updateButton);
+        btnView = (Button) findViewById(R.id.viewButton);
         module = new Module();
         //list stuff
         listView = (ListView) findViewById(R.id.outfitList);
