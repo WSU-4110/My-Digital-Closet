@@ -3,15 +3,23 @@ package com.example.mydigitalcloset;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.mydigitalcloset.databinding.ActivityClothingSeeAllBinding;
+import com.example.mydigitalcloset.databinding.ActivityClothingUploadBinding;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 
 import android.app.ProgressDialog;
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.net.Uri;
 import android.os.Bundle;
+import android.provider.MediaStore;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
+
+import java.io.IOException;
 
 
 public class clothingSeeAll extends AppCompatActivity {
@@ -20,71 +28,23 @@ public class clothingSeeAll extends AppCompatActivity {
     private DatabaseReference mDatabase;
     ProgressDialog progressDialog;
     ActivityClothingSeeAllBinding binding;
-    StorageReference storageReference;
-
+    FirebaseStorage storage;
+    StorageReference stoRef;
+    ImageView imgView;
+    private Uri filePath;
+    private final int PICK_IMAGE_REQUEST = 71;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_clothing_see_all);
+        storage = FirebaseStorage.getInstance();
+        stoRef = storage.getReference();
+        // Inflate the layout
+        binding = ActivityClothingSeeAllBinding.inflate(getLayoutInflater());
+        setContentView(binding.getRoot());
 
-        // Get a reference to the "clothing" node in your Firebase Realtime Database
-        mDatabase = FirebaseDatabase.getInstance().getReference().child("clothing");
-
-        Button topsButton = findViewById(R.id.seeTops);
-        topsButton.setOnClickListener(v -> {
-            // Find an existing clothing item from the"clothing/tops" node in your database
-            String clothingId = mDatabase.child("tops").push().getKey();
-            mDatabase.child("tops").child(clothingId).setValue("new item");
-        });
-
-        Button bottomsButton = findViewById(R.id.seeBottoms);
-        bottomsButton.setOnClickListener(v -> {
-            // Find an existing clothing item from the"clothing/bottoms" node in your database
-            String clothingId = mDatabase.child("bottoms").push().getKey();
-            mDatabase.child("bottoms").child(clothingId).setValue("new item");
-        });
-
-        Button shoesButton = findViewById(R.id.seeShoes);
-        shoesButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                // Find an existing clothing item from the"clothing/shoes" node in your database
-                String clothingId = mDatabase.child("shoes").push().getKey();
-                mDatabase.child("shoes").child(clothingId).setValue("new item");
-            }
-        });
-
-        Button socksButton = findViewById(R.id.seeSocks);
-        socksButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                // Find an existing clothing item from the"clothing/socks" node in your database
-                String clothingId = mDatabase.child("socks").push().getKey();
-                mDatabase.child("socks").child(clothingId).setValue("new item");
-            }
-        });
-
-        Button headwearButton = findViewById(R.id.seeHeadwear);
-        headwearButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                // Find an existing clothing item from the"clothing/headwear" node in your database
-                String clothingId = mDatabase.child("headwear").push().getKey();
-                mDatabase.child("headwear").child(clothingId).setValue("new item");
-            }
-        });
-
-        Button otherButton = findViewById(R.id.seeOther);
-        otherButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                // Find an existing clothing item from the"clothing/other" node in your database
-                String clothingId = mDatabase.child("other").push().getKey();
-                mDatabase.child("other").child(clothingId).setValue("new item");
-            }
-        });
 
 
         //buttons!
@@ -97,6 +57,23 @@ public class clothingSeeAll extends AppCompatActivity {
         });
         
 
+    }
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if(requestCode == PICK_IMAGE_REQUEST && resultCode == RESULT_OK
+                && data != null && data.getData() != null )
+        {
+            filePath = data.getData();
+            try {
+                Bitmap bitmap = MediaStore.Images.Media.getBitmap(getContentResolver(), filePath);
+                imgView.setImageBitmap(bitmap);
+            }
+            catch (IOException e)
+            {
+                e.printStackTrace();
+            }
+        }
     }
 
 

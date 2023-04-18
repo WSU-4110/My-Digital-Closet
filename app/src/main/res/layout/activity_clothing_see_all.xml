@@ -118,6 +118,7 @@
         android:layout_width="162dp"
         android:layout_height="40dp"
         android:layout_marginBottom="36dp"
+
         android:text="@string/back"
         android:textColor="#FFFEFD"
         app:backgroundTint="#F47EC9"
@@ -125,7 +126,10 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.542"
         app:layout_constraintStart_toStartOf="parent"
+
         app:layout_constraintTop_toBottomOf="@+id/headerSeeAll"
         app:layout_constraintVertical_bias="0.975" />
+
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
