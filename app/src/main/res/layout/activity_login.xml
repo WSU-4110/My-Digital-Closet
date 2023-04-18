@@ -7,6 +7,18 @@
     tools:context=".Login"
     android:background="#FFE0E7">
 
+
+    <ImageView
+        android:id="@+id/imageView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/my_digital_closet_logo" />
+
+
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -66,10 +78,13 @@
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/password"
             android:layout_width="match_parent"
-            android:fontFamily="@font/poppinsmedium"
-            android:drawableRight="@drawable/ic_password"
             android:layout_height="wrap_content"
-            android:inputType="textPassword" />
+            android:inputType="textPassword"
+            android:fontFamily="@font/poppinsmedium"
+
+            android:drawableRight="@drawable/ic_password"
+            />
+
     </com.google.android.material.textfield.TextInputLayout>
 
     <Button

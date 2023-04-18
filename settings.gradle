@@ -22,3 +22,6 @@ dependencyResolutionManagement {
 
 rootProject.name = "My Digital Closet"
 include ':app'
+
+
+

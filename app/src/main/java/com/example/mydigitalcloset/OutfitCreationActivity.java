@@ -47,7 +47,7 @@ public class OutfitCreationActivity extends AppCompatActivity {
     final FirebaseDatabase database = FirebaseDatabase.getInstance();
     DatabaseReference ref = database.getReference();
     DatabaseReference outfitsRef = ref.child("outfits");
-    Map<String, Outfit> outfits = new HashMap<>();
+    Map<String, Object> outfits = new HashMap<>();
 
 
     Context context;
@@ -210,7 +210,8 @@ public class OutfitCreationActivity extends AppCompatActivity {
                         Outfit fit = new Outfit(outfit);    //create outfit object from array
                         outfits.put(outfitName, fit);   //save outfit to map
                         //outfitsRef.child(outfitName).setValue(fit);
-                        outfitsRef.setValue(outfits);
+                        outfitsRef.updateChildren(outfits);
+
                         Toast.makeText(OutfitCreationActivity.this, "Outfit " + outfitName + " saved!", Toast.LENGTH_SHORT).show();
 
                     }
@@ -542,18 +543,4 @@ public class OutfitCreationActivity extends AppCompatActivity {
         dialog.show();
     }
 
-    public class Outfit{
-        //[0]: name [1]: top [2]: bottoms [3]: shoes [4]: headwear [5]: socks [6]: other
-
-        public String top, bottoms, shoes, headwear, socks, other;
-        Outfit(String fit[]){
-            top = fit[1];
-            bottoms = fit[2];
-            shoes = fit[3];
-            headwear = fit[4];
-            socks = fit[5];
-            other = fit[6];
-        }
-
-    }
 }

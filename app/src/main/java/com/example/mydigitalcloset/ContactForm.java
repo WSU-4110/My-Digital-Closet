@@ -43,6 +43,41 @@ public class ContactForm extends AppCompatActivity {
 
                 public void onClick(View view) {
 
+                    String name = binding.editTextTextPersonName.getText().toString();
+                    String email = binding.editTextTextPersonName2.getText().toString();
+                    String message = binding.editTextTextPersonName4.getText().toString();
+
+
+                    String to = "MyDigitalClosetCS@gmail.com";
+                    String subject = "Contact Form Submission";
+                    String body = "Name: " + name + "\nEmail: " + email + "\nMessage: " + message;
+
+
+                    Intent emailIn = new Intent(Intent.ACTION_SEND);
+                    emailIn.setType("plain/text");
+                    emailIn.putExtra(Intent.EXTRA_EMAIL, new String[]{to});
+                    emailIn.putExtra(Intent.EXTRA_SUBJECT, subject);
+                    emailIn.putExtra(Intent.EXTRA_TEXT, body);
+
+                    openSuccessPage();
+
+                    try {
+                        startActivity(Intent.createChooser(emailIn, "Send email using on of the following apps..."));
+                        Log.i("MyDigitalCloset", "Your form has been successfully submitted");
+                        //Shows summited on the bottom of the screen
+                        Toast.makeText(getApplicationContext(), "Submitted!", Toast.LENGTH_SHORT)
+                                .show();
+                    } catch (android.content.ActivityNotFoundException ex) {
+                        Toast.makeText(ContactForm.this,
+                                "There is no email client installed.", Toast.LENGTH_SHORT).show();
+                    }
+                }
+
+            });
+
+            /*
+                public void onClick(View view) {
+
                     openSuccessPage();
 
 
@@ -52,7 +87,7 @@ public class ContactForm extends AppCompatActivity {
                             .show();
                 }
             });
-
+*/
 
         //navigation buttons
         binding.homeButton.setOnClickListener(new View.OnClickListener() {
@@ -82,10 +117,9 @@ public class ContactForm extends AppCompatActivity {
         binding.contactButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(getApplicationContext(), AboutUsPageActivity.class); //change depending on romans pages
+                Intent intent = new Intent(getApplicationContext(), AboutUsPageActivity.class);
                 startActivity(intent);
                 Log.i("MyDigitalCloset", "You have successfully opened the About Us Page");
-                //Shows summited on the bottom of the screen
                 Toast.makeText(getApplicationContext(), "Welcome to the About Us Page!", Toast.LENGTH_SHORT)
                         .show();
                 finish();
@@ -96,6 +130,9 @@ public class ContactForm extends AppCompatActivity {
             public void onClick(View view) {
                 Intent intent = new Intent(getApplicationContext(), SettingsPage.class);
                 startActivity(intent);
+                Log.i("MyDigitalCloset", "You have successfully opened settings Page");
+                Toast.makeText(getApplicationContext(), "Welcome to the Settings Page!", Toast.LENGTH_SHORT)
+                        .show();
                 finish();
             }
         });
