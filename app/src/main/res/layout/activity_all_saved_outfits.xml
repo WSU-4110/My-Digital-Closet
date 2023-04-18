@@ -48,9 +48,9 @@
         android:layout_marginStart="20dp"
         android:layout_marginTop="92dp"
         android:layout_width="103dp"
-        android:layout_height="148dp" />
+        android:layout_height="148dp" />-->
 
-
+    <!--
     <TextView
         android:id="@+id/saved_outfits"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -161,7 +161,7 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.981"
         app:srcCompat="@drawable/ic_settings" />
-<!--
+
     <Button
         android:id="@+id/viewButton"
         android:layout_width="wrap_content"
@@ -196,7 +196,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.863" />
--->
+
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
