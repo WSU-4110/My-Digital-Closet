@@ -202,7 +202,13 @@ public class AllSavedOutfits extends AppCompatActivity {
         btnUpdate.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                final String str = module.getGvalue_Name();
+                if (str==""){
+                    Toast.makeText(AllSavedOutfits.this, "Please select an outfit to update", Toast.LENGTH_LONG).show();
+                }
+                else{
 
+                }
             }
         });
 
@@ -210,89 +216,95 @@ public class AllSavedOutfits extends AppCompatActivity {
         btnView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                final String fit = module.getGvalue_Name();
-                btnBack.setVisibility(View.VISIBLE);
-                listView.setVisibility(View.INVISIBLE);
-                btnDelete.setVisibility(View.INVISIBLE);
-                btnUpdate.setVisibility(View.INVISIBLE);
-                btnView.setVisibility(View.INVISIBLE);
-                DatabaseReference fitRef = outfitsRef.child(fit);
-                DatabaseReference topRef = fitRef.child("top");
-                DatabaseReference bottomsRef = fitRef.child("bottoms");
-                DatabaseReference shoesRef = fitRef.child("shoes");
-                DatabaseReference headwearRef = fitRef.child("headwear");
-                DatabaseReference otherRef = fitRef.child("other");
-                DatabaseReference socksRef = fitRef.child("socks");
-                progressDialog = new ProgressDialog(AllSavedOutfits.this);
-                progressDialog.setMessage("Fetching outfit images...");
-                progressDialog.setCancelable(false);
-                progressDialog.show();
-                topRef.addValueEventListener(new ValueEventListener() {
-                    @Override
-                    public void onDataChange(@NonNull DataSnapshot snapshot) {
-                        String topID = snapshot.getValue(String.class);
-                        if (topID != " "){showTop(topID);}
-                    }
-                    @Override
-                    public void onCancelled(@NonNull DatabaseError error) {
+                final String str = module.getGvalue_Name();
+                if (str==""){
+                    Toast.makeText(AllSavedOutfits.this, "Please select an outfit to view", Toast.LENGTH_LONG).show();
+                }
+                else{
+                    final String fit = module.getGvalue_Name();
+                    btnBack.setVisibility(View.VISIBLE);
+                    listView.setVisibility(View.INVISIBLE);
+                    btnDelete.setVisibility(View.INVISIBLE);
+                    btnUpdate.setVisibility(View.INVISIBLE);
+                    btnView.setVisibility(View.INVISIBLE);
+                    DatabaseReference fitRef = outfitsRef.child(fit);
+                    DatabaseReference topRef = fitRef.child("top");
+                    DatabaseReference bottomsRef = fitRef.child("bottoms");
+                    DatabaseReference shoesRef = fitRef.child("shoes");
+                    DatabaseReference headwearRef = fitRef.child("headwear");
+                    DatabaseReference otherRef = fitRef.child("other");
+                    DatabaseReference socksRef = fitRef.child("socks");
+                    progressDialog = new ProgressDialog(AllSavedOutfits.this);
+                    progressDialog.setMessage("Fetching outfit images...");
+                    progressDialog.setCancelable(false);
+                    progressDialog.show();
+                    topRef.addValueEventListener(new ValueEventListener() {
+                        @Override
+                        public void onDataChange(@NonNull DataSnapshot snapshot) {
+                            String topID = snapshot.getValue(String.class);
+                            if (topID != " "){showTop(topID);}
+                        }
+                        @Override
+                        public void onCancelled(@NonNull DatabaseError error) {
 
-                    }
-                });
-                bottomsRef.addValueEventListener(new ValueEventListener() {
-                    @Override
-                    public void onDataChange(@NonNull DataSnapshot snapshot) {
-                        String bottomsID = snapshot.getValue(String.class);
-                        if (bottomsID != " "){showBottoms(bottomsID);}
-                    }
-                    @Override
-                    public void onCancelled(@NonNull DatabaseError error) {
+                        }
+                    });
+                    bottomsRef.addValueEventListener(new ValueEventListener() {
+                        @Override
+                        public void onDataChange(@NonNull DataSnapshot snapshot) {
+                            String bottomsID = snapshot.getValue(String.class);
+                            if (bottomsID != " "){showBottoms(bottomsID);}
+                        }
+                        @Override
+                        public void onCancelled(@NonNull DatabaseError error) {
 
-                    }
-                });
-                shoesRef.addValueEventListener(new ValueEventListener() {
-                    @Override
-                    public void onDataChange(@NonNull DataSnapshot snapshot) {
-                        String shoesID = snapshot.getValue(String.class);
-                        if (shoesID != " "){showShoes(shoesID);}
-                    }
-                    @Override
-                    public void onCancelled(@NonNull DatabaseError error) {
+                        }
+                    });
+                    shoesRef.addValueEventListener(new ValueEventListener() {
+                        @Override
+                        public void onDataChange(@NonNull DataSnapshot snapshot) {
+                            String shoesID = snapshot.getValue(String.class);
+                            if (shoesID != " "){showShoes(shoesID);}
+                        }
+                        @Override
+                        public void onCancelled(@NonNull DatabaseError error) {
 
-                    }
-                });
-                headwearRef.addValueEventListener(new ValueEventListener() {
-                    @Override
-                    public void onDataChange(@NonNull DataSnapshot snapshot) {
-                        String headwearID = snapshot.getValue(String.class);
-                        if (headwearID != " "){showHeadwear(headwearID);}
-                    }
-                    @Override
-                    public void onCancelled(@NonNull DatabaseError error) {
+                        }
+                    });
+                    headwearRef.addValueEventListener(new ValueEventListener() {
+                        @Override
+                        public void onDataChange(@NonNull DataSnapshot snapshot) {
+                            String headwearID = snapshot.getValue(String.class);
+                            if (headwearID != " "){showHeadwear(headwearID);}
+                        }
+                        @Override
+                        public void onCancelled(@NonNull DatabaseError error) {
 
-                    }
-                });
-                socksRef.addValueEventListener(new ValueEventListener() {
-                    @Override
-                    public void onDataChange(@NonNull DataSnapshot snapshot) {
-                        String socksID = snapshot.getValue(String.class);
-                        if (socksID != " "){showSocks(socksID);}
-                    }
-                    @Override
-                    public void onCancelled(@NonNull DatabaseError error) {
+                        }
+                    });
+                    socksRef.addValueEventListener(new ValueEventListener() {
+                        @Override
+                        public void onDataChange(@NonNull DataSnapshot snapshot) {
+                            String socksID = snapshot.getValue(String.class);
+                            if (socksID != " "){showSocks(socksID);}
+                        }
+                        @Override
+                        public void onCancelled(@NonNull DatabaseError error) {
 
-                    }
-                });
-                otherRef.addValueEventListener(new ValueEventListener() {
-                    @Override
-                    public void onDataChange(@NonNull DataSnapshot snapshot) {
-                        String otherID = snapshot.getValue(String.class);
-                        if (otherID != " "){showOther(otherID);}
-                    }
-                    @Override
-                    public void onCancelled(@NonNull DatabaseError error) {
+                        }
+                    });
+                    otherRef.addValueEventListener(new ValueEventListener() {
+                        @Override
+                        public void onDataChange(@NonNull DataSnapshot snapshot) {
+                            String otherID = snapshot.getValue(String.class);
+                            if (otherID != " "){showOther(otherID);}
+                        }
+                        @Override
+                        public void onCancelled(@NonNull DatabaseError error) {
 
-                    }
-                });
+                        }
+                    });
+                }
             }
         });//end 'view' onclick
 
