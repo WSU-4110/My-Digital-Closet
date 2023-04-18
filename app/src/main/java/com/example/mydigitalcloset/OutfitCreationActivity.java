@@ -237,7 +237,7 @@ public class OutfitCreationActivity extends AppCompatActivity {
                         progressDialog.show();
                         //use top name entered by user to get top from database
                         //topID = binding.getTopName.getText().toString();
-                        storageReference = FirebaseStorage.getInstance().getReference("images/tops/"+topID);
+                        storageReference = FirebaseStorage.getInstance().getReference("images/tops/"+topID+".png");
                         //create local file for top image
                         try{
                             File topfile = File.createTempFile("tempfile_top", ".png");
@@ -291,7 +291,7 @@ public class OutfitCreationActivity extends AppCompatActivity {
                         progressDialog.setMessage("Fetching bottoms image...");
                         progressDialog.setCancelable(false);
                         progressDialog.show();
-                        storageReference = FirebaseStorage.getInstance().getReference("images/bottoms/"+bottomsID);
+                        storageReference = FirebaseStorage.getInstance().getReference("images/bottoms/"+bottomsID+".png");
                         //create local file for top image
                         try{
                             File bottomsfile = File.createTempFile("tempfile_bottoms", ".png");
@@ -345,7 +345,7 @@ public class OutfitCreationActivity extends AppCompatActivity {
                         progressDialog.setMessage("Fetching shoes image...");
                         progressDialog.setCancelable(false);
                         progressDialog.show();
-                        storageReference = FirebaseStorage.getInstance().getReference("images/shoes/"+shoesID);
+                        storageReference = FirebaseStorage.getInstance().getReference("images/shoes/"+shoesID+".png");
                         //create local file for shoes image
                         try{
                             File shoesfile = File.createTempFile("tempfile_shoes", ".png");
@@ -398,7 +398,7 @@ public class OutfitCreationActivity extends AppCompatActivity {
                         progressDialog.setMessage("Fetching headwear image...");
                         progressDialog.setCancelable(false);
                         progressDialog.show();
-                        storageReference = FirebaseStorage.getInstance().getReference("images/headwear/"+headwearID);
+                        storageReference = FirebaseStorage.getInstance().getReference("images/headwear/"+headwearID+".png");
                         //create local file for headwear image
                         try{
                             File headwearfile = File.createTempFile("tempfile_headwear", ".png");
@@ -451,7 +451,7 @@ public class OutfitCreationActivity extends AppCompatActivity {
                         progressDialog.setMessage("Fetching socks image...");
                         progressDialog.setCancelable(false);
                         progressDialog.show();
-                        storageReference = FirebaseStorage.getInstance().getReference("images/socks/"+socksID);
+                        storageReference = FirebaseStorage.getInstance().getReference("images/socks/"+socksID+".png");
                         //create local file for socks image
                         try{
                             File socksfile = File.createTempFile("tempfile_socks", ".png");
@@ -504,7 +504,7 @@ public class OutfitCreationActivity extends AppCompatActivity {
                         progressDialog.setMessage("Fetching other image...");
                         progressDialog.setCancelable(false);
                         progressDialog.show();
-                        storageReference = FirebaseStorage.getInstance().getReference("images/other/"+otherID);
+                        storageReference = FirebaseStorage.getInstance().getReference("images/other/"+otherID+".png");
                         //create local file for other image
                         try{
                             File otherfile = File.createTempFile("tempfile_other", ".png");
