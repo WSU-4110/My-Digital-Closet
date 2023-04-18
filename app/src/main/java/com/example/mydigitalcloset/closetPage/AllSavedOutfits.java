@@ -1,5 +1,7 @@
 package com.example.mydigitalcloset.closetPage;
 
+import static android.view.View.GONE;
+
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
@@ -314,6 +316,9 @@ public class AllSavedOutfits extends AppCompatActivity {
                 @Override
                 public void onSuccess(FileDownloadTask.TaskSnapshot taskSnapshot) {
                     //top image will be stored in bitmap var
+                    if (progressDialog.isShowing()){
+                        progressDialog.dismiss();
+                    }
                     Bitmap topbitmap = BitmapFactory.decodeFile(topfile.getAbsolutePath());
                     binding.topImage.setImageBitmap(topbitmap);
                 }
@@ -345,6 +350,9 @@ public class AllSavedOutfits extends AppCompatActivity {
                 //ON SUCCESS: image fetched
                 @Override
                 public void onSuccess(FileDownloadTask.TaskSnapshot taskSnapshot) {
+                    if (progressDialog.isShowing()){
+                        progressDialog.dismiss();
+                    }
                     //top image will be stored in bitmap var
                     Bitmap topbitmap = BitmapFactory.decodeFile(topfile.getAbsolutePath());
                     binding.bottomsImage.setImageBitmap(topbitmap);
@@ -353,6 +361,9 @@ public class AllSavedOutfits extends AppCompatActivity {
                 //ON FAILURE
                 @Override
                 public void onFailure(@NonNull Exception e) {
+                    if (progressDialog.isShowing()){
+                        progressDialog.dismiss();
+                    }
                     //failure toast
                     Toast.makeText(AllSavedOutfits.this, "Failed to retrieve bottoms image", Toast.LENGTH_SHORT).show();
                 }
@@ -372,6 +383,9 @@ public class AllSavedOutfits extends AppCompatActivity {
                 //ON SUCCESS: image fetched
                 @Override
                 public void onSuccess(FileDownloadTask.TaskSnapshot taskSnapshot) {
+                    if (progressDialog.isShowing()){
+                        progressDialog.dismiss();
+                    }
                     //top image will be stored in bitmap var
                     Bitmap topbitmap = BitmapFactory.decodeFile(topfile.getAbsolutePath());
                     binding.shoesImage.setImageBitmap(topbitmap);
@@ -380,6 +394,9 @@ public class AllSavedOutfits extends AppCompatActivity {
                 //ON FAILURE
                 @Override
                 public void onFailure(@NonNull Exception e) {
+                    if (progressDialog.isShowing()){
+                        progressDialog.dismiss();
+                    }
                     //failure toast
                     Toast.makeText(AllSavedOutfits.this, "Failed to retrieve shoes image", Toast.LENGTH_SHORT).show();
                 }
@@ -399,6 +416,9 @@ public class AllSavedOutfits extends AppCompatActivity {
                 //ON SUCCESS: image fetched
                 @Override
                 public void onSuccess(FileDownloadTask.TaskSnapshot taskSnapshot) {
+                    if (progressDialog.isShowing()){
+                        progressDialog.dismiss();
+                    }
                     //top image will be stored in bitmap var
                     Bitmap topbitmap = BitmapFactory.decodeFile(topfile.getAbsolutePath());
                     binding.headwearImage.setImageBitmap(topbitmap);
@@ -407,6 +427,9 @@ public class AllSavedOutfits extends AppCompatActivity {
                 //ON FAILURE
                 @Override
                 public void onFailure(@NonNull Exception e) {
+                    if (progressDialog.isShowing()){
+                        progressDialog.dismiss();
+                    }
                     //failure toast
                     Toast.makeText(AllSavedOutfits.this, "Failed to retrieve headwear image", Toast.LENGTH_SHORT).show();
                 }
@@ -426,6 +449,9 @@ public class AllSavedOutfits extends AppCompatActivity {
                 //ON SUCCESS: image fetched
                 @Override
                 public void onSuccess(FileDownloadTask.TaskSnapshot taskSnapshot) {
+                    if (progressDialog.isShowing()){
+                        progressDialog.dismiss();
+                    }
                     //top image will be stored in bitmap var
                     Bitmap topbitmap = BitmapFactory.decodeFile(topfile.getAbsolutePath());
                     binding.otherImage.setImageBitmap(topbitmap);
@@ -434,6 +460,9 @@ public class AllSavedOutfits extends AppCompatActivity {
                 //ON FAILURE
                 @Override
                 public void onFailure(@NonNull Exception e) {
+                    if (progressDialog.isShowing()){
+                        progressDialog.dismiss();
+                    }
                     //failure toast
                     Toast.makeText(AllSavedOutfits.this, "Failed to retrieve other image", Toast.LENGTH_SHORT).show();
                 }
@@ -453,6 +482,9 @@ public class AllSavedOutfits extends AppCompatActivity {
                 //ON SUCCESS: image fetched
                 @Override
                 public void onSuccess(FileDownloadTask.TaskSnapshot taskSnapshot) {
+                    if (progressDialog.isShowing()){
+                        progressDialog.dismiss();
+                    }
                     //top image will be stored in bitmap var
                     Bitmap topbitmap = BitmapFactory.decodeFile(topfile.getAbsolutePath());
                     binding.socksImage.setImageBitmap(topbitmap);
@@ -461,8 +493,11 @@ public class AllSavedOutfits extends AppCompatActivity {
                 //ON FAILURE
                 @Override
                 public void onFailure(@NonNull Exception e) {
+                    if (progressDialog.isShowing()){
+                        progressDialog.dismiss();
+                    }
                     //failure toast
-                    Toast.makeText(AllSavedOutfits.this, "Failed to retrieve bottoms image", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(AllSavedOutfits.this, "Failed to retrieve socks image", Toast.LENGTH_SHORT).show();
                 }
             });
         } catch(IOException e){
