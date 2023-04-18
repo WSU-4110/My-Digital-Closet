@@ -137,15 +137,16 @@ public class AllSavedOutfits extends AppCompatActivity {
         });
 
         //get name of outfit clicked in list
-        /*listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
-            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-                module.setGvalue_Name(arrayList.get(i));
+            public void onItemClick(AdapterView<?> parent, View view, int position, long l) {
+                module.setGvalue_Name(arrayList.get(position));
+                module.setGvalue_id(arrayList.get(position));
             }
-        });*/
+        });
 
         //delete:
-        /*btnDelete.setOnClickListener(new View.OnClickListener() {
+        btnDelete.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 final String str = module.getGvalue_Name();
@@ -169,7 +170,7 @@ public class AllSavedOutfits extends AppCompatActivity {
                     startActivity(intent);
                 }
             }
-        });*/
+        });
 
     }//end oncreate
 
