@@ -80,6 +80,9 @@ public class AllSavedOutfits extends AppCompatActivity {
         btnUpdate = (Button) findViewById(R.id.updateButton);
         btnView = (Button) findViewById(R.id.viewButton);
         btnBack = (Button) findViewById(R.id.backButton);
+        btnDelete.setVisibility(View.VISIBLE);
+        btnUpdate.setVisibility(View.VISIBLE);
+        btnView.setVisibility(View.VISIBLE);
         btnBack.setVisibility(View.INVISIBLE);
         module = new Module();
         //list stuff
@@ -210,6 +213,9 @@ public class AllSavedOutfits extends AppCompatActivity {
                 final String fit = module.getGvalue_Name();
                 btnBack.setVisibility(View.VISIBLE);
                 listView.setVisibility(View.INVISIBLE);
+                btnDelete.setVisibility(View.INVISIBLE);
+                btnUpdate.setVisibility(View.INVISIBLE);
+                btnView.setVisibility(View.INVISIBLE);
                 DatabaseReference fitRef = outfitsRef.child(fit);
                 DatabaseReference topRef = fitRef.child("top");
                 DatabaseReference bottomsRef = fitRef.child("bottoms");
