@@ -4,6 +4,8 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
 
 import com.example.mydigitalcloset.ContactForm;
 import com.example.mydigitalcloset.OutfitCreationActivity;
@@ -13,13 +15,33 @@ import com.example.mydigitalcloset.databinding.ActivitySavedFitBinding;
 
 public class SavedFit extends AppCompatActivity {
 
-
+    private Button backButton;
 
     ActivitySavedFitBinding binding;
 
+    static Boolean isCreated = true;
+    public static int getContentView() {
+        return R.id.SavedOutfitLayout;
+    }
+    public static Boolean isCreatedSuccessfully()
+    {
+        return isCreated;
+    }
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        isCreated = true;
+
+
+
+        backButton = (Button) findViewById(R.id.backbutton);
+        backButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                openAllSavedOutfits();
+            }
+        });
+
 
 ////NAV BAR STUFF:
 //        binding = ActivitySavedFitBinding.inflate(getLayoutInflater());
@@ -54,6 +76,10 @@ public class SavedFit extends AppCompatActivity {
 //        //end nav bar
 
         //setContentView(R.layout.activity_saved_fit);
+    }
+    public void openAllSavedOutfits(){
+        Intent intent = new Intent(this, AllSavedOutfits.class);
+        startActivity(intent);
     }
 
 

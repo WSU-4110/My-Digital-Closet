@@ -48,7 +48,9 @@ import java.util.ArrayList;
 import java.util.Map;
 
 public class AllSavedOutfits extends AppCompatActivity {
+
     //private ImageView rectangle_1;
+
     ActivityAllSavedOutfitsBinding binding;
 
     Context context;
@@ -63,13 +65,28 @@ public class AllSavedOutfits extends AppCompatActivity {
     ArrayList<String> arrayList = new ArrayList<>();
     ArrayAdapter<String> arrayAdapter;
     Module module;
+
     Button btnDelete, btnUpdate, btnView, btnBack;
+
+    static Boolean isCreated = true;
+    public static int getContentView() {
+        return R.id.AllSavedOutfitsLayout;
+    }
+    public static Boolean isCreatedSuccessfully()
+    {
+        return isCreated;
+    }
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
 
         // Inflate the layout
+
+        isCreated = true;
+        //NAV BAR STUFF:
+
         binding = ActivityAllSavedOutfitsBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 

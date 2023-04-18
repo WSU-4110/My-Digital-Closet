@@ -3,7 +3,9 @@ package com.example.mydigitalcloset;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.View;
@@ -23,20 +25,31 @@ public class Login extends AppCompatActivity {
     private Button buttonLogin;
     private TextView textViewSignUp;
     private FirebaseAuth mAuth;
+    private SharedPreferences sharedPreferences;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_login);
 
         mAuth = FirebaseAuth.getInstance();
+        sharedPreferences = getSharedPreferences("MyDigitalClosetPrefs", Context.MODE_PRIVATE);
+
+        // Check if the user is already logged in and if they just logged in
+        boolean userJustLoggedIn = sharedPreferences.getBoolean("userJustLoggedIn", false);
+        if (mAuth.getCurrentUser() != null && userJustLoggedIn) {
+            // If the user is logged in and just logged in, navigate to the OutfitCreationActivity
+            Intent intent = new Intent(getApplicationContext(), OutfitCreationActivity.class);
+            startActivity(intent);
+            finish();
+        }
+
+        setContentView(R.layout.activity_login);
 
         textInputEditTextUsername = findViewById(R.id.username);
         textInputEditTextPassword = findViewById(R.id.password);
         buttonLogin = findViewById(R.id.buttonLogin);
         textViewSignUp = findViewById(R.id.signUpText);
 
-        //open signup page if "signup here" text is clicked by user
         textViewSignUp.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -52,36 +65,32 @@ public class Login extends AppCompatActivity {
                 username = String.valueOf(textInputEditTextUsername.getText());
                 password = String.valueOf(textInputEditTextPassword.getText());
 
-                //make sure every field is entered
-                if(!TextUtils.isEmpty(username) && !TextUtils.isEmpty(password)) {
-
+                if (!TextUtils.isEmpty(username) && !TextUtils.isEmpty(password)) {
                     mAuth.signInWithEmailAndPassword(username, password)
                             .addOnCompleteListener(Login.this, new OnCompleteListener<AuthResult>() {
                                 @Override
                                 public void onComplete(@NonNull Task<AuthResult> task) {
                                     if (task.isSuccessful()) {
-                                        // Sign in success, update UI with the signed-in user's information
-
-                                        
-
                                         Toast.makeText(Login.this, "Login successful!", Toast.LENGTH_SHORT).show();
+                                        sharedPreferences.edit().putBoolean("userJustLoggedIn", true).apply();
                                         Intent intent = new Intent(getApplicationContext(), OutfitCreationActivity.class);
-                                        //Intent intent = new Intent(getApplicationContext(), OutfitCreationActivity.class); changed to fragment
                                         startActivity(intent);
                                         finish();
                                     } else {
-                                        // If sign in fails, display a message to the user.
-                                        Toast.makeText(Login.this, "Authentication failed.",
-                                                Toast.LENGTH_SHORT).show();
+                                        Toast.makeText(Login.this, "Authentication failed.", Toast.LENGTH_SHORT).show();
                                     }
                                 }
                             });
-                }
-                //toast shown if any input areas are missing
-                else{
+                } else {
                     Toast.makeText(getApplicationContext(), "All fields required", Toast.LENGTH_SHORT).show();
                 }
             }
         });
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        sharedPreferences.edit().putBoolean("userJustLoggedIn", false).apply();
     }
 }
