@@ -8,14 +8,17 @@ import androidx.appcompat.app.AppCompatDelegate;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.res.Configuration;
+import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 
 import android.widget.Button;
 
+import android.widget.ImageView;
 import android.widget.Toast;
 
+import com.bumptech.glide.Glide;
 import com.example.mydigitalcloset.closetPage.AllSavedOutfits;
 import com.example.mydigitalcloset.databinding.ActivitySettingsPageBinding;
 
@@ -31,6 +34,10 @@ public class SettingsPage extends AppCompatActivity {
 
     private FirebaseAuth mAuth;
 
+    private static final int PICK_IMAGE_REQUEST = 1;
+
+    private Uri mImageUri;
+
     @Override protected void onCreate(Bundle savedInstanceState) {
 
         super.onCreate(savedInstanceState);
@@ -44,14 +51,28 @@ public class SettingsPage extends AppCompatActivity {
 
         Button btnDelete = findViewById(R.id.btnDelete);
 
-      //  Button btnThemes = findViewById(R.id.btnThemes);
+        Button btnThemes = findViewById(R.id.btnThemes);
+
+        Button btnPFP = findViewById(R.id.btnPFP);
+
+        //PFP Button
+        btnPFP.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                Intent in = new Intent();
+                in.setType("image/*");
+                in.setAction(Intent.ACTION_GET_CONTENT);
+                startActivityForResult(Intent.createChooser(in, "Select Picture"), PICK_IMAGE_REQUEST);
+            }
+        });
 
         //LogOut Button
         btnLogOut.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                AlertDialog.Builder builder = new AlertDialog.Builder(SettingsPage.this);
-                builder.setMessage("Would you like to log out?").setCancelable(false).setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+                AlertDialog.Builder bui = new AlertDialog.Builder(SettingsPage.this);
+                bui.setMessage("Would you like to log out?").setCancelable(false).setPositiveButton("Yes", new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int id) {
                 mAuth.signOut();
                 Intent intent = new Intent(SettingsPage.this, Login.class);
@@ -67,7 +88,7 @@ public class SettingsPage extends AppCompatActivity {
                                 dialog.cancel();
                             }
                         });
-                AlertDialog alert = builder.create();
+                AlertDialog alert = bui.create();
                 alert.show();
             }
         });
@@ -77,8 +98,8 @@ public class SettingsPage extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                AlertDialog.Builder builder = new AlertDialog.Builder(SettingsPage.this);
-                builder.setMessage("Are you sure you want to delete your account forever and lose all of the amazing outfits you had?")
+                AlertDialog.Builder bui = new AlertDialog.Builder(SettingsPage.this);
+                bui.setMessage("Are you sure you want to delete your account forever and lose all of the amazing outfits you had?")
                         .setCancelable(false)
                         .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
                             public void onClick(DialogInterface dialog, int id) {
@@ -106,18 +127,18 @@ public class SettingsPage extends AppCompatActivity {
                             }
                         })
                         .setNegativeButton("No", null);
-                AlertDialog alert = builder.create();
+                AlertDialog alert = bui.create();
                 alert.show();
             }
         });
 
-       /* //Change themes
+       //Change themes
         btnThemes.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                int currentNightMode = getResources().getConfiguration().uiMode
+                int currentDark = getResources().getConfiguration().uiMode
                         & Configuration.UI_MODE_NIGHT_MASK;
-                switch (currentNightMode) {
+                switch (currentDark) {
                     case Configuration.UI_MODE_NIGHT_NO:
                         AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES);
                         recreate();
@@ -129,7 +150,7 @@ public class SettingsPage extends AppCompatActivity {
                 }
             }
         });
-*/
+
         //navigation buttons
         binding.homeButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -181,4 +202,22 @@ public class SettingsPage extends AppCompatActivity {
         });
         //end nav buttons
     }//end onCreate
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+
+        if (requestCode == PICK_IMAGE_REQUEST && resultCode == RESULT_OK
+                && data != null && data.getData() != null) {
+            mImageUri = data.getData();
+
+
+            Glide.with(this)
+                    .load(mImageUri)
+                    .into(binding.imgPFP);
+        }
+    }
+    private void displayProfilePicture() {
+        ImageView imgPFP = findViewById(R.id.imgPFP);
+        Glide.with(this).load(mImageUri).into(imgPFP);
+    }
 }
