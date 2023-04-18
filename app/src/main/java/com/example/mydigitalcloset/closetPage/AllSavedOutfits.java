@@ -206,6 +206,8 @@ public class AllSavedOutfits extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 final String fit = module.getGvalue_Name();
+                btnBack.setVisibility(View.VISIBLE);
+                listView.setVisibility(View.INVISIBLE);
                 DatabaseReference fitRef = outfitsRef.child(fit);
                 DatabaseReference topRef = fitRef.child("top");
                 DatabaseReference bottomsRef = fitRef.child("bottoms");
