@@ -157,7 +157,7 @@ public class AllSavedOutfits extends AppCompatActivity {
                     ref.child("outfits").child(str).addListenerForSingleValueEvent(new ValueEventListener() {
                         @Override
                         public void onDataChange(@NonNull DataSnapshot snapshot) {
-                            ref.child(str).removeValue();
+                            ref.child("outfits").child(str).removeValue();
                         }
 
                         @Override
