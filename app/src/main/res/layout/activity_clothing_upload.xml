@@ -4,114 +4,74 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.example.mydigitalcloset.clothingUpload"
-    android:background="#FFE0E7">
+    android:background="#FFE0E7"
+    tools:context="com.example.mydigitalcloset.clothingUpload">
+
 
     <Button
-        android:id="@+id/button2"
-        android:layout_width="142dp"
-        android:layout_height="70dp"
-        android:layout_marginTop="200dp"
-        android:layout_marginBottom="128dp"
-        android:text="@string/custom"
+        android:id="@+id/openGallery"
+        android:layout_width="201dp"
+        android:layout_height="68dp"
+        android:layout_marginBottom="32dp"
+        android:text="@string/open_text"
+
+        android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintHorizontal_bias="0.495"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView"
-        app:layout_constraintVertical_bias="0.68" />
+        app:layout_constraintTop_toBottomOf="@+id/headerAddItem"
+        app:layout_constraintVertical_bias="0.0" />
 
     <Button
-        android:id="@+id/button6"
-        android:layout_width="142dp"
+        android:id="@+id/accept"
+        android:layout_width="200dp"
         android:layout_height="70dp"
-        android:layout_marginTop="64dp"
-        android:layout_marginEnd="24dp"
-        android:layout_marginBottom="260dp"
-        android:text="@string/socks"
+        android:layout_marginBottom="75dp"
+        android:text="@string/accept"
+        android:textSize="24sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/button7"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent" />
 
-    <Button
-        android:id="@+id/button4"
-        android:layout_width="142dp"
-        android:layout_height="70dp"
-        android:layout_marginStart="24dp"
-        android:layout_marginTop="64dp"
-        android:layout_marginBottom="260dp"
-        android:text="@string/shoes"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/button6"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/button3"
-        app:layout_constraintVertical_bias="0.0" />
-
-    <Button
-        android:id="@+id/button5"
-        android:layout_width="142dp"
-        android:layout_height="70dp"
-        android:layout_marginTop="128dp"
-        android:layout_marginEnd="24dp"
-        android:text="@string/headwear"
-        app:layout_constraintBottom_toBottomOf="parent"
+    <ImageView
+        android:id="@+id/imgView"
+        android:layout_width="291dp"
+        android:layout_height="272dp"
+        app:layout_constraintBottom_toTopOf="@+id/accept"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintTop_toBottomOf="@+id/openGallery"
+        app:layout_constraintVertical_bias="0.072" />
 
-    <Button
-        android:id="@+id/button"
-        android:layout_width="142dp"
-        android:layout_height="70dp"
-        android:layout_marginStart="24dp"
-        android:layout_marginTop="128dp"
-        android:text="@string/tops"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/button5"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0" />
+    <!--nav buttons-->
 
-    <Button
-        android:id="@+id/button7"
-        android:layout_width="142dp"
-        android:layout_height="70dp"
-        android:layout_marginTop="64dp"
-        android:layout_marginEnd="24dp"
-        android:text="@string/other"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/button5"
-        app:layout_constraintVertical_bias="0.0" />
-
-    <Button
-        android:id="@+id/button3"
-        android:layout_width="142dp"
-        android:layout_height="70dp"
-        android:layout_marginStart="24dp"
-        android:layout_marginTop="64dp"
-        android:text="@string/bottoms"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/button7"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/button"
-        app:layout_constraintVertical_bias="0.0" />
-
-    <TextView
-        android:id="@+id/textView"
+    <EditText
+        android:id="@+id/itemName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="64dp"
+        android:layout_marginTop="200dp"
+        android:layout_marginBottom="24dp"
+        android:autofillHints=""
+        android:ems="10"
+        android:hint="item name"
+        android:imeOptions="actionDone"
+        android:inputType="text"
+        android:minHeight="48dp"
+        app:layout_constraintBottom_toTopOf="@+id/accept"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/headerAddItem"
+        app:layout_constraintVertical_bias="1.0"
+        tools:ignore="LabelFor" />
+
+    <TextView
+        android:id="@+id/headerAddItem"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
         android:text="@string/add_item"
         android:textSize="24sp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -121,19 +81,33 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.0" />
 
-    <Button
-        android:id="@+id/button9"
-        android:layout_width="200dp"
-        android:layout_height="70dp"
-        android:layout_marginBottom="36dp"
-        android:text="@string/back"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/button2" />
+    <!--Nav buttons-->
 
-    <!--nav buttons-->
+    <Button
+        android:id="@+id/itemCat"
+        android:layout_width="137dp"
+        android:layout_height="69dp"
+        android:text="@string/category"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toTopOf="@+id/homeButton"
+        app:layout_constraintEnd_toStartOf="@+id/confirmCat"
+        app:layout_constraintHorizontal_bias="0.638"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.693" />
+
+    <TextView
+        android:id="@+id/confirmCat"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="60dp"
+        android:text="@string/category_textview"
+        android:textSize="30sp"
+        app:layout_constraintBottom_toTopOf="@+id/settingsButton"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.678" />
+
     <ImageButton
         android:id="@+id/homeButton"
         android:layout_width="wrap_content"
@@ -193,6 +167,8 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.981"
         app:srcCompat="@drawable/ic_settings" />
+
+
     <!--end nav buttons-->
 
 </androidx.constraintlayout.widget.ConstraintLayout>

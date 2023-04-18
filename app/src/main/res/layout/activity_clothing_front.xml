@@ -93,9 +93,10 @@
         android:scaleX="1.3"
         android:scaleY="1.3"
         android:text="@string/add_item"
+        android:textColor="#5D4037"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.074" />
@@ -107,50 +108,31 @@
         android:scaleX="1.3"
         android:scaleY="1.3"
         android:text="@string/see_all"
+        android:textColor="#5D4037"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.501"
+        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.201" />
 
+
+    <!--nav buttons-->
+
     <TextView
-        android:id="@+id/textView2"
+        android:id="@+id/headerAddItem"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:scaleX="2"
-        android:scaleY="2"
-        android:text="@string/most_recently_added"
-        app:layout_constraintBottom_toTopOf="@+id/RecentUp2"
+        android:layout_marginTop="64dp"
+        android:text="@string/add_item"
+        android:textSize="24sp"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/addItem"
-        app:layout_constraintVertical_bias="0.772" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0" />
 
-    <!--NAV BAR STUFF
-    <FrameLayout
-        android:id="@+id/frame_layout"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        app:layout_constraintBottom_toTopOf="@+id/bottomNavigationView"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent">
-
-    </FrameLayout>
-
-    <com.google.android.material.bottomnavigation.BottomNavigationView
-        android:id="@+id/bottomNavigationView"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:backgroundTint="#F3A3EB"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:menu="@menu/bottom_nav_menu" />-->
-    <!--nav bar-->
-
-    <!--nav buttons-->
     <ImageButton
         android:id="@+id/homeButton"
         android:layout_width="wrap_content"

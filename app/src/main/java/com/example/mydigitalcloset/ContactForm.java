@@ -1,21 +1,22 @@
 package com.example.mydigitalcloset;
 
-import androidx.annotation.NonNull;
+
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
-import android.view.MenuItem;
+
 import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
 
-import com.example.mydigitalcloset.closetPage.AllSavedOufitsPage;
-import com.example.mydigitalcloset.databinding.ActivityClothingFrontBinding;
+
+import com.example.mydigitalcloset.closetPage.AllSavedOutfits;
+
 import com.example.mydigitalcloset.databinding.ActivityContactFormBinding;
-import com.google.android.material.bottomnavigation.BottomNavigationView;
+
 
 public class ContactForm extends AppCompatActivity {
 
@@ -36,20 +37,8 @@ public class ContactForm extends AppCompatActivity {
 
             setContentView(R.layout.activity_contact_form);
 
-/*
-                Log.i("MyDigitalCloset", "Your form has been successfully submitted");
-                //Shows summited on the bottom of the screen
-                Toast.makeText(getApplicationContext(), "Submitted!", Toast.LENGTH_SHORT)
-                        .show();
-            }
-        });
-    }
-
-//        Button btn = findViewById(R.id.btnAboutUs);
-*/
             Button b1=(Button)findViewById(R.id.btnsubmit);
 
-            Button b2=(Button)findViewById(R.id.btn1AboutUs);
             b1.setOnClickListener(new View.OnClickListener() {
 
                 public void onClick(View view) {
@@ -63,19 +52,7 @@ public class ContactForm extends AppCompatActivity {
                             .show();
                 }
             });
-            b2.setOnClickListener(new View.OnClickListener() {
 
-                public void onClick(View v) {
-                    openAboutUsPageActivity();
-
-                    Log.i("MyDigitalCloset", "You have successfully opened the About Us Page");
-                    //Shows summited on the bottom of the screen
-                    Toast.makeText(getApplicationContext(), "Welcome to the About Us Page!", Toast.LENGTH_SHORT)
-                            .show();
-
-
-                }
-            });
 
         //navigation buttons
         binding.homeButton.setOnClickListener(new View.OnClickListener() {
@@ -89,7 +66,7 @@ public class ContactForm extends AppCompatActivity {
         binding.wardrobeButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(getApplicationContext(), AllSavedOufitsPage.class);
+                Intent intent = new Intent(getApplicationContext(), AllSavedOutfits.class);
                 startActivity(intent);
                 finish();
             }
@@ -107,26 +84,29 @@ public class ContactForm extends AppCompatActivity {
             public void onClick(View view) {
                 Intent intent = new Intent(getApplicationContext(), AboutUsPageActivity.class); //change depending on romans pages
                 startActivity(intent);
+                Log.i("MyDigitalCloset", "You have successfully opened the About Us Page");
+                //Shows summited on the bottom of the screen
+                Toast.makeText(getApplicationContext(), "Welcome to the About Us Page!", Toast.LENGTH_SHORT)
+                        .show();
                 finish();
             }
         });
-        /*binding.settingsButton.setOnClickListener(new View.OnClickListener() {
+        binding.settingsButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(getApplicationContext(), ?.class);
+                Intent intent = new Intent(getApplicationContext(), SettingsPage.class);
                 startActivity(intent);
                 finish();
             }
-        });*/
+        });
+
         //end nav buttons
+
     }//end oncreate
 
     public void openSuccessPage(){
         Intent intent = new Intent(this, SuccessPage.class);
         startActivity(intent);
     }
-    public void openAboutUsPageActivity(){
-        Intent intent1 = new Intent(this, AboutUsPageActivity.class);
-        startActivity(intent1);
-    }
+
 }
