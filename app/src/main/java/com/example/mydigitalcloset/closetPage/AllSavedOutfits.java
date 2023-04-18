@@ -276,4 +276,48 @@ public class AllSavedOutfits extends AppCompatActivity {
         }
     }
 
+    public void showBottoms(String bottoms){
+        String bottomsID = bottoms;
+        Toast.makeText(AllSavedOutfits.this, bottomsID, Toast.LENGTH_SHORT).show();
+        progressDialog = new ProgressDialog(AllSavedOutfits.this);
+        progressDialog.setMessage("Fetching bottoms image...");
+        progressDialog.setCancelable(false);
+        progressDialog.show();
+        //use top name entered by user to get top from database
+        //topID = binding.getTopName.getText().toString();
+        storageReference = FirebaseStorage.getInstance().getReference("images/tops/"+bottomsID+".png");
+        //create local file for top image
+        try{
+            File topfile = File.createTempFile("tempfile_top", ".png");
+            storageReference.getFile(topfile).addOnSuccessListener(new OnSuccessListener<FileDownloadTask.TaskSnapshot>() {
+                //ON SUCCESS: image fetched
+                @Override
+                public void onSuccess(FileDownloadTask.TaskSnapshot taskSnapshot) {
+                    //dismiss progress dialog if showing
+                    if (progressDialog.isShowing()){
+                        progressDialog.dismiss();
+                    }
+
+                    //top image will be stored in bitmap var
+                    Bitmap topbitmap = BitmapFactory.decodeFile(topfile.getAbsolutePath());
+                    binding.topImage.setImageBitmap(topbitmap);
+                }
+            }).addOnFailureListener(new OnFailureListener() {
+                //ON FAILURE
+                @Override
+                public void onFailure(@NonNull Exception e) {
+                    //dismiss progress dialog if showing
+                    if (progressDialog.isShowing()){
+                        progressDialog.dismiss();
+                    }
+
+                    //failure toast
+                    Toast.makeText(AllSavedOutfits.this, "Failed to retrieve bottoms image", Toast.LENGTH_SHORT).show();
+                }
+            });
+        } catch(IOException e){
+            e.printStackTrace();
+        }
+    }
+
 }
