@@ -1,12 +1,58 @@
 <resources>
     <string name="app_name">My Digital Closet</string>
-    <string name="title_activity_login">LoginActivity</string>
-    <string name="prompt_email">Email</string>
-    <string name="prompt_password">Password</string>
-    <string name="action_sign_in">Sign in or register</string>
-    <string name="action_sign_in_short">Sign in</string>
-    <string name="welcome">"Welcome !"</string>
-    <string name="invalid_username">Not a valid username</string>
-    <string name="invalid_password">Password must be >5 characters</string>
-    <string name="login_failed">"Login failed"</string>
+    <string name="username">Username</string>
+    <string name="password">Password</string>
+    <string name="login">Login</string>
+    <string name="loginhere">Have an account? Login Here</string>
+    <string name="email">Email</string>
+    <string name="fullname">Full Name</string>
+    <string name="signup">Sign Up</string>
+    <string name="signuphere">New user? Sign up here</string>
+    <string name="shoes">Shoes</string>
+    <string name="headwear">Headwear</string>
+    <string name="tops">Tops</string>
+    <string name="socks">Socks</string>
+    <string name="other">Other</string>
+    <string name="bottoms">Bottoms</string>
+    <string name="add_item">Add item</string>
+    <string name="custom">Custom</string>
+    <string name="most_recently_added">Most recently added</string>
+    <string name="see_all">See all</string>
+    <string name="title_activity_login">title_activity_login</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
+    <!-- Outfit Page strings -->
+    <string name="ek_img_content">ExportKit Image</string>
+    <string name="caption_string">Wishlist</string>
+    <string name="saved_outfits_string">SAVED OUTFITS</string>
+
+    <string name="campus_green_sweater_and_jeans_skirt_string">Campus Green Sweater and Jeans Skirt</string>
+    <string name="title_activity_saved_outfit">SavedOutfitActivity</string>
+    <!-- Strings used for fragments for navigation -->
+    <string name="first_fragment_label">First Fragment</string>
+    <string name="second_fragment_label">Second Fragment</string>
+    <string name="next">Next</string>
+    <string name="previous">Previous</string>
+
+    <string name="hello_first_fragment">Hello first fragment</string>
+    <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
+    <string name="title_activity_all_outfits_page">AllOutfitsPage</string>
+
+    <string name="back">back</string>
+
+    <string name="image_id">Image ID</string>
+    <string name="see_item">See All</string>
+
+
+    <!-- Strings used for the About Us Page -->
+
+    <string name="AboutUs">My Digital Closet is a wardrobe cataloguing app that helps users organize their clothing items into different categories and create outfits based on what they find suites them best in terms of matching and or style. Users can add items by uploading images of there clothes into the app and it saves right to our database. </string>
+    <string name="Team"> Katie O\'Donnell, Ayesha Helal, Roman Gjokaj, David Rodgers, Nick Zuke </string>
+    <string name="open_text">Gallery</string>
+    <string name="accept">Accept</string>
+    <string name="category">Category</string>
+    <string name="category_textview">Category</string>
+
+
 </resources>

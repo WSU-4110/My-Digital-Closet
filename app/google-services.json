@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "746107935617",
+    "project_id": "mydigitalcloset-bde1f",
+    "storage_bucket": "mydigitalcloset-bde1f.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:746107935617:android:e59a8fd5181b7925e5e680",
+        "android_client_info": {
+          "package_name": "com.example.mydigitalcloset"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "746107935617-6f56j7kddgughg94s8ndufu7d9n0eqf6.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAXK-QHHPc8GCitp6Le_-8JJtEEVgOcuKM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "746107935617-6f56j7kddgughg94s8ndufu7d9n0eqf6.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
