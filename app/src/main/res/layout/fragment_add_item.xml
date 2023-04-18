@@ -11,7 +11,13 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Add Item Fragment"
-        android:textSize="26dp"
+        android:shadowColor="#6C6B6B"
+        android:shadowDx="0"
+        android:shadowDy="2.5"
+        android:shadowRadius="8"
+        android:textColor="#FFFFFF"
+        android:textSize="30sp"
+        android:textStyle="bold"
         android:layout_gravity="center"/>
 
 
