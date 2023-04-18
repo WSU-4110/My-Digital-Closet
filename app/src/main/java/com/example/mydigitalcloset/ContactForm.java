@@ -87,7 +87,7 @@ public class ContactForm extends AppCompatActivity {
                     Toast.makeText(getApplicationContext(), "Submitted!", Toast.LENGTH_SHORT)
                             .show();
                 }
-            });
+            });*/
 
 
         //navigation buttons
