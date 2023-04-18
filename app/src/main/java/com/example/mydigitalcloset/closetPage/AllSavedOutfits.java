@@ -19,6 +19,7 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.ListView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.mydigitalcloset.AboutUsPageActivity;
@@ -44,6 +45,8 @@ import com.google.firebase.storage.FileDownloadTask;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 
+import org.w3c.dom.Text;
+
 import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -65,7 +68,8 @@ public class AllSavedOutfits extends AppCompatActivity {
     ArrayList<String> arrayList = new ArrayList<>();
     ArrayAdapter<String> arrayAdapter;
     Module module;
-    Button btnDelete, btnUpdate, btnView, btnBack;
+    Button btnDelete, btnView, btnBack;
+    TextView header, desc;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -77,17 +81,19 @@ public class AllSavedOutfits extends AppCompatActivity {
 
         //INITIALIZE VARS:
         btnDelete = (Button) findViewById(R.id.deleteButton);
-        btnUpdate = (Button) findViewById(R.id.updateButton);
+
         btnView = (Button) findViewById(R.id.viewButton);
         btnBack = (Button) findViewById(R.id.backButton);
-        btnDelete.setVisibility(View.VISIBLE);
-        btnUpdate.setVisibility(View.VISIBLE);
-        btnView.setVisibility(View.VISIBLE);
+        header = (TextView) findViewById(R.id.savedOutfitsHeader);
+        desc = (TextView) findViewById(R.id.savedOutfitDescription);
+
+        header.setText("Saved Outfits");
+
         btnBack.setVisibility(View.INVISIBLE);
         module = new Module();
         //list stuff
         listView = (ListView) findViewById(R.id.outfitList);
-        listView.setVisibility(View.VISIBLE);
+        //listView.setVisibility(View.VISIBLE);
         arrayAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, arrayList);
         listView.setAdapter(arrayAdapter);
         outfitsRef.addChildEventListener(new ChildEventListener() {
@@ -198,19 +204,7 @@ public class AllSavedOutfits extends AppCompatActivity {
             }
         });
 
-        //update:
-        btnUpdate.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                final String str = module.getGvalue_Name();
-                if (str==""){
-                    Toast.makeText(AllSavedOutfits.this, "Please select an outfit to update", Toast.LENGTH_LONG).show();
-                }
-                else{
 
-                }
-            }
-        });
 
         //view:
         btnView.setOnClickListener(new View.OnClickListener() {
@@ -225,8 +219,10 @@ public class AllSavedOutfits extends AppCompatActivity {
                     btnBack.setVisibility(View.VISIBLE);
                     listView.setVisibility(View.INVISIBLE);
                     btnDelete.setVisibility(View.INVISIBLE);
-                    btnUpdate.setVisibility(View.INVISIBLE);
                     btnView.setVisibility(View.INVISIBLE);
+                    desc.setVisibility(View.INVISIBLE);
+                    header.setText(fit);
+
                     DatabaseReference fitRef = outfitsRef.child(fit);
                     DatabaseReference topRef = fitRef.child("top");
                     DatabaseReference bottomsRef = fitRef.child("bottoms");
