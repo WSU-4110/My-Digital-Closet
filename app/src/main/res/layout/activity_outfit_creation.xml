@@ -3,6 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#FFE0E7"
     tools:context=".OutfitCreationActivity">
 
 
@@ -11,13 +12,17 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:fontFamily="@font/poppinsmedium"
+        android:gravity="center"
+        android:shadowColor="#757373"
+        android:shadowDx="0"
+        android:shadowDy="2.5"
+        android:shadowRadius="8"
         android:text="Create an Outfit!"
+        android:textColor="#FFFFFF"
         android:textSize="26dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.034" />
+        android:textStyle="bold"
+        tools:layout_editor_absoluteX="97dp"
+        tools:layout_editor_absoluteY="21dp" />
 
 
     <Button
@@ -25,6 +30,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="add other"
+        android:textColor="#FFFFFF"
+        app:backgroundTint="#F47EC9"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.948"
@@ -37,6 +44,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Add Bottoms"
+        android:textColor="#FFFFFF"
+        app:backgroundTint="#F47EC9"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
@@ -49,6 +58,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="add headwear"
+        android:textColor="#FFFFFF"
+        app:backgroundTint="#F47EC9"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
@@ -61,6 +72,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Add Shoes"
+        android:textColor="#FFFFFF"
+        app:backgroundTint="#F47EC9"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.948"
@@ -73,6 +86,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Add Top"
+        android:textColor="#FFFFFF"
+        app:backgroundTint="#F47EC9"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.099"
@@ -85,6 +100,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="add socks"
+        android:textColor="#FFFFFF"
+        app:backgroundTint="#F47EC9"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.073"
@@ -157,6 +174,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="save outfit"
+        android:textColor="#FFFFFF"
+        app:backgroundTint="#F47EC9"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -174,10 +193,10 @@
         android:maxHeight="150dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.855"
+        app:layout_constraintHorizontal_bias="0.815"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.134"
+        app:layout_constraintVertical_bias="0.12"
         tools:srcCompat="@tools:sample/avatars" />
 
     <ImageView
@@ -194,7 +213,7 @@
         app:layout_constraintHorizontal_bias="0.491"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/outfitCreationHeader"
-        app:layout_constraintVertical_bias="0.551"
+        app:layout_constraintVertical_bias="0.55"
         tools:srcCompat="@tools:sample/avatars" />
 
     <ImageView
@@ -211,7 +230,7 @@
         app:layout_constraintHorizontal_bias="0.491"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/outfitCreationHeader"
-        app:layout_constraintVertical_bias="0.044"
+        app:layout_constraintVertical_bias="0.0"
         tools:srcCompat="@tools:sample/avatars" />
 
     <ImageView
@@ -225,27 +244,22 @@
         android:maxHeight="150dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.524"
+        app:layout_constraintHorizontal_bias="0.491"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/outfitCreationHeader"
-        app:layout_constraintVertical_bias="0.29"
+        app:layout_constraintVertical_bias="0.276"
         tools:srcCompat="@tools:sample/avatars" />
 
     <ImageView
         android:id="@+id/socksImage"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="100dp"
-        android:layout_marginEnd="10dp"
+        android:layout_marginTop="321dp"
         android:adjustViewBounds="true"
         android:maxWidth="150dp"
         android:maxHeight="150dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.872"
-        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.592"
+        tools:layout_editor_absoluteX="242dp"
         tools:srcCompat="@tools:sample/avatars" />
 
     <ImageView
@@ -259,10 +273,10 @@
         android:maxHeight="150dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.855"
+        app:layout_constraintHorizontal_bias="0.82"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.356"
+        app:layout_constraintVertical_bias="0.363"
         tools:srcCompat="@tools:sample/avatars" />
 
 
