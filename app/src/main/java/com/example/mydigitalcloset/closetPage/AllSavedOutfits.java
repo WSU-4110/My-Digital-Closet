@@ -285,10 +285,15 @@ public class AllSavedOutfits extends AppCompatActivity {
 
                     }
                 });
-                if (progressDialog.isShowing()){
-                    progressDialog.dismiss();
-                }
-            }//end view onclick
+            }
+        });//end 'view' onclick
+
+        btnBack.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getApplicationContext(), AllSavedOutfits.class);
+                startActivity(intent);
+            }
         });
 
     }//end oncreate
