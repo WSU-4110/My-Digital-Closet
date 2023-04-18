@@ -35,7 +35,7 @@ public class AboutUsPageActivity extends AppCompatActivity {
                     openContactForm();
 
                     Log.i("MyDigitalCloset", "You have successfully opened the Contact Form");
-                    //Shows summited on the bottom of the screen
+
                     Toast.makeText(getApplicationContext(), "Welcome to the Contact Form!", Toast.LENGTH_SHORT)
                             .show();
 
@@ -72,10 +72,10 @@ public class AboutUsPageActivity extends AppCompatActivity {
       binding.contactButton.setOnClickListener(new View.OnClickListener() {
           @Override
           public void onClick(View view) {
-              Intent intent = new Intent(getApplicationContext(), AboutUsPageActivity.class); //change depending on romans pages
+              Intent intent = new Intent(getApplicationContext(), AboutUsPageActivity.class);
               startActivity(intent);
               Log.i("MyDigitalCloset", "You have successfully opened the About Us Page");
-              //Shows summited on the bottom of the screen
+
               Toast.makeText(getApplicationContext(), "Welcome to the About Us Page!", Toast.LENGTH_SHORT)
                       .show();
               finish();
@@ -86,6 +86,9 @@ public class AboutUsPageActivity extends AppCompatActivity {
             public void onClick(View view) {
                 Intent intent = new Intent(getApplicationContext(), SettingsPage.class);
                 startActivity(intent);
+                Log.i("MyDigitalCloset", "You have successfully opened settings Page");
+                Toast.makeText(getApplicationContext(), "Welcome to the Settings Page!", Toast.LENGTH_SHORT)
+                        .show();
                 finish();
             }
         });

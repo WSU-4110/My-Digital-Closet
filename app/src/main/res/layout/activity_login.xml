@@ -66,10 +66,13 @@
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/password"
             android:layout_width="match_parent"
-            android:fontFamily="@font/poppinsmedium"
-            android:drawableRight="@drawable/ic_password"
             android:layout_height="wrap_content"
-            android:inputType="textPassword" />
+            android:inputType="textPassword"
+            android:fontFamily="@font/poppinsmedium"
+
+            android:drawableRight="@drawable/ic_password"
+            />
+
     </com.google.android.material.textfield.TextInputLayout>
 
     <Button
