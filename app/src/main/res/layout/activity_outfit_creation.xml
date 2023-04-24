@@ -233,7 +233,7 @@
         app:layout_constraintHorizontal_bias="0.491"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/outfitCreationHeader"
-        app:layout_constraintVertical_bias="0.0"
+        app:layout_constraintVertical_bias="0.026"
         tools:srcCompat="@tools:sample/avatars" />
 
     <ImageView
@@ -257,12 +257,15 @@
         android:id="@+id/socksImage"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="321dp"
         android:adjustViewBounds="true"
         android:maxWidth="150dp"
         android:maxHeight="150dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.851"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        tools:layout_editor_absoluteX="242dp"
+        app:layout_constraintVertical_bias="0.593"
         tools:srcCompat="@tools:sample/avatars" />
 
     <ImageView
@@ -276,10 +279,10 @@
         android:maxHeight="150dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.82"
+        app:layout_constraintHorizontal_bias="0.815"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.363"
+        app:layout_constraintVertical_bias="0.345"
         tools:srcCompat="@tools:sample/avatars" />
 
 

@@ -132,7 +132,8 @@ public class clothingUpload extends AppCompatActivity {
                 
                 /*            String clothingId = mDatabase.child("tops").push().getKey();
             mDatabase.child("tops").child(clothingId).setValue("new item");*/
-
+                Intent intent = new Intent(getApplicationContext(), clothingUpload.class);
+                startActivity(intent);
             }
 
         });
