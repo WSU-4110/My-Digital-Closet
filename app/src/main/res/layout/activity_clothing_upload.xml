@@ -84,7 +84,8 @@
         android:textColor="#FFFFFF"
         android:textSize="30sp"
         android:textStyle="bold"
-        tools:layout_editor_absoluteX="53dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         tools:layout_editor_absoluteY="16dp" />
 
     <Button
@@ -158,9 +159,14 @@
         android:id="@+id/contactButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.713"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.981"
         app:srcCompat="@drawable/ic_contact_support"
-        tools:layout_editor_absoluteX="259dp"
-        tools:layout_editor_absoluteY="604dp" />
+        tools:ignore="TouchTargetSizeCheck" />
 
     <ImageButton
         android:id="@+id/settingsButton"
