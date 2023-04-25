@@ -19,14 +19,7 @@ public class SavedFit extends AppCompatActivity {
 
     ActivitySavedFitBinding binding;
 
-    static Boolean isCreated = true;
-    public static int getContentView() {
-        return R.id.SavedOutfitLayout;
-    }
-    public static Boolean isCreatedSuccessfully()
-    {
-        return isCreated;
-    }
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -75,12 +68,20 @@ public class SavedFit extends AppCompatActivity {
 //        });
 //        //end nav bar
 
-        //setContentView(R.layout.activity_saved_fit);
+        setContentView(R.layout.activity_saved_fit);
     }
     public void openAllSavedOutfits(){
         Intent intent = new Intent(this, AllSavedOutfits.class);
         startActivity(intent);
     }
 
+    static Boolean isCreated = true;
+    public static int getContentView() {
+        return R.id.SavedOutfitLayout;
+    }
+    public static Boolean isCreatedSuccessfully()
+    {
+        return isCreated;
+    }
 
 }
