@@ -18,7 +18,7 @@ With the copied url you are going to open up Andriod Studio and then your going 
 After that you are going to paste the copied url you have and finalize ot by clicking clone.
 
 ### Step 3:
-Once you cloned the repository and wait until all imported files are loaded up you can click on the run menu and select run app. Once you do that the app should launch on the android emulator. If it doesnt work at first you might have to make sure that your emultaor is installed correctly.
+Once you cloned the repository and wait until all imported files are loaded up you can click on the run menu and select run app. Once you do that the app should launch on the android emulator. If it doesn't work at first you might have to make sure that your emulator is installed correctly.
 
 ### Step 4:
-Finally, you should be able loaded onto the app and test all of the fetures that we at My Digital Closet have to offer.
+Finally, you should be loaded into the app and now are able to test all of the features that the My Digital Closet app has to offer.
