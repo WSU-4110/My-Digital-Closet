@@ -18,5 +18,6 @@ My Digital Closet is a wardrobe cataloging app that helps users organize their c
 * Firebase
 + Figma
 - Jira
+* Canva
 
 ![my_digital_closet_logo](https://user-images.githubusercontent.com/122497955/231882730-4b894477-0ff7-416d-8444-da4cc4eb7e7f.PNG)
