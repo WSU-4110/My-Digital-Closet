@@ -194,7 +194,7 @@ public class OutfitCreationActivity extends AppCompatActivity {
         }
     }
     //save outfit pop up
-    private void showSaveOutfitDialog(Context c) {
+    public void showSaveOutfitDialog(Context c) {
         final EditText outfitNameTemp = new EditText(c);
         AlertDialog dialog = new AlertDialog.Builder(c)
                 .setTitle("Save Outfit")
@@ -221,7 +221,7 @@ public class OutfitCreationActivity extends AppCompatActivity {
         dialog.show();
     }
     //add top pop up
-    private void showAddTopDialog(Context c) {
+    public void showAddTopDialog(Context c) {
         final EditText topIDtemp = new EditText(c);
         AlertDialog dialog = new AlertDialog.Builder(c)
                 .setTitle("Add Top")
@@ -231,45 +231,7 @@ public class OutfitCreationActivity extends AppCompatActivity {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
                         topID = String.valueOf(topIDtemp.getText());
-                        progressDialog = new ProgressDialog(OutfitCreationActivity.this);
-                        progressDialog.setMessage("Fetching top image...");
-                        progressDialog.setCancelable(false);
-                        progressDialog.show();
-                        //use top name entered by user to get top from database
-                        //topID = binding.getTopName.getText().toString();
-                        storageReference = FirebaseStorage.getInstance().getReference("images/tops/"+topID+".png");
-                        //create local file for top image
-                        try{
-                            File topfile = File.createTempFile("tempfile_top", ".png");
-                            storageReference.getFile(topfile).addOnSuccessListener(new OnSuccessListener<FileDownloadTask.TaskSnapshot>() {
-                                //ON SUCCESS: image fetched
-                                @Override
-                                public void onSuccess(FileDownloadTask.TaskSnapshot taskSnapshot) {
-                                    //dismiss progress dialog if showing
-                                    if (progressDialog.isShowing()){
-                                        progressDialog.dismiss();
-                                    }
-                                    outfit[1] = topID;
-                                    //top image will be stored in bitmap var
-                                    Bitmap topbitmap = BitmapFactory.decodeFile(topfile.getAbsolutePath());
-                                    binding.topImage.setImageBitmap(topbitmap);
-                                }
-                            }).addOnFailureListener(new OnFailureListener() {
-                                //ON FAILURE
-                                @Override
-                                public void onFailure(@NonNull Exception e) {
-                                    //dismiss progress dialog if showing
-                                    if (progressDialog.isShowing()){
-                                        progressDialog.dismiss();
-                                    }
-
-                                    //failure toast
-                                    Toast.makeText(OutfitCreationActivity.this, "Failed to retrieve top image", Toast.LENGTH_SHORT).show();
-                                }
-                            });
-                        } catch(IOException e){
-                            e.printStackTrace();
-                        }
+                        showTop(topID);
                     }
                 })
                 .setNegativeButton("Cancel", null)
@@ -277,7 +239,7 @@ public class OutfitCreationActivity extends AppCompatActivity {
         dialog.show();
     }
     //add bottoms pop up
-    private void showAddBottomsDialog(Context c) {
+    public void showAddBottomsDialog(Context c) {
         final EditText bottomsIDtemp = new EditText(c);
         AlertDialog dialog = new AlertDialog.Builder(c)
                 .setTitle("Add Bottoms")
@@ -331,7 +293,7 @@ public class OutfitCreationActivity extends AppCompatActivity {
         dialog.show();
     }
     //add shoes pop up
-    private void showAddShoesDialog(Context c) {
+    public void showAddShoesDialog(Context c) {
         final EditText shoesIDtemp = new EditText(c);
         AlertDialog dialog = new AlertDialog.Builder(c)
                 .setTitle("Add Shoes")
@@ -384,7 +346,7 @@ public class OutfitCreationActivity extends AppCompatActivity {
         dialog.show();
     }
     //add headwear pop up
-    private void showAddHeadwearDialog(Context c) {
+    public void showAddHeadwearDialog(Context c) {
         final EditText headwearIDtemp = new EditText(c);
         AlertDialog dialog = new AlertDialog.Builder(c)
                 .setTitle("Add Headwear")
@@ -437,7 +399,7 @@ public class OutfitCreationActivity extends AppCompatActivity {
         dialog.show();
     }
     //add socks pop up
-    private void showAddSocksDialog(Context c) {
+    public void showAddSocksDialog(Context c) {
         final EditText socksIDtemp = new EditText(c);
         AlertDialog dialog = new AlertDialog.Builder(c)
                 .setTitle("Add Socks")
@@ -490,7 +452,7 @@ public class OutfitCreationActivity extends AppCompatActivity {
         dialog.show();
     }
     //add other pop up
-    private void showAddOtherDialog(Context c) {
+    public void showAddOtherDialog(Context c) {
         final EditText otherIDtemp = new EditText(c);
         AlertDialog dialog = new AlertDialog.Builder(c)
                 .setTitle("Add Other Item")
@@ -541,6 +503,48 @@ public class OutfitCreationActivity extends AppCompatActivity {
                 .setNegativeButton("Cancel", null)
                 .create();
         dialog.show();
+    }
+
+    public void showTop(String top) {
+        progressDialog = new ProgressDialog(OutfitCreationActivity.this);
+        progressDialog.setMessage("Fetching top image...");
+        progressDialog.setCancelable(false);
+        progressDialog.show();
+        //use top name entered by user to get top from database
+        //topID = binding.getTopName.getText().toString();
+        storageReference = FirebaseStorage.getInstance().getReference("images/tops/"+top+".png");
+        //create local file for top image
+        try{
+            File topfile = File.createTempFile("tempfile_top", ".png");
+            storageReference.getFile(topfile).addOnSuccessListener(new OnSuccessListener<FileDownloadTask.TaskSnapshot>() {
+                //ON SUCCESS: image fetched
+                @Override
+                public void onSuccess(FileDownloadTask.TaskSnapshot taskSnapshot) {
+                    //dismiss progress dialog if showing
+                    if (progressDialog.isShowing()){
+                        progressDialog.dismiss();
+                    }
+                    outfit[1] = topID;
+                    //top image will be stored in bitmap var
+                    Bitmap topbitmap = BitmapFactory.decodeFile(topfile.getAbsolutePath());
+                    binding.topImage.setImageBitmap(topbitmap);
+                }
+            }).addOnFailureListener(new OnFailureListener() {
+                //ON FAILURE
+                @Override
+                public void onFailure(@NonNull Exception e) {
+                    //dismiss progress dialog if showing
+                    if (progressDialog.isShowing()){
+                        progressDialog.dismiss();
+                    }
+
+                    //failure toast
+                    Toast.makeText(OutfitCreationActivity.this, "Failed to retrieve top image", Toast.LENGTH_SHORT).show();
+                }
+            });
+        } catch(IOException e){
+            e.printStackTrace();
+        }
     }
 
 }
