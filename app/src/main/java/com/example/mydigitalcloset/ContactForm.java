@@ -43,6 +43,7 @@ public class ContactForm extends AppCompatActivity {
 
                 public void onClick(View view) {
 
+
                     String name = binding.editTextTextPersonName.getText().toString();
                     String email = binding.editTextTextPersonName2.getText().toString();
                     String message = binding.editTextTextPersonName4.getText().toString();
@@ -62,7 +63,7 @@ public class ContactForm extends AppCompatActivity {
                     openSuccessPage();
 
                     try {
-                        startActivity(Intent.createChooser(emailIn, "Send email using on of the following apps..."));
+                        startActivity(Intent.createChooser(emailIn, "Send email using one of the following apps..."));
                         Log.i("MyDigitalCloset", "Your form has been successfully submitted");
                         //Shows summited on the bottom of the screen
                         Toast.makeText(getApplicationContext(), "Submitted!", Toast.LENGTH_SHORT)
@@ -86,8 +87,8 @@ public class ContactForm extends AppCompatActivity {
                     Toast.makeText(getApplicationContext(), "Submitted!", Toast.LENGTH_SHORT)
                             .show();
                 }
-            });
-*/
+            });*/
+
 
         //navigation buttons
         binding.homeButton.setOnClickListener(new View.OnClickListener() {

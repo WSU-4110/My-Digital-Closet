@@ -14,14 +14,14 @@
         android:layout_height="68dp"
         android:layout_marginBottom="32dp"
         android:text="@string/open_text"
-
+        app:backgroundTint="#F47EC9"
         android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.495"
+        app:layout_constraintHorizontal_bias="0.504"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/headerAddItem"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintVertical_bias="0.019" />
 
     <Button
         android:id="@+id/accept"
@@ -30,6 +30,7 @@
         android:layout_marginBottom="75dp"
         android:text="@string/accept"
         android:textSize="24sp"
+        app:backgroundTint="#F47EC9"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.497"
@@ -37,8 +38,8 @@
 
     <ImageView
         android:id="@+id/imgView"
-        android:layout_width="291dp"
-        android:layout_height="272dp"
+        android:layout_width="273dp"
+        android:layout_height="248dp"
         app:layout_constraintBottom_toTopOf="@+id/accept"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -46,6 +47,8 @@
         app:layout_constraintVertical_bias="0.072" />
 
     <!--nav buttons-->
+
+    <!--Nav buttons-->
 
     <EditText
         android:id="@+id/itemName"
@@ -69,44 +72,52 @@
 
     <TextView
         android:id="@+id/headerAddItem"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="24dp"
-        android:text="@string/add_item"
-        android:textSize="24sp"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_width="305dp"
+        android:layout_height="50dp"
+        android:fontFamily="@font/poppinsmedium"
+        android:gravity="center"
+        android:shadowColor="#757373"
+        android:shadowDx="0"
+        android:shadowDy="2.5"
+        android:shadowRadius="8"
+        android:text="Add Item"
+        android:textColor="#FFFFFF"
+        android:textSize="30sp"
+        android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0" />
-
-    <!--Nav buttons-->
+        tools:layout_editor_absoluteY="16dp" />
 
     <Button
         android:id="@+id/itemCat"
         android:layout_width="137dp"
         android:layout_height="69dp"
         android:text="@string/category"
+        app:backgroundTint="#F47EC9"
         android:textSize="16sp"
         app:layout_constraintBottom_toTopOf="@+id/homeButton"
         app:layout_constraintEnd_toStartOf="@+id/confirmCat"
-        app:layout_constraintHorizontal_bias="0.638"
+        app:layout_constraintHorizontal_bias="0.584"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.693" />
+        app:layout_constraintVertical_bias="0.715" />
 
     <TextView
         android:id="@+id/confirmCat"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="60dp"
+        android:layout_marginEnd="40dp"
+        android:shadowColor="#F8F0F4"
+        android:shadowDx="1"
+        android:shadowDy="3"
+        android:shadowRadius="3"
         android:text="@string/category_textview"
+        android:textColor="#D6C7D1"
         android:textSize="30sp"
         app:layout_constraintBottom_toTopOf="@+id/settingsButton"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.678" />
+        app:layout_constraintVertical_bias="0.709" />
 
     <ImageButton
         android:id="@+id/homeButton"
@@ -154,7 +165,8 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.981"
-        app:srcCompat="@drawable/ic_contact_support" />
+        app:srcCompat="@drawable/ic_contact_support"
+        tools:ignore="TouchTargetSizeCheck" />
 
     <ImageButton
         android:id="@+id/settingsButton"

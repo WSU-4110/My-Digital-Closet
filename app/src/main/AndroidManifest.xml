@@ -72,17 +72,25 @@
             android:configChanges="orientation|keyboardHidden|screenSize"
 
             android:exported="true">
-
         </activity>
+
         <activity
             android:name=".clothingUpload"
             android:exported="false" />
 
 
+
         <activity
             android:name=".closetPage.AllSavedOufitsPage"
             android:configChanges="orientation|keyboardHidden|screenSize"
+            android:exported="true">
+       </activity>
+
+
+        <activity
+            android:name=".clothingSeeAll"
             android:exported="true" />
+
 
     </application>
 </manifest>

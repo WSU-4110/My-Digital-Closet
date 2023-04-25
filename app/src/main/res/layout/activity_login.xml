@@ -7,12 +7,25 @@
     tools:context=".Login"
     android:background="#FFE0E7">
 
+
+    <ImageView
+        android:id="@+id/imageView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/my_digital_closet_logo" />
+
+
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:fontFamily="Roboto"
+        android:fontFamily="@font/poppinsmedium"
         android:textStyle="bold"
         android:text="@string/login"
+        app:backgroundTint="#F47EC9"
         app:layout_constraintBottom_toTopOf="@+id/textInputLayout4"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
@@ -22,10 +35,10 @@
         android:layout_gravity="center_horizontal|center"
         android:gravity="center"
         android:textSize="36sp"
-        android:shadowRadius="4"
-        android:shadowColor="#000000"
+        android:shadowRadius="8"
+        android:shadowColor="#757373"
         android:shadowDx="0"
-        android:shadowDy="4"
+        android:shadowDy="2.5"
         android:textColor="@color/bg_light_color"
         />
 
@@ -77,7 +90,7 @@
 
     <Button
         android:id="@+id/buttonLogin"
-        android:background="@color/colorAccent"
+        app:backgroundTint="#F47EC9"
         style="@style/Widget.AppCompat.Button.Colored"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -96,6 +109,7 @@
         android:layout_marginTop="40dp"
         android:fontFamily="@font/poppinsmedium"
         android:text="@string/signuphere"
+        android:textColor="#F47EC9"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/buttonLogin"

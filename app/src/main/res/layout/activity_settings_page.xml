@@ -9,15 +9,21 @@
 
     <TextView
         android:id="@+id/SettingsTitle"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="4dp"
+        android:layout_width="305dp"
+        android:layout_height="50dp"
+        android:layout_marginBottom="609dp"
+        android:fontFamily="@font/poppinsmedium"
         android:gravity="center"
+        android:shadowColor="#757373"
+        android:shadowDx="0"
+        android:shadowDy="2.5"
+        android:shadowRadius="8"
         android:text="Settings"
+        android:textColor="#FFFFFF"
         android:textSize="30sp"
         android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -26,12 +32,12 @@
         android:layout_width="115dp"
         android:layout_height="112dp"
         android:layout_marginTop="9dp"
+        android:contentDescription="Profile Picture"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/SettingsTitle"
-        tools:srcCompat="@tools:sample/avatars"
-        android:contentDescription="Profile Picture" />
+        tools:srcCompat="@tools:sample/avatars" />
 
 
     <Button
@@ -39,8 +45,9 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="13dp"
+        android:gravity="center"
         android:text="Profile Picture"
-        app:backgroundTint="#673AB7"
+        app:backgroundTint="#F47EC9"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imgPFP"
@@ -50,46 +57,67 @@
         android:id="@+id/textView5"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="12dp"
-        android:layout_marginBottom="23dp"
+        android:layout_marginStart="134dp"
+        android:layout_marginTop="244dp"
+        android:layout_marginEnd="134dp"
+        android:layout_marginBottom="391dp"
+        android:gravity="center"
         android:text="Account Settings:"
+        android:textColor="#D6C7D1"
+        android:textSize="18sp"
         android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/btnLogOut"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <Button
         android:id="@+id/btnLogOut"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="47dp"
+        android:layout_marginStart="106dp"
+        android:layout_marginTop="279dp"
+        android:layout_marginEnd="105dp"
+        android:layout_marginBottom="332dp"
         android:text="CLick to Log Out"
-        app:backgroundTint="#673AB7"
-        app:layout_constraintEnd_toEndOf="@+id/btnDelete"
-        app:layout_constraintStart_toStartOf="@+id/btnDelete"
-        app:layout_constraintTop_toBottomOf="@+id/btnPFP" />
+        app:backgroundTint="#F47EC9"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
 
     <Button
         android:id="@+id/btnDelete"
         android:layout_width="200dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="12dp"
-        android:layout_marginTop="20dp"
+        android:layout_marginStart="107dp"
+        android:layout_marginTop="336dp"
+        android:layout_marginEnd="104dp"
+        android:layout_marginBottom="267dp"
         android:text="Delete your account"
-        app:backgroundTint="#673AB7"
+        app:backgroundTint="#F47EC9"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btnLogOut" />
-
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/textView10"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="13dp"
+        android:layout_marginStart="139dp"
+        android:layout_marginTop="412dp"
+        android:layout_marginEnd="140dp"
+        android:layout_marginBottom="223dp"
         android:text="Theme Settings:"
+        android:textColor="#D6C7D1"
+        android:textSize="18sp"
         android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btnDelete" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <Button
         android:id="@+id/btnThemes"
@@ -99,7 +127,7 @@
         android:layout_marginTop="13dp"
         android:layout_marginEnd="55dp"
         android:text="CLick here to change wallpaper theme"
-        app:backgroundTint="#673AB7"
+        app:backgroundTint="#F47EC9"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView10"
@@ -109,13 +137,15 @@
         android:id="@+id/textView11"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="560dp"
+        android:layout_marginBottom="96dp"
         android:text="© My Digital Closet 2023"
         android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/addItemButton"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btnThemes"
+        app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.5" />
 
     <!--nav buttons-->
@@ -149,12 +179,14 @@
         android:layout_height="wrap_content"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.981"
         app:srcCompat="@drawable/ic_add_photo"
-        tools:ignore="SpeakableTextPresentCheck" />
+        tools:ignore="SpeakableTextPresentCheck"
+        tools:layout_editor_absoluteX="181dp"
+        tools:layout_editor_absoluteY="604dp" />
 
     <ImageButton
         android:id="@+id/contactButton"
